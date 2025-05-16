@@ -32,7 +32,7 @@ Below is a simplified view of how the WEBPRT interacts with the BCKND and suppor
 flowchart LR
     WP["WEBPRT (Admin/KAM) (React + TS)"] -- "HTTPS/REST" --> BK["BCKND"]
     BK --> DB["PostgreSQL"]
-    BK --> Blob["Azure Blob (SAS Upload/Download)"]
+    BK --> Blob["Azure Blob (SAS Upload Download)"]
     BK --> MSG["SMS (MSG91) (rarely used by WebPortal)"]
     BK --> Email["Email (SendGrid) (Admin resets, etc.)"]
 ```

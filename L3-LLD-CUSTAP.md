@@ -353,7 +353,7 @@ sequenceDiagram
 ```mermaid
 graph LR
     A["CUSTAP (React Native Code)"]
-    B["Build Process (CI/CD)"]
+    B["Build Process (CI CD)"]
     C["Android App (Play Store) iOS App (App Store)"]
     D["Staging Backend"]
     E["Production Backend"]
