@@ -222,7 +222,7 @@ flowchart TB
     A["Quotation List Screen"] --> B["Select Quotation"]
     B --> C["Taps Accept Button"]
     C --> D["Confirm Dialog"]
-    D --> E["PATCH api v1 quotations {id} accept"]
+    D --> E["PATCH api v1 quotations id accept"]
     E --> F["Success → Show Updated Status"]
     F --> G["Update Local Cache"]
 
