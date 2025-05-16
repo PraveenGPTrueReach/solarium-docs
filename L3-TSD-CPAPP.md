@@ -1,4 +1,3 @@
-```
 ## L3-TSD-CPAPP: Technology Stack Documentation (TSD) for CPAPP Document
 
 ### 1. Introduction

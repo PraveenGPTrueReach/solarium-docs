@@ -1,4 +1,3 @@
-```
 ## L3-CM-CPAPP: Configuration Manual (CM) for CPAPP
 
 ### 1. Introduction

@@ -1,6 +1,6 @@
 ## L3-FRS-CPAPP: Functional Requirements Specification (FRS) for CPAPP
 
-This revised document incorporates and highlights changes requested based on the recent client suggestions and validation results. All insertions, deletions, or edits are marked with “&lt;add&gt; &lt;/add&gt;”, “&lt;delete&gt; &lt;/delete&gt;”, or “&lt;edit&gt; &lt;/edit&gt;” tags.
+This revised document incorporates and highlights changes requested based on the recent client suggestions and validation results.
 
 ---
 

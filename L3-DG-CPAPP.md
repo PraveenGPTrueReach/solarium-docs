@@ -1,4 +1,3 @@
-``
 ## L3-DG-CPAPP: Deployment Guide (DG) for CPAPP
 
 ### 1. Introduction

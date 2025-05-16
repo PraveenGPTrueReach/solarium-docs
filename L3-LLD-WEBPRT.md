@@ -30,11 +30,11 @@ Below is a simplified view of how the WEBPRT interacts with the BCKND and suppor
 
 ```mermaid
 flowchart LR
-    WP["WEBPRT (Admin/KAM)\n(React + TS)"] -- "HTTPS/REST" --> BK["BCKND"]
+    WP["WEBPRT (Admin/KAM) (React + TS)"] -- "HTTPS/REST" --> BK["BCKND"]
     BK --> DB["PostgreSQL"]
-    BK --> Blob["Azure Blob\n(SAS Upload/Download)"]
-    BK --> MSG["SMS (MSG91)\n(rarely used by WebPortal)"]
-    BK --> Email["Email (SendGrid)\n(Admin resets, etc.)"]
+    BK --> Blob["Azure Blob (SAS Upload/Download)"]
+    BK --> MSG["SMS (MSG91) (rarely used by WebPortal)"]
+    BK --> Email["Email (SendGrid) (Admin resets, etc.)"]
 ```
 
 • WEBPRT displays or manages leads, quotations, commissions, user profiles, and master data.  
