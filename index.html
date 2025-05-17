@@ -80,6 +80,23 @@
       position: relative;
       margin-bottom: 1rem;
     }
+    /* Prototype button styling */
+    .prototype-btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 0.25rem;
+      margin: 0.5rem 0 1rem 0;
+      transition: all 0.2s ease;
+    }
+    .prototype-btn:hover {
+      background-color: var(--accent-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
@@ -181,6 +198,14 @@
               <li><button onclick="loadMarkdown('L3-DG-WEBPRT.md', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Design Guide for Web Portal</button></li>
             </ul>
           </div>
+        </div>
+        
+        <!-- Prototypes Section -->
+        <div>
+          <h3 class="text-lg font-semibold mb-2">Prototypes</h3>
+          <ul class="space-y-1">
+            <li><button onclick="loadMarkdown('PROTOTYPES.md', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Interactive Prototypes</button></li>
+          </ul>
         </div>
       </div>
     </aside>
