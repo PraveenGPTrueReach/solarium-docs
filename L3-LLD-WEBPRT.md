@@ -26,15 +26,15 @@ Note: We do not implement any silent token refresh mechanism; once the token exp
 The WEBPRT fits into the overall Solarium architecture (see L1-HLD) as the primary interface for Admin and KAM roles. It connects to the Backend (BCKND) for all business logic, data retrieval, and file uploads. It does not interact directly with the Channel Partner App (CPAPP) or Customer App (CUSTAP); these communicate indirectly with Admin/KAM via the shared BCKND.
 
 #### 2.1 High-Level Interaction Diagram
-Below is a simplified view of how the WEBPRT interacts with the Backend and supporting services:
+Below is a simplified view of how the WEBPRT interacts with the BACKEND and supporting services:
 
 ```mermaid
-  flowchart LR
-    WP["WEBPRT (Admin/KAM) React + TS"] -- "HTTPS REST" --> BK["BCKND"]
+flowchart LR
+    WP["WEBPRT (Admin/KAM)"] -- "HTTPS REST" --> BK["BCKND"]
     BK --> DB["PostgreSQL"]
-    BK --> Blob["Azure Blob (SAS Upload Download)"]
-    BK --> MSG["SMS (MSG91) (rarely used by WebPortal)"]
-    BK --> Email["Email (SendGrid) (Admin resets, etc.)"]
+    BK --> Blob["Azure Blob"]
+    BK --> MSG["SMS Gateway"]
+    BK --> Email["Email Service"]
 ```
 
 • WEBPRT displays or manages leads, quotations, commissions, user profiles, and master data.  
