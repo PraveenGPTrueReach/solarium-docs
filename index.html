@@ -31,6 +31,20 @@
     .diagram-content {
       min-height: 100px;
     }
+    /* Sidebar transition styles */
+    .sidebar-collapsed {
+      width: 50px !important;
+      overflow: hidden;
+    }
+    .sidebar-expanded {
+      width: 18rem !important; /* w-72 in Tailwind */
+    }
+    .main-expanded {
+      margin-left: 0;
+    }
+    #toggle-sidebar {
+      min-width: 24px;
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
@@ -45,8 +59,15 @@
   </header>
 
   <div class="flex h-[calc(100vh-4rem)]">
-    <aside class="w-72 bg-white shadow-md p-4 overflow-y-auto">
-      <h2 class="text-2xl font-bold mb-4 text-[var(--primary-color)]">📁 Project Docs</h2>
+    <aside id="sidebar" class="w-72 bg-white shadow-md p-4 overflow-y-auto transition-all duration-300">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-bold text-[var(--primary-color)]">📁 Project Docs</h2>
+        <button id="toggle-sidebar" class="text-gray-500 hover:text-[var(--primary-color)] focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+          </svg>
+        </button>
+      </div>
       <div class="space-y-6">
         <!-- L1 Documents -->
         <div>
@@ -76,7 +97,7 @@
         <div>
           <h3 class="text-lg font-semibold mb-2">L3 Documents</h3>
           <div class="ml-2">
-            <h4 class="text-md font-medium mb-1">Backend</h4>
+            <h4 class="text-md font-bold mb-1">Backend</h4>
             <ul class="space-y-1">
               <li><button onclick="loadMarkdown('L3-FRS-BCKND.md', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Functional Requirements Specification for Backend</button></li>
               <li><button onclick="loadMarkdown('L3-NFRS-BCKND.md', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Non-Functional Requirements Specification for Backend</button></li>
@@ -88,7 +109,7 @@
               <li><button onclick="loadMarkdown('L3-CM-BCKND.md', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Configuration Manual for Backend</button></li>
               <li><button onclick="loadMarkdown('L3-DG-BCKND.md', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Design Guide for Backend</button></li>
             </ul>
-            <h4 class="text-md font-medium mt-4 mb-1">Channel Partner App</h4>
+            <h4 class="text-md font-bold mt-4 mb-1">Channel Partner App</h4>
             <ul class="space-y-1">
               <li><button onclick="loadMarkdown('L3-FRS-CPAPP.md', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Functional Requirements Specification for Channel Partner App</button></li>
               <li><button onclick="loadMarkdown('L3-NFRS-CPAPP.md', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Non-Functional Requirements Specification for Channel Partner App</button></li>
@@ -100,7 +121,7 @@
               <li><button onclick="loadMarkdown('L3-CM-CPAPP.md', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Configuration Manual for Channel Partner App</button></li>
               <li><button onclick="loadMarkdown('L3-DG-CPAPP.md', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Design Guide for Channel Partner App</button></li>
             </ul>
-            <h4 class="text-md font-medium mt-4 mb-1">Customer App</h4>
+            <h4 class="text-md font-bold mt-4 mb-1">Customer App</h4>
             <ul class="space-y-1">
               <li><button onclick="loadMarkdown('L3-FRS-CUSTAP.md', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Functional Requirements Specification for Customer App</button></li>
               <li><button onclick="loadMarkdown('L3-NFRS-CUSTAP.md', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Non-Functional Requirements Specification for Customer App</button></li>
@@ -112,7 +133,7 @@
               <li><button onclick="loadMarkdown('L3-CM-CUSTAP.md', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Configuration Manual for Customer App</button></li>
               <li><button onclick="loadMarkdown('L3-DG-CUSTAP.md', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Design Guide for Customer App</button></li>
             </ul>
-            <h4 class="text-md font-medium mt-4 mb-1">Web Portal</h4>
+            <h4 class="text-md font-bold mt-4 mb-1">Web Portal</h4>
             <ul class="space-y-1">
               <li><button onclick="loadMarkdown('L3-FRS-WEBPRT.md', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Functional Requirements Specification for Web Portal</button></li>
               <li><button onclick="loadMarkdown('L3-NFRS-WEBPRT.md', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Non-Functional Requirements Specification for Web Portal</button></li>
@@ -129,7 +150,7 @@
       </div>
     </aside>
 
-    <main class="flex-1 p-6 overflow-y-auto">
+    <main id="main-content" class="flex-1 p-6 overflow-y-auto transition-all duration-300">
       <div id="content" class="prose lg:prose-xl max-w-none"></div>
     </main>
   </div>
@@ -146,6 +167,45 @@
         btn.classList.add('bg-gray-200', 'text-[var(--primary-color)]', 'font-bold');
       }
     }
+
+    // Toggle sidebar visibility
+    document.addEventListener('DOMContentLoaded', function() {
+      const sidebar = document.getElementById('sidebar');
+      const mainContent = document.getElementById('main-content');
+      const toggleButton = document.getElementById('toggle-sidebar');
+      const sidebarContent = document.querySelector('#sidebar .space-y-6');
+
+      toggleButton.addEventListener('click', function() {
+        if (sidebar.classList.contains('w-72')) {
+          // Collapse sidebar
+          sidebar.classList.remove('w-72');
+          sidebar.classList.add('sidebar-collapsed');
+          mainContent.classList.add('main-expanded');
+          
+          // Change button icon to expand
+          toggleButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+          </svg>`;
+          
+          // Hide sidebar content
+          sidebarContent.style.display = 'none';
+        } else {
+          // Expand sidebar
+          sidebar.classList.remove('sidebar-collapsed');
+          sidebar.classList.add('w-72');
+          mainContent.classList.remove('main-expanded');
+          
+          // Change button icon to collapse
+          toggleButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+          </svg>`;
+          
+          // Show sidebar content
+          sidebarContent.style.display = '';
+        }
+      });
+    });
+
     async function loadMarkdown(filePath, btn) {
       highlightSidebarButton(btn);
       try {
