@@ -351,20 +351,14 @@ sequenceDiagram
 ### 7.3 Mobile Deployment Diagram
 
 ```mermaid
-graph LR
-    A["CUSTAP (React Native Code)"]
-    B["Build Process (CI CD)"]
-    C["Android App (Play Store) iOS App (App Store)"]
-    D["Staging Backend"]
-    E["Production Backend"]
-
-    A --> B
-    B --> C
-    C --> D
-    C --> E
+flowchart LR
+    A["CUSTAP Code React Native Code"] --> B["Build Process"]
+    B --> C["App Stores"]
+    C --> D["Staging Backend"]
+    C --> E["Production Backend"]
 ```
 
-• The React Native code is built through a CI/CD pipeline.  
+• The React Native code is built through CI/CD pipeline.  
 • Staging build points to the Staging Backend.  
 • Production build points to the Production Backend.  
 • Artifacts are deployed to the app stores for end users.
