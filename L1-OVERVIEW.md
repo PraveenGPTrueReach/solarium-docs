@@ -1,7 +1,7 @@
 ## L1-OVERVIEW: Solution Overview (High-Level)
 
 ### 1. Business Overview
-This solution provides an end-to-end Lead Management Platform for solar product sales at Solarium Green Energy. It addresses:  
+This solution provides an end-to-end Lead Management Platform for solar product sales at Solarium Green Energy. The solution addresses:  
 - Capturing leads from multiple channels (Channel Partners, direct Customer requests, and Admin/KAM entries).  
 - Managing sales funnels (status transitions, follow-ups, quotations, and commission payouts).  
 - Centralizing documentation (lead-level files, KYC documents, immutable quotation archives).  
