@@ -121,12 +121,11 @@
         </button>
       </div>
       <div class="space-y-6">
-        <!-- Delivery Documents -->
+        <!-- Delivery -->
         <div>
-          <h3 class="text-lg font-semibold mb-2">Delivery Documents</h3>
+          <h3 class="text-lg font-semibold mb-2">Delivery</h3>
           <ul class="space-y-1">
-            <li><button onclick="loadDocument('static-docs/index.html', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Feature Documentation</button></li>
-            <li><button onclick="loadDocument('documentation/index.html', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Technical Documentation</button></li>
+            <li><button onclick="showDeliveryDocuments(this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Delivery Documents</button></li>
           </ul>
         </div>
         <!-- L1 Documents -->
@@ -244,6 +243,11 @@
       const sidebarContent = document.querySelector('#sidebar .space-y-6');
       const sidebarTitle = document.querySelector('.sidebar-title');
       const toggleContainer = document.querySelector('.toggle-container');
+      
+      // Show delivery documents by default when page loads
+      setTimeout(() => {
+        showDeliveryDocuments();
+      }, 100);
 
       toggleButton.addEventListener('click', function() {
         if (sidebar.classList.contains('w-72')) {
@@ -432,6 +436,36 @@
     async function loadMarkdown(filePath, btn) {
       await loadDocument(filePath, btn);
     }
+
+    // Function to show delivery documents options
+    function showDeliveryDocuments(btn) {
+      highlightSidebarButton(btn);
+      
+      const content = `
+        <div class="prose lg:prose-xl max-w-none">
+          <h1>Delivery Documents</h1>
+          <p>Access comprehensive documentation for the Solarium Customer App project.</p>
+          
+          <div style="display: grid; gap: 30px; margin: 30px 0;">
+            <div style="border: 1px solid #e9ecef; border-radius: 8px; padding: 30px; background: #f8f9fa;">
+              <h2 style="margin-top: 0; color: black;">Feature Documentation</h2>
+              <p style="color: #6c757d; margin-bottom: 20px;">Comprehensive documentation for the Solarium Customer App features, including cart functionality, KYC upload library, services catalogue, profile management, and testing guides.</p>
+              <a href="static-docs/index.html" target="_blank" class="prototype-btn">Open Documentation</a>
+            </div>
+            
+            <div style="border: 1px solid #e9ecef; border-radius: 8px; padding: 30px; background: #f8f9fa;">
+              <h2 style="margin-top: 0; color: black;">Technical Documentation</h2>
+              <p style="color: #6c757d; margin-bottom: 20px;">Technical API documentation generated with CompoDOC, including interfaces, classes, components, and comprehensive code coverage reports for the React Native TypeScript application.</p>
+              <a href="documentation/index.html" target="_blank" class="prototype-btn">Open Documentation</a>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      document.getElementById("content").innerHTML = content;
+    }
+
+
   </script>
 </body>
 </html>
