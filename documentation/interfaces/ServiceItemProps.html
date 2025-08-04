@@ -1,0 +1,1372 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SolariumCustApp documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">SolariumCustApp documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  ServiceItemProps</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/screens/main/ServicesScreen.tsx</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Service Item Component</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#cartItemCount" 
+>
+                                            cartItemCount
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#isCartFull" 
+>
+                                            isCartFull
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#onAddToCart" 
+>
+                                            onAddToCart
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#onPress" 
+>
+                                            onPress
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#service" 
+>
+                                            service
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="cartItemCount"></a>
+                                        <span class="name "><b>cartItemCount</b>
+                                            <a href="#cartItemCount">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>cartItemCount:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="isCartFull"></a>
+                                        <span class="name "><b>isCartFull</b>
+                                            <a href="#isCartFull">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>isCartFull:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="onAddToCart"></a>
+                                        <span class="name "><b>onAddToCart</b>
+                                            <a href="#onAddToCart">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>onAddToCart:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="onPress"></a>
+                                        <span class="name "><b>onPress</b>
+                                            <a href="#onPress">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>onPress:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="service"></a>
+                                        <span class="name "><b>service</b>
+                                            <a href="#service">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>service:         <code><a href="../interfaces/Service.html" target="_self" >Service</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/Service.html" target="_self" >Service</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {useNavigation, useRoute} from &#x27;@react-navigation/native&#x27;;
+import type {RouteProp} from &#x27;@react-navigation/native&#x27;;
+import {StackNavigationProp} from &#x27;@react-navigation/stack&#x27;;
+import React, {useCallback, useLayoutEffect, useEffect, useState} from &#x27;react&#x27;;
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  RefreshControl,
+  TouchableOpacity,
+  ActivityIndicator,
+  Alert,
+} from &#x27;react-native&#x27;;
+import {Button, Snackbar} from &#x27;react-native-paper&#x27;;
+import MaterialIcons from &#x27;react-native-vector-icons/MaterialIcons&#x27;;
+import {useGetServicesQuery} from &#x27;../../api/endpoints/services&#x27;;
+import {
+  NotificationBellIcon,
+  ProfileIcon,
+  SafeAreaContainer,
+} from &#x27;../../components/common&#x27;;
+import {useRefreshControl} from &#x27;../../hooks&#x27;; // Import the new refresh control hook
+import {useCartActions} from &#x27;../../hooks/useCartActions&#x27;;
+import {CART_CHECKOUT_ROUTE} from &#x27;../../navigation&#x27;;
+import type {
+  MainTabParamList,
+  RootStackParamList,
+  RootStackScreenProps,
+} from &#x27;../../navigation/types&#x27;;
+import {useAppTheme} from &#x27;../../theme/ThemeProvider&#x27;;
+import type {Service} from &#x27;../../types&#x27;;
+
+type ServicesScreenNavigationProp &#x3D; StackNavigationProp&lt;
+  RootStackParamList,
+  &#x27;Main&#x27;
+&gt;;
+
+type ServicesScreenRouteProp &#x3D; RouteProp&lt;MainTabParamList, &#x27;Services&#x27;&gt;;
+
+/**
+ * Service Item Component
+ */
+interface ServiceItemProps {
+  service: Service;
+  onPress: (service: Service) &#x3D;&gt; void;
+  onAddToCart: (service: Service, increment?: number) &#x3D;&gt; void;
+  isCartFull: boolean;
+  cartItemCount: number;
+}
+
+const ServiceItem: React.FC&lt;ServiceItemProps&gt; &#x3D; ({
+  service,
+  onPress,
+  onAddToCart,
+  isCartFull,
+  cartItemCount,
+}) &#x3D;&gt; {
+  const theme &#x3D; useAppTheme();
+
+  const handleAddToCart &#x3D; () &#x3D;&gt; {
+    onAddToCart(service);
+  };
+
+  const handleIncrement &#x3D; () &#x3D;&gt; {
+    onAddToCart(service); // Reuse the same add logic
+  };
+
+  const handleDecrement &#x3D; () &#x3D;&gt; {
+    // This will be passed from parent
+    onAddToCart(service, -1); // Indicate decrement
+  };
+
+  const canAddToCart &#x3D; !isCartFull || cartItemCount &gt; 0;
+  const showQuantityControls &#x3D; cartItemCount &gt; 0;
+
+  return (
+    &lt;TouchableOpacity
+      style&#x3D;{[styles.serviceItem, {backgroundColor: theme.colors.surface}]}
+      onPress&#x3D;{() &#x3D;&gt; onPress(service)}
+      activeOpacity&#x3D;{0.7}
+      accessible&#x3D;{true}
+      accessibilityRole&#x3D;&quot;button&quot;
+      accessibilityLabel&#x3D;{&#x60;${service.name}, ${service.type} service. ${service.description}&#x60;}
+      accessibilityHint&#x3D;&quot;Tap to view service details&quot;
+    &gt;
+      &lt;View style&#x3D;{styles.serviceHeader}&gt;
+        &lt;MaterialIcons
+          name&#x3D;&quot;solar-power&quot;
+          size&#x3D;{24}
+          color&#x3D;{theme.colors.primary}
+          style&#x3D;{styles.serviceIcon}
+        /&gt;
+        &lt;View style&#x3D;{styles.serviceInfo}&gt;
+          &lt;Text style&#x3D;{[styles.serviceName, {color: theme.colors.onSurface}]}&gt;
+            {service.name}
+          &lt;/Text&gt;
+          &lt;Text
+            style&#x3D;{[styles.serviceType, {color: theme.colors.onSurfaceVariant}]}
+          &gt;
+            {service.type}
+          &lt;/Text&gt;
+        &lt;/View&gt;
+        &lt;MaterialIcons
+          name&#x3D;&quot;chevron-right&quot;
+          size&#x3D;{24}
+          color&#x3D;{theme.colors.onSurfaceVariant}
+        /&gt;
+      &lt;/View&gt;
+
+      &lt;Text
+        style&#x3D;{[
+          styles.serviceDescription,
+          {color: theme.colors.onSurfaceVariant},
+        ]}
+        numberOfLines&#x3D;{2}
+      &gt;
+        {service.description}
+      &lt;/Text&gt;
+
+      &lt;View style&#x3D;{styles.serviceFooter}&gt;
+        {service.priceRange &amp;&amp; (
+          &lt;View style&#x3D;{styles.priceContainer}&gt;
+            &lt;MaterialIcons
+              name&#x3D;&quot;currency-rupee&quot;
+              size&#x3D;{16}
+              color&#x3D;{theme.colors.primary}
+            /&gt;
+            &lt;Text style&#x3D;{[styles.priceText, {color: theme.colors.primary}]}&gt;
+              Contact for pricing
+            &lt;/Text&gt;
+          &lt;/View&gt;
+        )}
+
+        &lt;View style&#x3D;{styles.cartButtonContainer}&gt;
+          {showQuantityControls ? (
+            // Quantity Controls Block
+            &lt;View
+              style&#x3D;{[
+                styles.quantityControlsBlock,
+                {borderColor: theme.colors.outline},
+              ]}
+            &gt;
+              {/* Minus Button */}
+              &lt;TouchableOpacity
+                style&#x3D;{[
+                  styles.quantityButton,
+                  styles.quantityButtonLeft,
+                  {backgroundColor: theme.colors.surface},
+                ]}
+                onPress&#x3D;{handleDecrement}
+                accessible&#x3D;{true}
+                accessibilityRole&#x3D;&quot;button&quot;
+                accessibilityLabel&#x3D;{&#x60;Decrease ${service.name} quantity&#x60;}
+                accessibilityHint&#x3D;{
+                  cartItemCount &#x3D;&#x3D;&#x3D; 1
+                    ? &#x27;Will remove from cart&#x27;
+                    : &#x60;Will decrease to ${cartItemCount - 1}&#x60;
+                }
+              &gt;
+                &lt;MaterialIcons
+                  name&#x3D;&quot;remove&quot;
+                  size&#x3D;{18}
+                  color&#x3D;{theme.colors.onSurface}
+                /&gt;
+              &lt;/TouchableOpacity&gt;
+
+              {/* Quantity Display */}
+              &lt;View
+                style&#x3D;{[
+                  styles.quantityDisplay,
+                  {backgroundColor: theme.colors.primaryContainer},
+                ]}
+              &gt;
+                &lt;Text
+                  style&#x3D;{[
+                    styles.quantityText,
+                    {color: theme.colors.onPrimaryContainer},
+                  ]}
+                  accessible&#x3D;{true}
+                  accessibilityRole&#x3D;&quot;text&quot;
+                &gt;
+                  {cartItemCount}
+                &lt;/Text&gt;
+              &lt;/View&gt;
+
+              {/* Plus Button */}
+              &lt;TouchableOpacity
+                style&#x3D;{[
+                  styles.quantityButton,
+                  styles.quantityButtonRight,
+                  {backgroundColor: theme.colors.surface},
+                ]}
+                onPress&#x3D;{handleIncrement}
+                disabled&#x3D;{isCartFull &amp;&amp; cartItemCount &#x3D;&#x3D;&#x3D; 0}
+                accessible&#x3D;{true}
+                accessibilityRole&#x3D;&quot;button&quot;
+                accessibilityLabel&#x3D;{&#x60;Increase ${service.name} quantity&#x60;}
+                accessibilityHint&#x3D;{
+                  isCartFull &amp;&amp; cartItemCount &#x3D;&#x3D;&#x3D; 0
+                    ? &#x27;Cannot add more, cart is full&#x27;
+                    : &#x60;Will increase to ${cartItemCount + 1}&#x60;
+                }
+              &gt;
+                &lt;MaterialIcons
+                  name&#x3D;&quot;add&quot;
+                  size&#x3D;{18}
+                  color&#x3D;{
+                    isCartFull &amp;&amp; cartItemCount &#x3D;&#x3D;&#x3D; 0
+                      ? theme.colors.onSurfaceVariant
+                      : theme.colors.onSurface
+                  }
+                /&gt;
+              &lt;/TouchableOpacity&gt;
+            &lt;/View&gt;
+          ) : (
+            // ADD Button (when quantity is 0)
+            &lt;Button
+              mode&#x3D;&quot;contained&quot;
+              onPress&#x3D;{handleAddToCart}
+              disabled&#x3D;{!canAddToCart}
+              compact
+              style&#x3D;{[
+                styles.addButton,
+                !canAddToCart &amp;&amp; styles.addButtonDisabled,
+              ]}
+              contentStyle&#x3D;{styles.addButtonContent}
+              labelStyle&#x3D;{styles.addButtonLabel}
+              accessibilityRole&#x3D;&quot;button&quot;
+              accessibilityLabel&#x3D;{
+                !canAddToCart
+                  ? &#x27;Cannot add to cart, limit reached&#x27;
+                  : &#x60;Add ${service.name} to cart&#x60;
+              }
+              accessibilityHint&#x3D;{
+                !canAddToCart
+                  ? &#x27;Cart is full with 20 items&#x27;
+                  : &#x27;Adds this service to your cart&#x27;
+              }
+            &gt;
+              {isCartFull &amp;&amp; cartItemCount &#x3D;&#x3D;&#x3D; 0 ? &#x27;Cart Full&#x27; : &#x27;ADD&#x27;}
+            &lt;/Button&gt;
+          )}
+        &lt;/View&gt;
+      &lt;/View&gt;
+    &lt;/TouchableOpacity&gt;
+  );
+};
+
+/**
+ * Services Screen Component
+ */
+const ServicesScreen: React.FC &#x3D; () &#x3D;&gt; {
+  const theme &#x3D; useAppTheme();
+  const navigation &#x3D; useNavigation&lt;ServicesScreenNavigationProp&gt;();
+  const route &#x3D; useRoute&lt;ServicesScreenRouteProp&gt;();
+
+  // Local state for success snackbar
+  const [successSnackbarVisible, setSuccessSnackbarVisible] &#x3D; useState(false);
+  const [successMessage, setSuccessMessage] &#x3D; useState(&#x27;&#x27;);
+
+  // Use the collective refresh control hook
+  const {
+    refreshAll,
+    isRefreshing: isCollectiveRefreshing,
+    refreshError,
+    getFormattedLastRefresh,
+    clearError,
+  } &#x3D; useRefreshControl();
+
+  // Fetch services - only active services
+  const {
+    data: services &#x3D; [],
+    isLoading,
+    isError,
+    error,
+    refetch,
+  } &#x3D; useGetServicesQuery({active: true});
+
+  // Cart actions
+  const {addToCart, removeFromCart, cartCount, isCartFull, cartItems} &#x3D;
+    useCartActions();
+
+  const navigationToNotiScreen &#x3D;
+    useNavigation&lt;RootStackScreenProps&lt;&#x27;Main&#x27;&gt;[&#x27;navigation&#x27;]&gt;();
+
+  const handleNotificationPress &#x3D; () &#x3D;&gt; {
+    navigationToNotiScreen.navigate(&#x27;Notifications&#x27;);
+  };
+
+  const handleProfilePress &#x3D; () &#x3D;&gt; {
+    navigation.navigate(&#x27;Profile&#x27;);
+  };
+
+  /**
+   * Configure header with notification-bell-icon and cart-icon
+   */
+  useLayoutEffect(() &#x3D;&gt; {
+    navigation.setOptions({
+      headerShown: true,
+      title: &#x27;Services&#x27;,
+      headerStyle: {
+        backgroundColor: theme.colors.primary,
+      },
+      headerTintColor: theme.colors.onPrimary,
+      headerTitleStyle: {
+        fontWeight: &#x27;600&#x27;,
+      },
+      headerRight: () &#x3D;&gt; (
+        &lt;View style&#x3D;{styles.headerRightContainer}&gt;
+          {/* Notification Bell Icon */}
+          &lt;NotificationBellIcon onPress&#x3D;{handleNotificationPress} /&gt;
+
+          {/* Cart Icon */}
+          &lt;TouchableOpacity
+            style&#x3D;{styles.headerCartButton}
+            onPress&#x3D;{() &#x3D;&gt; navigation.navigate(CART_CHECKOUT_ROUTE as any)}
+            accessible&#x3D;{true}
+            accessibilityRole&#x3D;&quot;button&quot;
+            accessibilityLabel&#x3D;{&#x60;Shopping cart with ${cartCount} items&#x60;}
+            accessibilityHint&#x3D;&quot;Navigate to cart checkout&quot;
+          &gt;
+            &lt;View style&#x3D;{styles.cartIconContainer}&gt;
+              &lt;MaterialIcons
+                name&#x3D;&quot;shopping-cart&quot;
+                size&#x3D;{24}
+                color&#x3D;{theme.colors.onPrimary}
+              /&gt;
+              {cartCount &gt; 0 &amp;&amp; (
+                &lt;View
+                  style&#x3D;{[
+                    styles.cartBadge,
+                    {backgroundColor: theme.colors.error},
+                  ]}
+                &gt;
+                  &lt;Text
+                    style&#x3D;{[
+                      styles.cartBadgeText,
+                      {color: theme.colors.onError},
+                    ]}
+                  &gt;
+                    {cartCount &gt; 99 ? &#x27;99+&#x27; : cartCount.toString()}
+                  &lt;/Text&gt;
+                &lt;/View&gt;
+              )}
+            &lt;/View&gt;
+          &lt;/TouchableOpacity&gt;
+
+          {/* Profile Icon */}
+          &lt;ProfileIcon onPress&#x3D;{handleProfilePress} /&gt;
+        &lt;/View&gt;
+      ),
+    });
+  }, [navigation, theme.colors, cartCount]);
+
+  /**
+   * Handle success message from navigation params
+   */
+  useEffect(() &#x3D;&gt; {
+    if (route.params?.showSuccessMessage &amp;&amp; route.params?.successMessage) {
+      setSuccessMessage(route.params.successMessage);
+      setSuccessSnackbarVisible(true);
+
+      // Clear the params to prevent showing message again on re-focus
+      navigation.setParams({
+        showSuccessMessage: undefined,
+        successMessage: undefined,
+        leadId: undefined,
+      });
+    }
+  }, [route.params, navigation]);
+
+  /**
+   * Handle service item press
+   */
+  const handleServicePress &#x3D; useCallback(
+    (service: Service) &#x3D;&gt; {
+      navigation.navigate(&#x27;ServiceDetail&#x27;, {
+        serviceId: service.serviceId,
+        serviceName: service.name,
+      });
+    },
+    [navigation]
+  );
+
+  /**
+   * Handle add to cart (supports both add and decrement)
+   */
+  const handleAddToCart &#x3D; useCallback(
+    (service: Service, increment: number &#x3D; 1) &#x3D;&gt; {
+      if (increment &gt; 0) {
+        // Adding to cart
+        if (isCartFull) {
+          const existingItem &#x3D; cartItems[service.serviceId];
+          if (!existingItem) {
+            Alert.alert(
+              &#x27;Cart Full&#x27;,
+              &#x27;You have reached the maximum of 20 items in your cart. Please remove some items to add new ones.&#x27;,
+              [{text: &#x27;OK&#x27;}]
+            );
+            return;
+          }
+        }
+
+        try {
+          addToCart(service, increment);
+        } catch (error) {
+          console.error(&#x27;[ServicesScreen] Add to cart failed:&#x27;, error);
+          Alert.alert(
+            &#x27;Error&#x27;,
+            &#x27;Could not add item to cart. Please try again.&#x27;,
+            [{text: &#x27;OK&#x27;}]
+          );
+        }
+      } else {
+        // Removing from cart (decrement)
+        try {
+          removeFromCart(service.serviceId, Math.abs(increment));
+        } catch (error) {
+          console.error(&#x27;[ServicesScreen] Remove from cart failed:&#x27;, error);
+          Alert.alert(
+            &#x27;Error&#x27;,
+            &#x27;Could not remove item from cart. Please try again.&#x27;,
+            [{text: &#x27;OK&#x27;}]
+          );
+        }
+      }
+    },
+    [addToCart, removeFromCart, isCartFull, cartItems]
+  );
+
+  /**
+   * Handle collective refresh - refreshes all app data
+   */
+  const handleRefresh &#x3D; useCallback(async () &#x3D;&gt; {
+    try {
+      // Clear any previous refresh errors
+      if (refreshError) {
+        clearError();
+      }
+
+      // Perform collective refresh of all APIs
+      const result &#x3D; await refreshAll({
+        showLoading: true,
+        includeUserData: true, // This will refresh auth and leads data too
+      });
+
+      if (!result.success &amp;&amp; result.errors.length &gt; 0) {
+        // Show error if refresh failed
+        const errorMessage &#x3D; result.errors
+          .map(err &#x3D;&gt; &#x60;${err.api}: ${err.error}&#x60;)
+          .join(&#x27;\n&#x27;);
+
+        Alert.alert(
+          &#x27;Refresh Warning&#x27;,
+          &#x60;Some data may not be up to date:\n${errorMessage}&#x60;,
+          [{text: &#x27;OK&#x27;}]
+        );
+      }
+    } catch (error) {
+      console.error(&#x27;[ServicesScreen] Refresh failed:&#x27;, error);
+      Alert.alert(
+        &#x27;Refresh Failed&#x27;,
+        &#x27;Could not refresh app data. Please try again.&#x27;,
+        [{text: &#x27;OK&#x27;}]
+      );
+    }
+  }, [refreshAll, refreshError, clearError]);
+
+  /**
+   * Handle fallback refresh (RTK Query only) when collective refresh fails
+   */
+  const handleFallbackRefresh &#x3D; useCallback(() &#x3D;&gt; {
+    refetch();
+  }, [refetch]);
+
+  /**
+   * Handle retry on error
+   */
+  const handleRetry &#x3D; useCallback(() &#x3D;&gt; {
+    // Try collective refresh first, fallback to RTK Query refetch
+    handleRefresh().catch(() &#x3D;&gt; {
+      handleFallbackRefresh();
+    });
+  }, [handleRefresh, handleFallbackRefresh]);
+
+  /**
+   * Show error alert
+   */
+  const showErrorAlert &#x3D; useCallback(() &#x3D;&gt; {
+    const errorMessage &#x3D;
+      isError &amp;&amp; error
+        ? &#x27;data&#x27; in error
+          ? typeof error.data &#x3D;&#x3D;&#x3D; &#x27;string&#x27;
+            ? error.data
+            : &#x27;Failed to load services&#x27;
+          : &#x27;Network error occurred&#x27;
+        : &#x27;Unknown error occurred&#x27;;
+
+    Alert.alert(&#x27;Error Loading Services&#x27;, errorMessage, [
+      {text: &#x27;Retry&#x27;, onPress: handleRetry},
+      {text: &#x27;Cancel&#x27;, style: &#x27;cancel&#x27;},
+    ]);
+  }, [isError, error, handleRetry]);
+
+  /**
+   * Render service item
+   */
+  const renderServiceItem &#x3D; useCallback(
+    ({item}: {item: Service}) &#x3D;&gt; {
+      const cartItem &#x3D; cartItems[item.serviceId];
+      const cartItemCount &#x3D; cartItem?.qty || 0;
+
+      return (
+        &lt;ServiceItem
+          service&#x3D;{item}
+          onPress&#x3D;{handleServicePress}
+          onAddToCart&#x3D;{handleAddToCart}
+          isCartFull&#x3D;{isCartFull}
+          cartItemCount&#x3D;{cartItemCount}
+        /&gt;
+      );
+    },
+    [handleServicePress, handleAddToCart, isCartFull, cartItems]
+  );
+
+  /**
+   * Render empty state
+   */
+  const renderEmptyState &#x3D; () &#x3D;&gt; (
+    &lt;View style&#x3D;{styles.emptyContainer}&gt;
+      &lt;MaterialIcons
+        name&#x3D;&quot;solar-power&quot;
+        size&#x3D;{64}
+        color&#x3D;{theme.colors.onSurfaceVariant}
+      /&gt;
+      &lt;Text style&#x3D;{[styles.emptyTitle, {color: theme.colors.onSurface}]}&gt;
+        No Services Available
+      &lt;/Text&gt;
+      &lt;Text
+        style&#x3D;{[styles.emptyMessage, {color: theme.colors.onSurfaceVariant}]}
+      &gt;
+        Services will appear here once they are available.
+      &lt;/Text&gt;
+      {/* Show last refresh info */}
+      &lt;Text
+        style&#x3D;{[styles.lastRefreshText, {color: theme.colors.onSurfaceVariant}]}
+      &gt;
+        Last updated: {getFormattedLastRefresh()}
+      &lt;/Text&gt;
+    &lt;/View&gt;
+  );
+
+  /**
+   * Render loading state
+   */
+  const renderLoadingState &#x3D; () &#x3D;&gt; (
+    &lt;View style&#x3D;{styles.loadingContainer}&gt;
+      &lt;ActivityIndicator size&#x3D;&quot;large&quot; color&#x3D;{theme.colors.primary} /&gt;
+      &lt;Text
+        style&#x3D;{[styles.loadingText, {color: theme.colors.onSurfaceVariant}]}
+      &gt;
+        Loading services...
+      &lt;/Text&gt;
+    &lt;/View&gt;
+  );
+
+  /**
+   * Render error state
+   */
+  const renderErrorState &#x3D; () &#x3D;&gt; (
+    &lt;View style&#x3D;{styles.errorContainer}&gt;
+      &lt;MaterialIcons
+        name&#x3D;&quot;error-outline&quot;
+        size&#x3D;{64}
+        color&#x3D;{theme.colors.error}
+      /&gt;
+      &lt;Text style&#x3D;{[styles.errorTitle, {color: theme.colors.error}]}&gt;
+        Failed to Load Services
+      &lt;/Text&gt;
+      &lt;TouchableOpacity
+        style&#x3D;{[styles.retryButton, {backgroundColor: theme.colors.primary}]}
+        onPress&#x3D;{handleRetry}
+      &gt;
+        &lt;Text style&#x3D;{[styles.retryButtonText, {color: theme.colors.onPrimary}]}&gt;
+          Retry
+        &lt;/Text&gt;
+      &lt;/TouchableOpacity&gt;
+      &lt;TouchableOpacity style&#x3D;{styles.detailsButton} onPress&#x3D;{showErrorAlert}&gt;
+        &lt;Text style&#x3D;{[styles.detailsButtonText, {color: theme.colors.primary}]}&gt;
+          View Details
+        &lt;/Text&gt;
+      &lt;/TouchableOpacity&gt;
+    &lt;/View&gt;
+  );
+
+  /**
+   * Render header with last refresh info and cart summary
+   */
+  const renderHeader &#x3D; () &#x3D;&gt; (
+    &lt;View style&#x3D;{styles.headerContainer}&gt;
+      &lt;Text
+        style&#x3D;{[
+          styles.lastRefreshHeader,
+          {color: theme.colors.onSurfaceVariant},
+        ]}
+      &gt;
+        Last updated: {getFormattedLastRefresh()}
+      &lt;/Text&gt;
+      {cartCount &gt; 0 &amp;&amp; (
+        &lt;Text
+          style&#x3D;{[styles.cartSummaryText, {color: theme.colors.primary}]}
+          accessible&#x3D;{true}
+          accessibilityRole&#x3D;&quot;text&quot;
+          accessibilityLabel&#x3D;{&#x60;Cart contains ${cartCount} item${
+            cartCount &#x3D;&#x3D;&#x3D; 1 ? &#x27;&#x27; : &#x27;s&#x27;
+          }&#x60;}
+        &gt;
+          Cart: {cartCount} item{cartCount &#x3D;&#x3D;&#x3D; 1 ? &#x27;&#x27; : &#x27;s&#x27;}
+        &lt;/Text&gt;
+      )}
+    &lt;/View&gt;
+  );
+
+  /**
+   * Main render
+   */
+  if (isLoading) {
+    return &lt;SafeAreaContainer&gt;{renderLoadingState()}&lt;/SafeAreaContainer&gt;;
+  }
+
+  if (isError) {
+    return &lt;SafeAreaContainer&gt;{renderErrorState()}&lt;/SafeAreaContainer&gt;;
+  }
+
+  return (
+    &lt;SafeAreaContainer&gt;
+      &lt;View
+        style&#x3D;{[styles.container, {backgroundColor: theme.colors.background}]}
+      &gt;
+        &lt;FlatList
+          data&#x3D;{services}
+          keyExtractor&#x3D;{item &#x3D;&gt; item.serviceId}
+          renderItem&#x3D;{renderServiceItem}
+          contentContainerStyle&#x3D;{styles.listContainer}
+          showsVerticalScrollIndicator&#x3D;{false}
+          refreshControl&#x3D;{
+            &lt;RefreshControl
+              refreshing&#x3D;{isCollectiveRefreshing || isLoading}
+              onRefresh&#x3D;{handleRefresh}
+              colors&#x3D;{[theme.colors.primary]}
+              tintColor&#x3D;{theme.colors.primary}
+              title&#x3D;&quot;Refreshing all data...&quot;
+              titleColor&#x3D;{theme.colors.onSurfaceVariant}
+            /&gt;
+          }
+          ListHeaderComponent&#x3D;{services.length &gt; 0 ? renderHeader : undefined}
+          ListEmptyComponent&#x3D;{renderEmptyState}
+        /&gt;
+      &lt;/View&gt;
+
+      {/* Success Snackbar */}
+      &lt;Snackbar
+        visible&#x3D;{successSnackbarVisible}
+        onDismiss&#x3D;{() &#x3D;&gt; setSuccessSnackbarVisible(false)}
+        duration&#x3D;{5000}
+        action&#x3D;{{
+          label: &#x27;Dismiss&#x27;,
+          onPress: () &#x3D;&gt; setSuccessSnackbarVisible(false),
+        }}
+        style&#x3D;{{
+          backgroundColor: theme.colors.primaryContainer,
+          marginBottom: 16,
+        }}
+      &gt;
+        &lt;Text style&#x3D;{{color: theme.colors.onPrimaryContainer}}&gt;
+          {successMessage}
+        &lt;/Text&gt;
+      &lt;/Snackbar&gt;
+    &lt;/SafeAreaContainer&gt;
+  );
+};
+
+/**
+ * Styles
+ */
+const styles &#x3D; StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  listContainer: {
+    padding: 16,
+    flexGrow: 1,
+  },
+  serviceItem: {
+    padding: 16,
+    paddingBottom: 20,
+    marginBottom: 12,
+    borderRadius: 12,
+    elevation: 2,
+    shadowColor: &#x27;#000&#x27;,
+    shadowOffset: {width: 0, height: 1},
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+  },
+  serviceHeader: {
+    flexDirection: &#x27;row&#x27;,
+    alignItems: &#x27;center&#x27;,
+    marginBottom: 8,
+  },
+  serviceIcon: {
+    marginRight: 12,
+  },
+  serviceInfo: {
+    flex: 1,
+  },
+  serviceName: {
+    fontSize: 16,
+    fontWeight: &#x27;600&#x27;,
+    marginBottom: 2,
+  },
+  serviceType: {
+    fontSize: 14,
+    fontWeight: &#x27;400&#x27;,
+  },
+  serviceDescription: {
+    fontSize: 14,
+    lineHeight: 20,
+    marginBottom: 8,
+  },
+  priceContainer: {
+    flexDirection: &#x27;row&#x27;,
+    alignItems: &#x27;center&#x27;,
+  },
+  priceText: {
+    fontSize: 14,
+    fontWeight: &#x27;500&#x27;,
+    marginLeft: 4,
+  },
+  // Header
+  headerContainer: {
+    paddingBottom: 8,
+    marginBottom: 8,
+  },
+  lastRefreshHeader: {
+    fontSize: 12,
+    textAlign: &#x27;center&#x27;,
+    fontStyle: &#x27;italic&#x27;,
+  },
+  // Empty state
+  emptyContainer: {
+    flex: 1,
+    justifyContent: &#x27;center&#x27;,
+    alignItems: &#x27;center&#x27;,
+    paddingVertical: 48,
+  },
+  emptyTitle: {
+    fontSize: 20,
+    fontWeight: &#x27;600&#x27;,
+    marginTop: 16,
+    marginBottom: 8,
+  },
+  emptyMessage: {
+    fontSize: 16,
+    textAlign: &#x27;center&#x27;,
+    paddingHorizontal: 32,
+    marginBottom: 16,
+  },
+  lastRefreshText: {
+    fontSize: 12,
+    fontStyle: &#x27;italic&#x27;,
+  },
+  // Loading state
+  loadingContainer: {
+    flex: 1,
+    justifyContent: &#x27;center&#x27;,
+    alignItems: &#x27;center&#x27;,
+  },
+  loadingText: {
+    fontSize: 16,
+    marginTop: 16,
+  },
+  // Error state
+  errorContainer: {
+    flex: 1,
+    justifyContent: &#x27;center&#x27;,
+    alignItems: &#x27;center&#x27;,
+    paddingHorizontal: 32,
+  },
+  errorTitle: {
+    fontSize: 18,
+    fontWeight: &#x27;600&#x27;,
+    marginTop: 16,
+    marginBottom: 24,
+    textAlign: &#x27;center&#x27;,
+  },
+  retryButton: {
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 8,
+    marginBottom: 12,
+  },
+  retryButtonText: {
+    fontSize: 16,
+    fontWeight: &#x27;600&#x27;,
+  },
+  detailsButton: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+  },
+  detailsButtonText: {
+    fontSize: 14,
+    fontWeight: &#x27;500&#x27;,
+  },
+  // Service footer
+  serviceFooter: {
+    flexDirection: &#x27;row&#x27;,
+    justifyContent: &#x27;space-between&#x27;,
+    alignItems: &#x27;center&#x27;,
+    marginTop: 12,
+    minHeight: 40, // Ensure minimum height for buttons
+  },
+  cartButtonContainer: {
+    alignItems: &#x27;flex-end&#x27;,
+    justifyContent: &#x27;center&#x27;,
+    minHeight: 36, // Ensure button container has enough height
+  },
+  cartCountText: {
+    fontSize: 12,
+    fontWeight: &#x27;500&#x27;,
+    marginBottom: 4,
+  },
+  addButton: {
+    minWidth: 80,
+    height: 36, // Fixed height for consistency
+    marginTop: 4, // Small top margin for spacing
+  },
+  addButtonDisabled: {
+    opacity: 0.6,
+  },
+  addButtonContent: {
+    height: 36, // Match button height
+    paddingHorizontal: 12,
+  },
+  addButtonLabel: {
+    fontSize: 12,
+    fontWeight: &#x27;600&#x27;,
+    lineHeight: 16, // Proper line height for better text alignment
+  },
+  cartSummaryText: {
+    fontSize: 12,
+    textAlign: &#x27;center&#x27;,
+    fontWeight: &#x27;500&#x27;,
+    marginTop: 4,
+  },
+  // Quantity Controls Block
+  quantityControlsBlock: {
+    flexDirection: &#x27;row&#x27;,
+    borderWidth: 1,
+    borderRadius: 6,
+    overflow: &#x27;hidden&#x27;,
+    minWidth: 100,
+  },
+  quantityButton: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    alignItems: &#x27;center&#x27;,
+    justifyContent: &#x27;center&#x27;,
+    minWidth: 36,
+  },
+  quantityButtonLeft: {
+    borderTopLeftRadius: 6,
+    borderBottomLeftRadius: 6,
+  },
+  quantityButtonRight: {
+    borderTopRightRadius: 6,
+    borderBottomRightRadius: 6,
+  },
+  quantityDisplay: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    alignItems: &#x27;center&#x27;,
+    justifyContent: &#x27;center&#x27;,
+    minWidth: 40,
+  },
+  quantityText: {
+    fontSize: 14,
+    fontWeight: &#x27;600&#x27;,
+  },
+  // Header styles
+  headerRightContainer: {
+    flexDirection: &#x27;row&#x27;,
+    alignItems: &#x27;center&#x27;,
+    marginRight: 16,
+  },
+  headerCartButton: {
+    padding: 8,
+    marginRight: 8,
+    alignItems: &#x27;center&#x27;,
+    justifyContent: &#x27;center&#x27;,
+  },
+  headerNotificationButton: {
+    padding: 8,
+    alignItems: &#x27;center&#x27;,
+    justifyContent: &#x27;center&#x27;,
+  },
+  cartIconContainer: {
+    position: &#x27;relative&#x27;,
+    width: 24,
+    height: 24,
+  },
+  cartBadge: {
+    position: &#x27;absolute&#x27;,
+    top: -8,
+    right: -8,
+    minWidth: 18,
+    minHeight: 18,
+    borderRadius: 9,
+    justifyContent: &#x27;center&#x27;,
+    alignItems: &#x27;center&#x27;,
+    zIndex: 1,
+  },
+  cartBadgeText: {
+    fontSize: 12,
+    fontWeight: &#x27;bold&#x27;,
+    textAlign: &#x27;center&#x27;,
+  },
+});
+
+export default ServicesScreen;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'ServiceItemProps.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

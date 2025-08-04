@@ -1,0 +1,743 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SolariumCustApp documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">SolariumCustApp documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  LoadingOverlayProps</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/components/feedback/LoadingOverlay.tsx</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Loading Overlay Props</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#color" 
+>
+                                            color
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#message" 
+>
+                                            message
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#size" 
+>
+                                            size
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#transparent" 
+>
+                                            transparent
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#visible" 
+>
+                                            visible
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="color"></a>
+                                        <span class="name "><b>color</b>
+                                            <a href="#color">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>color:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="message"></a>
+                                        <span class="name "><b>message</b>
+                                            <a href="#message">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>message:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="size"></a>
+                                        <span class="name "><b>size</b>
+                                            <a href="#size">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>size:     <code>&quot;small&quot; | &quot;large&quot;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>&quot;small&quot; | &quot;large&quot;</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="transparent"></a>
+                                        <span class="name "><b>transparent</b>
+                                            <a href="#transparent">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>transparent:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="visible"></a>
+                                        <span class="name "><b>visible</b>
+                                            <a href="#visible">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>visible:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import React from &#x27;react&#x27;;
+import {ActivityIndicator, Modal, StyleSheet, Text, View} from &#x27;react-native&#x27;;
+import {useAppTheme} from &#x27;../../theme/ThemeProvider&#x27;;
+
+/**
+ * Loading Overlay Props
+ */
+export interface LoadingOverlayProps {
+  visible: boolean;
+  message?: string;
+  transparent?: boolean;
+  size?: &#x27;small&#x27; | &#x27;large&#x27;;
+  color?: string;
+}
+
+/**
+ * Persistence Loading Overlay Props
+ */
+interface PersistenceLoadingProps {
+  visible: boolean;
+  stage: &#x27;initializing&#x27; | &#x27;rehydrating&#x27; | &#x27;migrating&#x27; | &#x27;complete&#x27;;
+  progress?: number;
+}
+
+/**
+ * Persistence Loading Overlay Component
+ * Specialized loading overlay for Redux persistence operations
+ */
+export const PersistenceLoadingOverlay: React.FC&lt;PersistenceLoadingProps&gt; &#x3D; ({
+  visible,
+  stage,
+  progress,
+}) &#x3D;&gt; {
+  const theme &#x3D; useAppTheme();
+
+  const getStageMessage &#x3D; () &#x3D;&gt; {
+    switch (stage) {
+      case &#x27;initializing&#x27;:
+        return &#x27;Initializing app...&#x27;;
+      case &#x27;rehydrating&#x27;:
+        return &#x27;Restoring your data...&#x27;;
+      case &#x27;migrating&#x27;:
+        return &#x27;Updating app data...&#x27;;
+      case &#x27;complete&#x27;:
+        return &#x27;Ready!&#x27;;
+      default:
+        return &#x27;Loading...&#x27;;
+    }
+  };
+
+  const getStageIcon &#x3D; () &#x3D;&gt; {
+    switch (stage) {
+      case &#x27;initializing&#x27;:
+        return &#x27;🚀&#x27;;
+      case &#x27;rehydrating&#x27;:
+        return &#x27;💾&#x27;;
+      case &#x27;migrating&#x27;:
+        return &#x27;🔄&#x27;;
+      case &#x27;complete&#x27;:
+        return &#x27;✅&#x27;;
+      default:
+        return &#x27;⏳&#x27;;
+    }
+  };
+
+  if (!visible) {
+    return null;
+  }
+
+  return (
+    &lt;Modal
+      transparent
+      animationType&#x3D;&quot;fade&quot;
+      visible&#x3D;{visible}
+      statusBarTranslucent
+    &gt;
+      &lt;View
+        style&#x3D;{[
+          styles.overlay,
+          {backgroundColor: &#x60;${theme.colors.background}F0&#x60;}, // 94% opacity
+        ]}
+      &gt;
+        &lt;View
+          style&#x3D;{[
+            styles.container,
+            {
+              backgroundColor: theme.colors.surface,
+              ...theme.shadows.large,
+            },
+          ]}
+        &gt;
+          {/* Stage Icon */}
+          &lt;Text style&#x3D;{styles.stageIcon}&gt;{getStageIcon()}&lt;/Text&gt;
+
+          {/* Loading Spinner */}
+          &lt;ActivityIndicator
+            size&#x3D;&quot;large&quot;
+            color&#x3D;{theme.colors.primary}
+            style&#x3D;{styles.spinner}
+          /&gt;
+
+          {/* Stage Message */}
+          &lt;Text
+            style&#x3D;{[
+              styles.message,
+              {
+                color: theme.colors.onSurface,
+                fontSize: theme.typography.fontSize.md,
+                fontFamily: theme.typography.fontFamily.medium,
+              },
+            ]}
+          &gt;
+            {getStageMessage()}
+          &lt;/Text&gt;
+
+          {/* Progress Bar */}
+          {progress !&#x3D;&#x3D; undefined &amp;&amp; (
+            &lt;View
+              style&#x3D;{[
+                styles.progressContainer,
+                {backgroundColor: theme.colors.outline},
+              ]}
+            &gt;
+              &lt;View
+                style&#x3D;{[
+                  styles.progressBar,
+                  {
+                    backgroundColor: theme.colors.primary,
+                    width: &#x60;${Math.max(0, Math.min(100, progress))}%&#x60;,
+                  },
+                ]}
+              /&gt;
+            &lt;/View&gt;
+          )}
+
+          {/* Progress Text */}
+          {progress !&#x3D;&#x3D; undefined &amp;&amp; (
+            &lt;Text
+              style&#x3D;{[
+                styles.progressText,
+                {
+                  color: theme.colors.onSurfaceVariant,
+                  fontSize: theme.typography.fontSize.sm,
+                },
+              ]}
+            &gt;
+              {Math.round(progress)}%
+            &lt;/Text&gt;
+          )}
+        &lt;/View&gt;
+      &lt;/View&gt;
+    &lt;/Modal&gt;
+  );
+};
+
+/**
+ * Loading Overlay Component
+ * Shows a loading spinner with optional message over the current screen
+ */
+const LoadingOverlay: React.FC&lt;LoadingOverlayProps&gt; &#x3D; ({
+  visible,
+  message,
+  transparent &#x3D; false,
+  size &#x3D; &#x27;large&#x27;,
+  color,
+}) &#x3D;&gt; {
+  const theme &#x3D; useAppTheme();
+  const spinnerColor &#x3D; color || theme.colors.primary;
+
+  if (!visible) {
+    return null;
+  }
+
+  return (
+    &lt;Modal
+      transparent
+      animationType&#x3D;&quot;fade&quot;
+      visible&#x3D;{visible}
+      statusBarTranslucent
+    &gt;
+      &lt;View
+        style&#x3D;{[
+          styles.overlay,
+          {
+            backgroundColor: transparent
+              ? &#x60;${theme.colors.background}80&#x60; // 50% opacity
+              : &#x60;${theme.colors.background}E6&#x60;, // 90% opacity
+          },
+        ]}
+      &gt;
+        &lt;View
+          style&#x3D;{[
+            styles.container,
+            {
+              backgroundColor: theme.colors.surface,
+              ...theme.shadows.medium,
+            },
+          ]}
+        &gt;
+          &lt;ActivityIndicator
+            size&#x3D;{size}
+            color&#x3D;{spinnerColor}
+            style&#x3D;{styles.spinner}
+          /&gt;
+          {message &amp;&amp; (
+            &lt;Text
+              style&#x3D;{[
+                styles.message,
+                {
+                  color: theme.colors.onSurface,
+                  fontSize: theme.typography.fontSize.sm,
+                  fontFamily: theme.typography.fontFamily.medium,
+                },
+              ]}
+            &gt;
+              {message}
+            &lt;/Text&gt;
+          )}
+        &lt;/View&gt;
+      &lt;/View&gt;
+    &lt;/Modal&gt;
+  );
+};
+
+const stylesLoadingOverlayOriginal &#x3D; StyleSheet.create({
+  // overlay: {
+  //   flex: 1,
+  //   justifyContent: &#x27;center&#x27;,
+  //   alignItems: &#x27;center&#x27;,
+  // },
+  // container: {
+  //   padding: 24,
+  //   borderRadius: 12,
+  //   alignItems: &#x27;center&#x27;,
+  //   minWidth: 120,
+  // },
+  // spinner: {
+  //   marginBottom: 8,
+  // },
+  // message: {
+  //   textAlign: &#x27;center&#x27;,
+  //   marginTop: 8,
+  // },
+});
+
+const persistenceStyles &#x3D; StyleSheet.create({
+  // stageIcon: {
+  //   fontSize: 32,
+  //   marginBottom: 16,
+  // },
+  // progressContainer: {
+  //   width: &#x27;100%&#x27;,
+  //   height: 4,
+  //   borderRadius: 2,
+  //   marginTop: 16,
+  //   overflow: &#x27;hidden&#x27;,
+  // },
+  // progressBar: {
+  //   height: &#x27;100%&#x27;,
+  //   borderRadius: 2,
+  // },
+  // progressText: {
+  //   marginTop: 8,
+  //   textAlign: &#x27;center&#x27;,
+  // },
+});
+
+// Merge styles
+const allStyles &#x3D; StyleSheet.create({
+  ...stylesLoadingOverlayOriginal,
+  ...persistenceStyles,
+});
+
+// Update the styles reference
+const styles &#x3D; allStyles;
+
+export default LoadingOverlay;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoadingOverlayProps.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,841 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SolariumCustApp documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">SolariumCustApp documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  DocsTabProps</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/screens/main/LeadDetail/DocsTab.tsx</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#leadId" 
+>
+                                            leadId
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="leadId"></a>
+                                        <span class="name "><b>leadId</b>
+                                            <a href="#leadId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>leadId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Lead ID to fetch documents for</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import React, {useState, useCallback, useEffect} from &#x27;react&#x27;;
+import {
+  View,
+  Text,
+  FlatList,
+  ActivityIndicator,
+  RefreshControl,
+  Pressable,
+} from &#x27;react-native&#x27;;
+import {StyleSheet} from &#x27;react-native&#x27;;
+import {Button, ProgressBar, Chip} from &#x27;react-native-paper&#x27;;
+import MaterialIcons from &#x27;react-native-vector-icons/MaterialIcons&#x27;;
+import {SafeAreaContainer} from &#x27;../../../components&#x27;;
+import {DocumentPickerModal} from &#x27;../../../components/forms&#x27;;
+import {useKycDocuments} from &#x27;../../../hooks/useKycDocuments&#x27;;
+import type {KycDocView} from &#x27;../../../hooks/useKycDocuments&#x27;;
+import {useKycUpload} from &#x27;../../../hooks/useKycUpload&#x27;;
+import {useRefreshControl} from &#x27;../../../hooks/useRefreshControl&#x27;;
+import {useAppDispatch} from &#x27;../../../hooks/useTypedRedux&#x27;;
+import {setError as setUIError} from &#x27;../../../store/uiSlice&#x27;;
+import {spacing} from &#x27;../../../theme/palette&#x27;;
+import {useAppTheme} from &#x27;../../../theme/ThemeProvider&#x27;;
+import type {RNFile} from &#x27;../../../types/File&#x27;;
+import type {
+  KycDocumentStatus,
+  KycDocumentType,
+} from &#x27;../../../types/KycDocument&#x27;;
+
+interface DocsTabProps {
+  /** Lead ID to fetch documents for */
+  leadId: string;
+}
+
+/**
+ * Get status badge color configuration
+ */
+const getStatusConfig &#x3D; (status: KycDocumentStatus | &#x27;Missing&#x27;) &#x3D;&gt; {
+  const configs &#x3D; {
+    Approved: {backgroundColor: &#x27;#4CAF50&#x27;, textColor: &#x27;#FFFFFF&#x27;},
+    Pending: {backgroundColor: &#x27;#FF9800&#x27;, textColor: &#x27;#FFFFFF&#x27;},
+    Rejected: {backgroundColor: &#x27;#F44336&#x27;, textColor: &#x27;#FFFFFF&#x27;},
+    Missing: {backgroundColor: &#x27;#9E9E9E&#x27;, textColor: &#x27;#FFFFFF&#x27;},
+  };
+  return configs[status] || configs.Missing;
+};
+
+/**
+ * Get document type icon
+ */
+const getDocumentIcon &#x3D; (docType: KycDocumentType): string &#x3D;&gt; {
+  const iconMap &#x3D; {
+    IncomeProof: &#x27;account-balance-wallet&#x27;,
+    LightBill: &#x27;electrical-services&#x27;,
+    CancelledCheque: &#x27;account-balance&#x27;,
+    Aadhaar: &#x27;badge&#x27;,
+    PAN: &#x27;credit-card&#x27;,
+    PassportPhoto: &#x27;person&#x27;,
+    Other: &#x27;insert-drive-file&#x27;,
+  };
+  return iconMap[docType] || &#x27;insert-drive-file&#x27;;
+};
+
+/**
+ * Document List Item Component
+ */
+const DocumentListItem: React.FC&lt;{
+  document: KycDocView;
+  leadId: string;
+  onUploadSuccess: () &#x3D;&gt; void;
+  onUploadError: (error: Error) &#x3D;&gt; void;
+}&gt; &#x3D; ({document, leadId, onUploadSuccess, onUploadError}) &#x3D;&gt; {
+  const theme &#x3D; useAppTheme();
+  const [showPicker, setShowPicker] &#x3D; useState(false);
+
+  // Upload hook
+  const {
+    startUpload,
+    progress,
+    status: uploadStatus,
+    error,
+    cancel,
+  } &#x3D; useKycUpload();
+  const statusConfig &#x3D; getStatusConfig(document.status);
+  const documentIcon &#x3D; getDocumentIcon(document.docType);
+
+  /**
+   * Handle file selection from picker
+   */
+  const handleFilePicked &#x3D; useCallback(
+    (file: RNFile) &#x3D;&gt; {
+      console.log(&#x60;[DocsTab] File picked for ${document.docType}:&#x60;, file);
+      // For lead-specific uploads, we need to pass both customerId and leadId
+      // The useKycUpload hook handles customerId, but we need leadId context
+      startUpload(document.docType, file, leadId);
+    },
+    [document.docType, startUpload, leadId]
+  );
+
+  /**
+   * Handle upload button press
+   */
+  const handleUploadPress &#x3D; useCallback(() &#x3D;&gt; {
+    if (!document.canUpload) {
+      console.warn(&#x60;[DocsTab] Upload not allowed for ${document.docType}&#x60;);
+      return;
+    }
+    setShowPicker(true);
+  }, [document.canUpload, document.docType]);
+
+  /**
+   * Handle upload success
+   */
+  useEffect(() &#x3D;&gt; {
+    if (uploadStatus &#x3D;&#x3D;&#x3D; &#x27;success&#x27;) {
+      console.log(&#x60;[DocsTab] Upload successful for ${document.docType}&#x60;);
+      onUploadSuccess();
+    }
+  }, [uploadStatus, document.docType, onUploadSuccess]);
+
+  /**
+   * Handle upload error
+   */
+  useEffect(() &#x3D;&gt; {
+    if (uploadStatus &#x3D;&#x3D;&#x3D; &#x27;error&#x27; &amp;&amp; error) {
+      console.error(&#x60;[DocsTab] Upload failed for ${document.docType}:&#x60;, error);
+      onUploadError(error);
+    }
+  }, [uploadStatus, error, document.docType, onUploadError]);
+
+  const isUploading &#x3D; uploadStatus &#x3D;&#x3D;&#x3D; &#x27;running&#x27;;
+  const showUploadButton &#x3D; document.canUpload &amp;&amp; !isUploading;
+
+  return (
+    &lt;Pressable
+      style&#x3D;{[styles.documentItem, {backgroundColor: theme.colors.surface}]}
+      testID&#x3D;{&#x60;doc-item-${document.docType}&#x60;}
+    &gt;
+      {/* Document Header */}
+      &lt;View style&#x3D;{styles.documentHeader}&gt;
+        {/* Document Icon */}
+        &lt;MaterialIcons
+          name&#x3D;{documentIcon}
+          size&#x3D;{24}
+          color&#x3D;{theme.colors.primary}
+          style&#x3D;{styles.documentIcon}
+        /&gt;
+
+        {/* Document Content */}
+        &lt;View style&#x3D;{styles.documentContent}&gt;
+          &lt;Text
+            style&#x3D;{[styles.documentName, {color: theme.colors.onSurface}]}
+            testID&#x3D;{&#x60;doc-name-${document.docType}&#x60;}
+          &gt;
+            {document.displayName}
+          &lt;/Text&gt;
+
+          {/* Upload Date */}
+          {document.latestDoc &amp;&amp; (
+            &lt;Text
+              style&#x3D;{[
+                styles.uploadDate,
+                {color: theme.colors.onSurfaceVariant},
+              ]}
+              testID&#x3D;{&#x60;doc-date-${document.docType}&#x60;}
+            &gt;
+              Uploaded:{&#x27; &#x27;}
+              {new Date(document.latestDoc.uploadedAt).toLocaleDateString()}
+            &lt;/Text&gt;
+          )}
+        &lt;/View&gt;
+
+        {/* Status Badge */}
+        &lt;Chip
+          mode&#x3D;&quot;flat&quot;
+          compact&#x3D;{true}
+          style&#x3D;{[
+            styles.statusChip,
+            {backgroundColor: statusConfig.backgroundColor},
+          ]}
+          textStyle&#x3D;{[styles.statusText, {color: statusConfig.textColor}]}
+          testID&#x3D;{&#x60;doc-status-${document.docType}&#x60;}
+        &gt;
+          {document.status}
+        &lt;/Chip&gt;
+      &lt;/View&gt;
+
+      {/* Action Section */}
+      &lt;View style&#x3D;{styles.actionSection}&gt;
+        {/* Progress Bar (during upload) */}
+        {isUploading &amp;&amp; progress !&#x3D;&#x3D; null &amp;&amp; (
+          &lt;View style&#x3D;{styles.progressSection}&gt;
+            &lt;ProgressBar
+              progress&#x3D;{progress / 100}
+              color&#x3D;{theme.colors.primary}
+              style&#x3D;{styles.progressBar}
+              testID&#x3D;{&#x60;doc-progress-${document.docType}&#x60;}
+            /&gt;
+            &lt;View style&#x3D;{styles.progressActions}&gt;
+              &lt;Text
+                style&#x3D;{[
+                  styles.progressText,
+                  {color: theme.colors.onSurfaceVariant},
+                ]}
+              &gt;
+                {progress}%
+              &lt;/Text&gt;
+              &lt;Button
+                mode&#x3D;&quot;text&quot;
+                onPress&#x3D;{cancel}
+                compact
+                textColor&#x3D;{theme.colors.error}
+                testID&#x3D;{&#x60;doc-cancel-${document.docType}&#x60;}
+              &gt;
+                Cancel
+              &lt;/Button&gt;
+            &lt;/View&gt;
+          &lt;/View&gt;
+        )}
+
+        {/* Upload Button */}
+        {showUploadButton &amp;&amp; (
+          &lt;Button
+            mode&#x3D;&quot;outlined&quot;
+            onPress&#x3D;{handleUploadPress}
+            icon&#x3D;{({size, color}) &#x3D;&gt; (
+              &lt;MaterialIcons name&#x3D;&quot;cloud-upload&quot; size&#x3D;{size} color&#x3D;{color} /&gt;
+            )}
+            style&#x3D;{styles.uploadButton}
+            contentStyle&#x3D;{styles.uploadButtonContent}
+            labelStyle&#x3D;{styles.uploadButtonLabel}
+            testID&#x3D;{&#x60;doc-upload-${document.docType}&#x60;}
+          &gt;
+            Upload
+          &lt;/Button&gt;
+        )}
+
+        {/* Status Message for Non-Uploadable Documents */}
+        {!document.canUpload &amp;&amp; !isUploading &amp;&amp; (
+          &lt;Text
+            style&#x3D;{[
+              styles.statusMessage,
+              {color: theme.colors.onSurfaceVariant},
+            ]}
+            testID&#x3D;{&#x60;doc-message-${document.docType}&#x60;}
+          &gt;
+            {document.status &#x3D;&#x3D;&#x3D; &#x27;Approved&#x27;
+              ? &#x27;Document approved&#x27;
+              : &#x27;Upload not available&#x27;}
+          &lt;/Text&gt;
+        )}
+      &lt;/View&gt;
+
+      {/* Document Picker Modal */}
+      &lt;DocumentPickerModal
+        visible&#x3D;{showPicker}
+        onClose&#x3D;{() &#x3D;&gt; setShowPicker(false)}
+        onFilePicked&#x3D;{handleFilePicked}
+        testID&#x3D;{&#x60;doc-picker-${document.docType}&#x60;}
+      /&gt;
+    &lt;/Pressable&gt;
+  );
+};
+
+/**
+ * Empty State Component
+ */
+const EmptyDocsState: React.FC &#x3D; () &#x3D;&gt; {
+  const theme &#x3D; useAppTheme();
+
+  return (
+    &lt;View style&#x3D;{styles.emptyContainer}&gt;
+      &lt;MaterialIcons
+        name&#x3D;&quot;folder-open&quot;
+        size&#x3D;{64}
+        color&#x3D;{theme.colors.onSurfaceVariant}
+        style&#x3D;{styles.emptyIcon}
+      /&gt;
+      &lt;Text style&#x3D;{[styles.emptyTitle, {color: theme.colors.onSurface}]}&gt;
+        No Documents Found
+      &lt;/Text&gt;
+      &lt;Text
+        style&#x3D;{[styles.emptySubtitle, {color: theme.colors.onSurfaceVariant}]}
+      &gt;
+        KYC documents for this lead will appear here once uploaded.
+      &lt;/Text&gt;
+    &lt;/View&gt;
+  );
+};
+
+/**
+ * DocsTab Component
+ * Shows KYC documents for a specific lead with upload functionality
+ */
+const DocsTab: React.FC&lt;DocsTabProps&gt; &#x3D; ({leadId}) &#x3D;&gt; {
+  const theme &#x3D; useAppTheme();
+  const dispatch &#x3D; useAppDispatch();
+
+  // Fetch lead-specific KYC documents
+  const {docs, isLoading, refetch} &#x3D; useKycDocuments(undefined, leadId);
+
+  // Enhanced refresh control
+  const {refreshKyc, canRefreshKyc} &#x3D; useRefreshControl();
+
+  /**
+   * Handle pull-to-refresh
+   */
+  const handleRefresh &#x3D; useCallback(async () &#x3D;&gt; {
+    console.log(&#x27;[DocsTab] Refreshing KYC documents for lead:&#x27;, leadId);
+    try {
+      await refreshKyc();
+      refetch(); // Also trigger local refetch
+    } catch (error) {
+      console.error(&#x27;[DocsTab] Refresh error:&#x27;, error);
+    }
+  }, [refreshKyc, refetch, leadId]);
+
+  /**
+   * Handle upload success - refresh data
+   */
+  const handleUploadSuccess &#x3D; useCallback(() &#x3D;&gt; {
+    console.log(&#x27;[DocsTab] Upload successful, refreshing data...&#x27;);
+    refetch(); // Refresh local data
+  }, [refetch]);
+
+  /**
+   * Handle upload error - show global error
+   */
+  const handleUploadError &#x3D; useCallback(
+    (error: Error) &#x3D;&gt; {
+      console.error(&#x27;[DocsTab] Upload error:&#x27;, error);
+      dispatch(setUIError(error.message));
+    },
+    [dispatch]
+  );
+
+  /**
+   * Render individual document item
+   */
+  const renderDocumentItem &#x3D; useCallback(
+    ({item}: {item: KycDocView}) &#x3D;&gt; (
+      &lt;DocumentListItem
+        document&#x3D;{item}
+        leadId&#x3D;{leadId}
+        onUploadSuccess&#x3D;{handleUploadSuccess}
+        onUploadError&#x3D;{handleUploadError}
+      /&gt;
+    ),
+    [leadId, handleUploadSuccess, handleUploadError]
+  );
+
+  /**
+   * Get key extractor for FlatList
+   */
+  const keyExtractor &#x3D; useCallback((item: KycDocView) &#x3D;&gt; item.docType, []);
+
+  // Loading state
+  if (isLoading &amp;&amp; !docs) {
+    return (
+      &lt;SafeAreaContainer&gt;
+        &lt;View
+          style&#x3D;{[
+            styles.loadingContainer,
+            {backgroundColor: theme.colors.background},
+          ]}
+        &gt;
+          &lt;ActivityIndicator size&#x3D;&quot;large&quot; color&#x3D;{theme.colors.primary} /&gt;
+          &lt;Text
+            style&#x3D;{[styles.loadingText, {color: theme.colors.onSurfaceVariant}]}
+          &gt;
+            Loading documents...
+          &lt;/Text&gt;
+        &lt;/View&gt;
+      &lt;/SafeAreaContainer&gt;
+    );
+  }
+
+  // Content state
+  return (
+    &lt;SafeAreaContainer&gt;
+      &lt;View
+        style&#x3D;{[styles.container, {backgroundColor: theme.colors.background}]}
+        testID&#x3D;&quot;docs-tab-container&quot;
+      &gt;
+        &lt;FlatList
+          data&#x3D;{docs}
+          renderItem&#x3D;{renderDocumentItem}
+          keyExtractor&#x3D;{keyExtractor}
+          ListEmptyComponent&#x3D;{&lt;EmptyDocsState /&gt;}
+          contentContainerStyle&#x3D;{styles.listContent}
+          showsVerticalScrollIndicator&#x3D;{false}
+          refreshControl&#x3D;{
+            &lt;RefreshControl
+              refreshing&#x3D;{isLoading &amp;&amp; canRefreshKyc()}
+              onRefresh&#x3D;{handleRefresh}
+              colors&#x3D;{[theme.colors.primary]}
+              tintColor&#x3D;{theme.colors.primary}
+            /&gt;
+          }
+          // Performance optimizations
+          removeClippedSubviews&#x3D;{true}
+          maxToRenderPerBatch&#x3D;{7} // We have 7 KYC document types
+          windowSize&#x3D;{10}
+          initialNumToRender&#x3D;{7}
+          getItemLayout&#x3D;{(data, index) &#x3D;&gt; ({
+            length: 120, // Approximate item height
+            offset: 120 * index,
+            index,
+          })}
+          testID&#x3D;&quot;docs-list&quot;
+        /&gt;
+      &lt;/View&gt;
+    &lt;/SafeAreaContainer&gt;
+  );
+};
+
+/**
+ * DocsTab Styles
+ * Stylesheet for DocsTab component with consistent theming
+ */
+export const styles &#x3D; StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  listContent: {
+    padding: spacing.md,
+    paddingBottom: spacing.xl,
+  },
+  documentItem: {
+    padding: spacing.md,
+    marginVertical: spacing.xs,
+    borderRadius: 12,
+    elevation: 2,
+    shadowColor: &#x27;#000&#x27;,
+    shadowOffset: {width: 0, height: 1},
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+  },
+  documentHeader: {
+    flexDirection: &#x27;row&#x27;,
+    alignItems: &#x27;flex-start&#x27;,
+    marginBottom: spacing.sm,
+  },
+  documentIcon: {
+    marginRight: spacing.sm,
+    marginTop: 2,
+  },
+  documentContent: {
+    flex: 1,
+    marginRight: spacing.sm,
+  },
+  documentName: {
+    fontSize: 16,
+    fontWeight: &#x27;600&#x27;,
+    marginBottom: spacing.xs,
+  },
+  uploadDate: {
+    fontSize: 12,
+    fontStyle: &#x27;italic&#x27;,
+    marginTop: spacing.xs,
+  },
+  statusChip: {
+    alignSelf: &#x27;flex-start&#x27;,
+  },
+  statusText: {
+    fontSize: 11,
+    fontWeight: &#x27;600&#x27;,
+  },
+  actionSection: {
+    marginTop: spacing.sm,
+    alignItems: &#x27;flex-end&#x27;,
+  },
+  progressSection: {
+    width: &#x27;100%&#x27;,
+    marginBottom: spacing.sm,
+  },
+  progressBar: {
+    height: 4,
+    borderRadius: 2,
+    marginBottom: spacing.xs,
+  },
+  progressActions: {
+    flexDirection: &#x27;row&#x27;,
+    justifyContent: &#x27;space-between&#x27;,
+    alignItems: &#x27;center&#x27;,
+  },
+  progressText: {
+    fontWeight: &#x27;500&#x27;,
+  },
+  uploadButton: {
+    borderRadius: 6,
+  },
+  uploadButtonContent: {
+    paddingHorizontal: spacing.sm,
+  },
+  uploadButtonLabel: {
+    fontSize: 14,
+    fontWeight: &#x27;500&#x27;,
+  },
+  statusMessage: {
+    fontStyle: &#x27;italic&#x27;,
+    textAlign: &#x27;right&#x27;,
+    fontSize: 12,
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: &#x27;center&#x27;,
+    alignItems: &#x27;center&#x27;,
+    paddingHorizontal: 32,
+    paddingVertical: 64,
+  },
+  emptyIcon: {
+    opacity: 0.5,
+  },
+  emptyTitle: {
+    fontSize: 18,
+    fontWeight: &#x27;600&#x27;,
+    marginTop: 16,
+    textAlign: &#x27;center&#x27;,
+  },
+  emptySubtitle: {
+    fontSize: 14,
+    marginTop: 8,
+    textAlign: &#x27;center&#x27;,
+    lineHeight: 20,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: &#x27;center&#x27;,
+    alignItems: &#x27;center&#x27;,
+    paddingHorizontal: 32,
+  },
+  loadingText: {
+    fontSize: 16,
+    marginTop: 16,
+    textAlign: &#x27;center&#x27;,
+  },
+  errorContainer: {
+    flex: 1,
+    justifyContent: &#x27;center&#x27;,
+    alignItems: &#x27;center&#x27;,
+    paddingHorizontal: 32,
+  },
+  errorTitle: {
+    fontSize: 20,
+    fontWeight: &#x27;600&#x27;,
+    marginTop: 16,
+    textAlign: &#x27;center&#x27;,
+  },
+  errorSubtitle: {
+    fontSize: 16,
+    marginTop: 8,
+    textAlign: &#x27;center&#x27;,
+  },
+});
+
+export default DocsTab;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'DocsTabProps.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

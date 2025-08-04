@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cart Checkout - Solarium Customer App</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: #ffffff;
+            padding: 0;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            border-right: 1px solid #e9ecef;
+        }
+        .sidebar h3 {
+            background: #007bff;
+            color: white;
+            margin: 0;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .nav-section {
+            padding: 20px 0;
+        }
+        .nav-section h4 {
+            color: #6c757d;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 20px 10px 20px;
+            padding: 0;
+        }
+        .nav-link {
+            display: block;
+            color: #495057;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            background: #f8f9fa;
+            color: #007bff;
+            border-left-color: #007bff;
+        }
+        .nav-link.active {
+            background: #e3f2fd;
+            color: #007bff;
+            border-left-color: #007bff;
+        }
+        .main-content {
+            margin-left: 280px;
+            padding: 40px;
+            background: white;
+            min-height: 100vh;
+        }
+        .content {
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #e9ecef;
+        }
+        code {
+            background: #f8f9fa;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #e83e8c;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2, h3 {
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3>Solarium Customer App</h3>
+        <nav>
+            <div class="nav-section"><a href="index.html" class="nav-link">🏠 Home</a></div><div class="nav-section"><h4>Core Features</h4><a href="CartCheckout.html" class="nav-link">Cart Checkout</a><a href="CartFunctionality.html" class="nav-link">Cart Functionality</a><a href="KycUploadLibrary.html" class="nav-link">KYC Upload Library</a><a href="ServicesCatalogue.html" class="nav-link">Services Catalogue</a><a href="profile-feature.html" class="nav-link">Profile Management</a></div><div class="nav-section"><h4>Support System</h4><a href="TicketManagement.html" class="nav-link">Ticket Management System</a></div><div class="nav-section"><h4>Testing & QA</h4><a href="TESTING.html" class="nav-link">Testing Guide</a><a href="Testing_services_cart.html" class="nav-link">Testing Services & Cart</a></div><div class="nav-section"><h4>DevOps</h4><a href="CI_CD.html" class="nav-link">CI/CD Pipeline</a></div><div class="nav-section"><h4>Other</h4><a href="LeadDetail.html" class="nav-link">Lead Detail</a></div>
+        </nav>
+    </div>
+    <div class="main-content">
+        <div class="breadcrumb">Documentation → Cart Checkout</div>
+        <div class="content">
+            <h1>Cart Checkout Feature Documentation</h1>
+<h2>Overview</h2>
+<p>The Cart Checkout feature allows customers to review selected services and submit service requests with their address and special instructions. This creates a lead in the system for the sales team to follow up.</p>
+<h2>Architecture</h2>
+<h3>Components</h3>
+<ul>
+<li><strong>CartCheckoutScreen</strong>: Main checkout UI with form and cart summary</li>
+<li><strong>CartItemRow</strong>: Individual cart item display component</li>
+<li><strong>FormProviderWrapper</strong>: React Hook Form context provider</li>
+</ul>
+<h3>Redux Integration</h3>
+<ul>
+<li><strong>checkoutSlice</strong>: Manages draft lead submissions (ephemeral state only)</li>
+<li><strong>servicesCartSlice</strong>: Provides cart data for checkout</li>
+</ul>
+<h2>Data Flow</h2>
+<pre><code>Cart Items (Redux) → CartCheckout Screen → Form Validation → Draft Lead (Redux) → API Submission (Future)
+</code></pre>
+<h2>Payload Structure</h2>
+<h3>DraftLead Interface</h3>
+<pre><code class="language-typescript">interface DraftLead {
+  address: string; // Required, min 10 characters
+  instructions?: string; // Optional, max 200 characters
+  cartSnapshot: CartItem[]; // Snapshot of cart at submission time
+}
+</code></pre>
+<h3>CartItem Structure</h3>
+<pre><code class="language-typescript">interface CartItem {
+  id: string;
+  qty: number;
+  service: Service;
+  addedAt: string;
+}
+</code></pre>
+<h2>Navigation Usage</h2>
+<h3>Route Configuration</h3>
+<ul>
+<li><strong>Route Name</strong>: <code>CartCheckout</code></li>
+<li><strong>Parameters</strong>: <code>undefined</code> (no params needed)</li>
+<li><strong>Authentication</strong>: Required (guarded by auth stack)</li>
+</ul>
+<h3>Navigation Examples</h3>
+<pre><code class="language-typescript">// Navigate to checkout
+navigation.navigate(&#39;CartCheckout&#39;);
+
+// Navigate back to services
+navigation.navigate(&#39;Main&#39;, {screen: &#39;Services&#39;});
+</code></pre>
+<h3>Navigation Guards</h3>
+<ul>
+<li><strong>Empty Cart</strong>: Automatically redirects to Services screen with alert</li>
+<li><strong>Authentication</strong>: Requires user to be logged in</li>
+</ul>
+<h2>Persistence Decision</h2>
+<h3>⚠️ IMPORTANT: Non-Persistent State</h3>
+<p>The <code>checkoutSlice</code> is <strong>intentionally excluded</strong> from Redux persistence for security reasons:</p>
+<pre><code class="language-typescript">// persistConfig.ts
+blacklist: [
+  &#39;ui&#39;,
+  &#39;checkout&#39;, // Ephemeral – never persist sensitive checkout drafts
+];
+</code></pre>
+<h3>Why Non-Persistent?</h3>
+<ol>
+<li><strong>Security</strong>: Prevents sensitive customer address data from being stored locally</li>
+<li><strong>Privacy</strong>: Ensures draft submissions don&#39;t persist across app sessions</li>
+<li><strong>Compliance</strong>: Reduces risk of data exposure on shared/lost devices</li>
+<li><strong>Performance</strong>: Keeps persisted state minimal</li>
+</ol>
+<h2>Form Validation</h2>
+<h3>Address Field</h3>
+<ul>
+<li><strong>Required</strong>: Yes</li>
+<li><strong>Min Length</strong>: 10 characters</li>
+<li><strong>Validation</strong>: Trims whitespace, checks actual content length</li>
+<li><strong>Error Handling</strong>: Shows inline error message</li>
+</ul>
+<h3>Instructions Field</h3>
+<ul>
+<li><strong>Required</strong>: No</li>
+<li><strong>Max Length</strong>: 200 characters</li>
+<li><strong>Validation</strong>: Character count display</li>
+<li><strong>Error Handling</strong>: Shows inline error message</li>
+</ul>
+<h3>Edge Cases Handled</h3>
+<ul>
+<li>Leading/trailing whitespace in address</li>
+<li>Unicode characters in address (supported)</li>
+<li>Empty instructions (allowed)</li>
+<li>Form submission with validation errors (blocked)</li>
+</ul>
+<h2>User Experience Flow</h2>
+<h3>Happy Path</h3>
+<ol>
+<li>User adds services to cart from Services screen</li>
+<li>Taps cart icon in header → navigates to CartCheckout</li>
+<li>Sees cart summary with service details and quantities</li>
+<li>Fills required address field and optional instructions</li>
+<li>Taps &quot;Submit Service Request&quot; → confirmation dialog</li>
+<li>Confirms submission → draft lead created</li>
+<li>Sees success snackbar → auto-navigates back to Services</li>
+<li>Cart is cleared after successful submission</li>
+</ol>
+<h3>Error Handling</h3>
+<ul>
+<li><strong>Empty Cart</strong>: Shows alert and redirects to Services</li>
+<li><strong>Validation Errors</strong>: Disables submit button, shows field errors</li>
+<li><strong>Network Errors</strong>: Handled at API level (future implementation)</li>
+</ul>
+<h2>Technical Implementation</h2>
+<h3>State Management</h3>
+<pre><code class="language-typescript">// Draft lead submission
+dispatch(
+  submitDraftLead({
+    address: formData.address.trim(),
+    instructions: formData.instructions?.trim(),
+    cartSnapshot: [...cartItems],
+  })
+);
+</code></pre>
+<h3>Form Integration</h3>
+<pre><code class="language-typescript">// React Hook Form with Controller
+&lt;Controller
+  name=&quot;address&quot;
+  control={methods.control}
+  rules={{
+    required: &#39;Address is required&#39;,
+    minLength: {value: 10, message: &#39;Address must be at least 10 characters&#39;},
+  }}
+  render={({field, fieldState}) =&gt; (
+    &lt;TextInput {...field} errorMessage={fieldState.error?.message} /&gt;
+  )}
+/&gt;
+</code></pre>
+<h2>Future Enhancements</h2>
+<h3>S3-TASK-01B Integration</h3>
+<p>The current implementation creates draft leads that will be submitted to the backend API:</p>
+<pre><code class="language-typescript">// TODO: Replace stub with actual API call
+// submitDraftLead → leadsAPI.createLead(draftLead)
+</code></pre>
+<h3>Potential Improvements</h3>
+<ul>
+<li>Add address validation/autocomplete</li>
+<li>Service customization options</li>
+<li>Preferred contact time selection</li>
+<li>File attachments for special requirements</li>
+</ul>
+<h2>Testing Strategy</h2>
+<h3>Integration Tests</h3>
+<ul>
+<li>Full checkout flow with real Redux store</li>
+<li>Form validation edge cases</li>
+<li>Navigation behavior</li>
+<li>Cart clearing after submission</li>
+</ul>
+<h3>Persistence Tests</h3>
+<ul>
+<li>Verify checkout state is never persisted</li>
+<li>Confirm other slices remain persistable</li>
+<li>Test rehydration behavior</li>
+</ul>
+<h3>Edge Case Tests</h3>
+<ul>
+<li>Address exactly 9 vs 10 characters</li>
+<li>Unicode characters in address</li>
+<li>Whitespace-only address</li>
+<li>Instructions exceeding 200 characters</li>
+</ul>
+<h2>Performance Considerations</h2>
+<h3>Optimizations Applied</h3>
+<ul>
+<li>Memoized cart selectors to prevent unnecessary re-renders</li>
+<li>Form validation on change for immediate feedback</li>
+<li>Snapshot cart data to prevent reference issues</li>
+<li>Efficient navigation patterns</li>
+</ul>
+<h3>Memory Management</h3>
+<ul>
+<li>Non-persistent checkout state reduces memory footprint</li>
+<li>Cart cleared after successful submission</li>
+<li>Component cleanup on unmount</li>
+</ul>
+<h2>Security Considerations</h2>
+<h3>Data Protection</h3>
+<ul>
+<li>No sensitive data persisted locally</li>
+<li>Address data only in memory during session</li>
+<li>Automatic state cleanup on app restart</li>
+</ul>
+<h3>Input Validation</h3>
+<ul>
+<li>Server-side validation will be added in API integration</li>
+<li>Client-side validation prevents malformed submissions</li>
+<li>XSS protection through proper input handling</li>
+</ul>
+<hr>
+<h2>Support</h2>
+<p>For questions about Cart Checkout implementation:</p>
+<ul>
+<li>Check Redux DevTools for state debugging</li>
+<li>Review form validation rules in <code>CartCheckoutScreen.tsx</code></li>
+<li>Verify persistence configuration in <code>persistConfig.ts</code></li>
+</ul>
+
+        </div>
+    </div>
+</body>
+</html>

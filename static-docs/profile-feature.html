@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Management - Solarium Customer App</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: #ffffff;
+            padding: 0;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            border-right: 1px solid #e9ecef;
+        }
+        .sidebar h3 {
+            background: #007bff;
+            color: white;
+            margin: 0;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .nav-section {
+            padding: 20px 0;
+        }
+        .nav-section h4 {
+            color: #6c757d;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 20px 10px 20px;
+            padding: 0;
+        }
+        .nav-link {
+            display: block;
+            color: #495057;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            background: #f8f9fa;
+            color: #007bff;
+            border-left-color: #007bff;
+        }
+        .nav-link.active {
+            background: #e3f2fd;
+            color: #007bff;
+            border-left-color: #007bff;
+        }
+        .main-content {
+            margin-left: 280px;
+            padding: 40px;
+            background: white;
+            min-height: 100vh;
+        }
+        .content {
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #e9ecef;
+        }
+        code {
+            background: #f8f9fa;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #e83e8c;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2, h3 {
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3>Solarium Customer App</h3>
+        <nav>
+            <div class="nav-section"><a href="index.html" class="nav-link">🏠 Home</a></div><div class="nav-section"><h4>Core Features</h4><a href="CartCheckout.html" class="nav-link">Cart Checkout</a><a href="CartFunctionality.html" class="nav-link">Cart Functionality</a><a href="KycUploadLibrary.html" class="nav-link">KYC Upload Library</a><a href="ServicesCatalogue.html" class="nav-link">Services Catalogue</a><a href="profile-feature.html" class="nav-link">Profile Management</a></div><div class="nav-section"><h4>Support System</h4><a href="TicketManagement.html" class="nav-link">Ticket Management System</a></div><div class="nav-section"><h4>Testing & QA</h4><a href="TESTING.html" class="nav-link">Testing Guide</a><a href="Testing_services_cart.html" class="nav-link">Testing Services & Cart</a></div><div class="nav-section"><h4>DevOps</h4><a href="CI_CD.html" class="nav-link">CI/CD Pipeline</a></div><div class="nav-section"><h4>Other</h4><a href="LeadDetail.html" class="nav-link">Lead Detail</a></div>
+        </nav>
+    </div>
+    <div class="main-content">
+        <div class="breadcrumb">Documentation → Profile Management</div>
+        <div class="content">
+            <h1>Profile Management Feature</h1>
+<h2>Overview</h2>
+<p>The Profile Management feature allows authenticated users to view and edit their personal information through a dedicated profile screen accessible from the main navigation header.</p>
+<h2>Features</h2>
+<ul>
+<li><strong>View Profile</strong>: Display current user information including name, email, and phone number</li>
+<li><strong>Edit Profile</strong>: Update name and email (phone number is read-only)</li>
+<li><strong>Form Validation</strong>: Client-side validation with real-time error feedback</li>
+<li><strong>Success/Error Feedback</strong>: Clear user feedback via Snackbar notifications</li>
+<li><strong>Logout Functionality</strong>: Secure logout with confirmation dialog</li>
+<li><strong>Pull-to-Refresh</strong>: Refresh profile data by pulling down on the screen</li>
+</ul>
+<h2>Architecture</h2>
+<h3>Components</h3>
+<h4>ProfileScreen (<code>src/screens/main/ProfileScreen.tsx</code>)</h4>
+<ul>
+<li>Main screen component that manages profile data fetching and form submission</li>
+<li>Handles loading states, error handling, and user feedback</li>
+<li>Includes logout functionality with confirmation</li>
+<li>Supports pull-to-refresh for data synchronization</li>
+</ul>
+<h4>ProfileForm (<code>src/components/profile/ProfileForm.tsx</code>)</h4>
+<ul>
+<li>Reusable form component for profile editing</li>
+<li>Uses react-hook-form with FormProviderWrapper for form management</li>
+<li>Includes real-time validation and form state management</li>
+<li>Provides reset functionality to restore original values</li>
+</ul>
+<h3>API Integration</h3>
+<h4>Endpoints Used</h4>
+<p><strong>GET <code>/api/v1/profile</code></strong></p>
+<ul>
+<li>Fetches current user&#39;s profile data</li>
+<li>Called on screen load and after successful updates</li>
+<li>Response format:</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;data&quot;: {
+    &quot;userId&quot;: &quot;CUST-001&quot;,
+    &quot;name&quot;: &quot;Customer Name&quot;,
+    &quot;email&quot;: &quot;customer@example.com&quot;,
+    &quot;phone&quot;: &quot;9876543212&quot;,
+    &quot;role&quot;: &quot;Customer&quot;,
+    &quot;status&quot;: &quot;active&quot;,
+    &quot;firstName&quot;: &quot;Customer&quot;,
+    &quot;lastName&quot;: &quot;Name&quot;,
+    &quot;avatar&quot;: null,
+    &quot;timezone&quot;: &quot;Asia/Kolkata&quot;,
+    &quot;language&quot;: &quot;en&quot;,
+    &quot;lastLoginAt&quot;: &quot;2025-01-31T12:00:00.000Z&quot;,
+    &quot;updatedAt&quot;: &quot;2025-01-31T12:00:00.000Z&quot;
+  }
+}
+</code></pre>
+<p><strong>PATCH <code>/api/v1/profile</code></strong></p>
+<ul>
+<li>Updates user&#39;s profile information</li>
+<li>Accepts optional <code>name</code> and <code>email</code> fields</li>
+<li>Request format:</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;Updated Name&quot;,
+  &quot;email&quot;: &quot;updated@example.com&quot;
+}
+</code></pre>
+<ul>
+<li>Response format:</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;success&quot;: true
+}
+</code></pre>
+<h4>API Implementation</h4>
+<ul>
+<li>Uses RTK Query for efficient data fetching and caching</li>
+<li>Implements proper error handling with user-friendly error messages</li>
+<li>Automatic cache invalidation after successful updates</li>
+<li>Located in <code>src/api/endpoints/profile.ts</code></li>
+</ul>
+<h3>Form Validation</h3>
+<h4>Validation Rules (<code>src/utils/profileValidation.ts</code>)</h4>
+<p><strong>Name Validation:</strong></p>
+<ul>
+<li>Maximum length: 100 characters</li>
+<li>Minimum length: 2 characters (when provided)</li>
+<li>Field is optional</li>
+</ul>
+<p><strong>Email Validation:</strong></p>
+<ul>
+<li>Must be valid email format (RFC 5322 compliant)</li>
+<li>Field is optional</li>
+<li>Converted to lowercase automatically</li>
+</ul>
+<p><strong>Phone Number:</strong></p>
+<ul>
+<li>Read-only field, cannot be changed by user</li>
+<li>Displayed for reference only</li>
+</ul>
+<h4>Data Sanitization</h4>
+<ul>
+<li>Trims whitespace from all input fields</li>
+<li>Converts email to lowercase</li>
+<li>Excludes empty fields from API requests</li>
+</ul>
+<h3>Navigation</h3>
+<h4>Access Points</h4>
+<ul>
+<li><strong>Profile Icon</strong>: Available in all main screen headers (alongside notification bell)</li>
+<li><strong>Route</strong>: <code>/Profile</code> in the navigation stack</li>
+<li><strong>Navigation Type</strong>: Stack screen with header</li>
+</ul>
+<h4>Header Configuration</h4>
+<ul>
+<li><strong>Title</strong>: &quot;Profile&quot;</li>
+<li><strong>Back Button</strong>: Standard back navigation</li>
+<li><strong>Header Right</strong>: Contains both profile icon and notification bell</li>
+</ul>
+<h2>Usage</h2>
+<h3>For Users</h3>
+<ol>
+<li><p><strong>Accessing Profile</strong>:</p>
+<ul>
+<li>Tap the profile icon (👤) in any main screen header</li>
+<li>Navigate to the Profile screen</li>
+</ul>
+</li>
+<li><p><strong>Editing Profile</strong>:</p>
+<ul>
+<li>Edit the Name and/or Email fields</li>
+<li>Tap &quot;Update Profile&quot; to save changes</li>
+<li>Use &quot;Reset&quot; to restore original values</li>
+</ul>
+</li>
+<li><p><strong>Logout</strong>:</p>
+<ul>
+<li>Scroll to bottom of profile screen</li>
+<li>Tap &quot;Logout&quot; button</li>
+<li>Confirm logout in the dialog</li>
+</ul>
+</li>
+</ol>
+<h3>For Developers</h3>
+<h4>Adding Profile Access to New Screens</h4>
+<pre><code class="language-typescript">// In your screen header configuration
+import {ProfileIcon, NotificationBellIcon} from &#39;../components&#39;;
+
+const HeaderRight = () =&gt; (
+  &lt;View style={{flexDirection: &#39;row&#39;, alignItems: &#39;center&#39;}}&gt;
+    &lt;ProfileIcon onPress={handleProfilePress} /&gt;
+    &lt;NotificationBellIcon onPress={handleNotificationPress} /&gt;
+  &lt;/View&gt;
+);
+</code></pre>
+<h4>Using Profile Data in Components</h4>
+<pre><code class="language-typescript">// Using the profile API query
+import {useGetProfileQuery} from &#39;../api/endpoints/profile&#39;;
+
+const {data: profileData, isLoading, error} = useGetProfileQuery();
+
+// Using current auth state
+import {useNewAuth} from &#39;../hooks/useNewAuth&#39;;
+
+const {user} = useNewAuth();
+console.log(user.name, user.email, user.phone);
+</code></pre>
+<h4>Handling Profile Updates</h4>
+<pre><code class="language-typescript">import {useUpdateProfileMutation} from &#39;../api/endpoints/profile&#39;;
+
+const [updateProfile, {isLoading}] = useUpdateProfileMutation();
+
+const handleUpdate = async data =&gt; {
+  try {
+    await updateProfile(data).unwrap();
+    // Success handling
+  } catch (error) {
+    // Error handling
+  }
+};
+</code></pre>
+<h2>Accessibility</h2>
+<p>The Profile feature includes comprehensive accessibility support:</p>
+<h3>Screen Reader Support</h3>
+<ul>
+<li>All interactive elements have proper accessibility labels</li>
+<li>Form fields include hints and descriptions</li>
+<li>Error messages are announced as alerts</li>
+<li>Loading states are announced to screen readers</li>
+</ul>
+<h3>Keyboard Navigation</h3>
+<ul>
+<li>All form fields are keyboard accessible</li>
+<li>Proper tab order throughout the interface</li>
+<li>Submit actions available via keyboard</li>
+</ul>
+<h3>Visual Accessibility</h3>
+<ul>
+<li>High contrast colors following design system</li>
+<li>Clear visual hierarchy with appropriate text sizes</li>
+<li>Error states with both color and text indicators</li>
+</ul>
+<h2>Testing</h2>
+<h3>Unit Tests</h3>
+<ul>
+<li><strong>Validation Logic</strong>: <code>src/__tests__/utils/profileValidation.test.ts</code></li>
+<li><strong>Component Rendering</strong>: <code>src/__tests__/components/profile/ProfileForm.test.tsx</code></li>
+</ul>
+<h3>Manual Testing Checklist</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Profile screen loads with current user data</li>
+<li><input disabled="" type="checkbox"> Name and email fields are editable</li>
+<li><input disabled="" type="checkbox"> Phone number is displayed as read-only</li>
+<li><input disabled="" type="checkbox"> Form validation works (invalid email, name length)</li>
+<li><input disabled="" type="checkbox"> Update button is disabled until form has changes</li>
+<li><input disabled="" type="checkbox"> Reset button restores original values</li>
+<li><input disabled="" type="checkbox"> Success message appears after successful update</li>
+<li><input disabled="" type="checkbox"> Error messages appear for failed updates</li>
+<li><input disabled="" type="checkbox"> Pull-to-refresh works correctly</li>
+<li><input disabled="" type="checkbox"> Logout functionality works with confirmation</li>
+<li><input disabled="" type="checkbox"> Navigation works from all main screens</li>
+<li><input disabled="" type="checkbox"> Screen reader announcements work properly</li>
+<li><input disabled="" type="checkbox"> Keyboard navigation is functional</li>
+</ul>
+<h2>Error Handling</h2>
+<h3>API Errors</h3>
+<ul>
+<li>Network connectivity issues</li>
+<li>Server errors (500, 502, etc.)</li>
+<li>Authentication errors (401, 403)</li>
+<li>Validation errors (400)</li>
+</ul>
+<h3>User Feedback</h3>
+<ul>
+<li><strong>Success</strong>: Green Snackbar with &quot;Profile updated successfully!&quot;</li>
+<li><strong>Errors</strong>: Red Snackbar with specific error message</li>
+<li><strong>Loading</strong>: Full-screen overlay with &quot;Updating profile...&quot; message</li>
+</ul>
+<h3>Recovery Scenarios</h3>
+<ul>
+<li>Failed updates preserve user input for retry</li>
+<li>Network errors include retry guidance</li>
+<li>Authentication errors trigger appropriate handling via base query</li>
+</ul>
+<h2>Future Enhancements</h2>
+<h3>Potential Improvements</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Profile picture upload functionality</li>
+<li><input disabled="" type="checkbox"> Additional profile fields (address, preferences)</li>
+<li><input disabled="" type="checkbox"> Email verification workflow</li>
+<li><input disabled="" type="checkbox"> Profile completion progress indicator</li>
+<li><input disabled="" type="checkbox"> Social profile connections</li>
+</ul>
+<h3>Technical Improvements</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Offline support with data synchronization</li>
+<li><input disabled="" type="checkbox"> Real-time profile updates via WebSocket</li>
+<li><input disabled="" type="checkbox"> Advanced form validation with custom rules</li>
+<li><input disabled="" type="checkbox"> Profile change history/audit log</li>
+</ul>
+<hr>
+<h2>File Structure</h2>
+<pre><code>src/
+├── screens/main/
+│   └── ProfileScreen.tsx              # Main profile screen
+├── components/profile/
+│   ├── ProfileForm.tsx                # Profile editing form
+│   └── index.ts                       # Component exports
+├── components/common/
+│   └── ProfileIcon.tsx                # Profile navigation icon
+├── api/endpoints/
+│   └── profile.ts                     # Profile API endpoints
+├── types/
+│   └── Profile.ts                     # TypeScript interfaces
+├── utils/
+│   └── profileValidation.ts           # Validation utilities
+└── __tests__/
+    ├── components/profile/
+    │   └── ProfileForm.test.tsx        # Component tests
+    └── utils/
+        └── profileValidation.test.ts   # Validation tests
+</code></pre>
+<hr>
+<p><strong>Last Updated</strong>: January 31, 2025<br><strong>Version</strong>: 1.0.0<br><strong>Author</strong>: Development Team</p>
+<pre><code>
+</code></pre>
+
+        </div>
+    </div>
+</body>
+</html>

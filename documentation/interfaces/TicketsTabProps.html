@@ -1,0 +1,691 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SolariumCustApp documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">SolariumCustApp documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  TicketsTabProps</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/screens/main/LeadDetail/TicketsTab.tsx</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#leadId" 
+>
+                                            leadId
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="leadId"></a>
+                                        <span class="name "><b>leadId</b>
+                                            <a href="#leadId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>leadId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {useNavigation, useFocusEffect} from &#x27;@react-navigation/native&#x27;;
+import React, {useCallback, useMemo, useState} from &#x27;react&#x27;;
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  ActivityIndicator,
+  RefreshControl,
+} from &#x27;react-native&#x27;;
+import {Button, FAB, Snackbar} from &#x27;react-native-paper&#x27;;
+import MaterialIcons from &#x27;react-native-vector-icons/MaterialIcons&#x27;;
+import {useGetTicketsQuery} from &#x27;../../../api/endpoints/tickets&#x27;;
+import CreateTicketModal from &#x27;../../../components/modals/CreateTicketModal&#x27;;
+import {TicketListItemComponent} from &#x27;../../../components/tickets&#x27;;
+import {useRefreshControl} from &#x27;../../../hooks/useRefreshControl&#x27;;
+import {useTicketPolling} from &#x27;../../../hooks/useTicketPolling&#x27;;
+import {useAppSelector} from &#x27;../../../hooks/useTypedRedux&#x27;;
+import type {RootStackScreenProps} from &#x27;../../../navigation/types&#x27;;
+import {selectTicketsByLeadId} from &#x27;../../../store/ticketsSlice&#x27;;
+import {useAppTheme} from &#x27;../../../theme/ThemeProvider&#x27;;
+import type {TicketListItem as TicketListItemType} from &#x27;../../../types/Ticket&#x27;;
+
+export interface TicketsTabProps {
+  leadId: string;
+}
+
+/**
+ * TicketsTab Component
+ * Shows support tickets for a specific lead
+ */
+const TicketsTab: React.FC&lt;TicketsTabProps&gt; &#x3D; ({leadId}) &#x3D;&gt; {
+  const theme &#x3D; useAppTheme();
+  const navigation &#x3D;
+    useNavigation&lt;RootStackScreenProps&lt;&#x27;TicketThread&#x27;&gt;[&#x27;navigation&#x27;]&gt;();
+
+  // Modal state
+  const [createTicketModalVisible, setCreateTicketModalVisible] &#x3D;
+    useState(false);
+  const [snackbarVisible, setSnackbarVisible] &#x3D; useState(false);
+  const [snackbarMessage, setSnackbarMessage] &#x3D; useState(&#x27;&#x27;);
+
+  // Fetch all tickets (will be filtered by leadId)
+  const {
+    data: apiTickets,
+    isLoading,
+    isError,
+    isFetching,
+  } &#x3D; useGetTicketsQuery(undefined, {
+    selectFromResult: result &#x3D;&gt; ({
+      ...result,
+      data: result.data || {items: [], total: 0, offset: 0, limit: 25},
+    }),
+  });
+
+  // Get tickets filtered by leadId from Redux state
+  const leadTickets &#x3D; useAppSelector(selectTicketsByLeadId(leadId));
+
+  // Pull-to-refresh functionality
+  const {refreshTickets, canRefreshTickets} &#x3D; useRefreshControl();
+
+  // Ticket polling with focus-based lifecycle
+  const ticketPolling &#x3D; useTicketPolling({
+    enabled: true,
+    startImmediately: false, // Only start via focus control
+  });
+
+  /**
+   * Handle tab focus - start polling
+   */
+  useFocusEffect(
+    useCallback(() &#x3D;&gt; {
+      console.log(
+        &#x27;[TicketsTab] Tab focused, starting ticket polling for lead:&#x27;,
+        leadId
+      );
+      ticketPolling.startPolling();
+
+      return () &#x3D;&gt; {
+        console.log(
+          &#x27;[TicketsTab] Tab unfocused, stopping ticket polling for lead:&#x27;,
+          leadId
+        );
+        ticketPolling.stopPolling();
+      };
+    }, [ticketPolling, leadId])
+  );
+
+  /**
+   * Handle pull-to-refresh
+   */
+  const handleRefresh &#x3D; useCallback(async () &#x3D;&gt; {
+    console.log(&#x27;[TicketsTab] Pull to refresh triggered for lead:&#x27;, leadId);
+    try {
+      await refreshTickets();
+    } catch (error) {
+      console.error(&#x27;[TicketsTab] Refresh error:&#x27;, error);
+    }
+  }, [refreshTickets, leadId]);
+
+  /**
+   * Handle ticket item press - navigate to ticket thread
+   */
+  const handleTicketPress &#x3D; useCallback(
+    (ticketId: string) &#x3D;&gt; {
+      console.log(&#x27;[TicketsTab] Navigating to ticket thread:&#x27;, ticketId);
+      // Navigate to TicketThread screen (escape the tab navigator)
+      (navigation as any).navigate(&#x27;TicketThread&#x27;, {ticketId});
+    },
+    [navigation]
+  );
+
+  /**
+   * Handle create ticket button press
+   */
+  const handleCreateTicket &#x3D; useCallback(() &#x3D;&gt; {
+    console.log(&#x27;[TicketsTab] Opening create ticket modal for lead:&#x27;, leadId);
+    setCreateTicketModalVisible(true);
+  }, [leadId]);
+
+  /**
+   * Handle close create ticket modal
+   */
+  const handleCloseCreateTicketModal &#x3D; useCallback(() &#x3D;&gt; {
+    setCreateTicketModalVisible(false);
+  }, []);
+
+  /**
+   * Show snackbar message
+   */
+  const showMessage &#x3D; useCallback((message: string) &#x3D;&gt; {
+    setSnackbarMessage(message);
+    setSnackbarVisible(true);
+  }, []);
+
+  /**
+   * Handle ticket created successfully
+   */
+  const handleTicketCreated &#x3D; useCallback(
+    (ticketId: string) &#x3D;&gt; {
+      console.log(&#x27;[TicketsTab] Ticket created successfully:&#x27;, ticketId);
+      showMessage(&#x60;Ticket ${ticketId} created successfully!&#x60;);
+      // Optionally navigate to the new ticket
+      // (navigation as any).navigate(&#x27;TicketThread&#x27;, {ticketId});
+    },
+    [showMessage]
+  );
+
+  /**
+   * FlatList optimizations
+   */
+  const keyExtractor &#x3D; useCallback(
+    (item: TicketListItemType) &#x3D;&gt; item.ticketId,
+    []
+  );
+
+  const renderTicketItem &#x3D; useCallback(
+    ({item}: {item: TicketListItemType}) &#x3D;&gt; (
+      &lt;TicketListItemComponent
+        ticket&#x3D;{item}
+        onPress&#x3D;{handleTicketPress}
+        testID&#x3D;{&#x60;ticket-item-${item.ticketId}&#x60;}
+      /&gt;
+    ),
+    [handleTicketPress]
+  );
+
+  const getItemLayout &#x3D; useCallback(
+    (_: any, index: number) &#x3D;&gt; ({
+      length: 100, // Approximate height of TicketListItemComponent
+      offset: 100 * index,
+      index,
+    }),
+    []
+  );
+
+  /**
+   * Memoized empty state component
+   */
+  const EmptyState &#x3D; useMemo(
+    () &#x3D;&gt; (
+      &lt;View style&#x3D;{styles.emptyContainer}&gt;
+        &lt;MaterialIcons
+          name&#x3D;&quot;support-agent&quot;
+          size&#x3D;{64}
+          color&#x3D;{theme.colors.onSurfaceVariant}
+        /&gt;
+        &lt;Text style&#x3D;{[styles.emptyTitle, {color: theme.colors.onSurface}]}&gt;
+          No Support Tickets
+        &lt;/Text&gt;
+        &lt;Text
+          style&#x3D;{[
+            styles.emptyDescription,
+            {color: theme.colors.onSurfaceVariant},
+          ]}
+        &gt;
+          No support tickets found for this lead. Create a new ticket to get
+          help with your requests.
+        &lt;/Text&gt;
+        &lt;Button
+          mode&#x3D;&quot;contained&quot;
+          onPress&#x3D;{handleCreateTicket}
+          style&#x3D;{styles.createButton}
+          icon&#x3D;&quot;plus&quot;
+        &gt;
+          Create Ticket
+        &lt;/Button&gt;
+      &lt;/View&gt;
+    ),
+    [theme, handleCreateTicket]
+  );
+
+  /**
+   * Memoized error state component
+   */
+  const ErrorState &#x3D; useMemo(
+    () &#x3D;&gt; (
+      &lt;View style&#x3D;{styles.errorContainer}&gt;
+        &lt;MaterialIcons
+          name&#x3D;&quot;error-outline&quot;
+          size&#x3D;{64}
+          color&#x3D;{theme.colors.error}
+        /&gt;
+        &lt;Text style&#x3D;{[styles.errorTitle, {color: theme.colors.error}]}&gt;
+          Failed to Load Tickets
+        &lt;/Text&gt;
+        &lt;Text
+          style&#x3D;{[
+            styles.errorDescription,
+            {color: theme.colors.onSurfaceVariant},
+          ]}
+        &gt;
+          Please pull down to refresh and try again.
+        &lt;/Text&gt;
+        &lt;Button
+          mode&#x3D;&quot;outlined&quot;
+          onPress&#x3D;{handleRefresh}
+          style&#x3D;{styles.retryButton}
+          icon&#x3D;&quot;refresh&quot;
+        &gt;
+          Retry
+        &lt;/Button&gt;
+      &lt;/View&gt;
+    ),
+    [theme, handleRefresh]
+  );
+
+  // Show loading only if we&#x27;re loading AND have no cached data for this lead
+  const shouldShowLoading &#x3D; isLoading &amp;&amp; leadTickets.length &#x3D;&#x3D;&#x3D; 0;
+
+  // Loading state
+  if (shouldShowLoading) {
+    return (
+      &lt;View style&#x3D;{styles.loadingContainer}&gt;
+        &lt;ActivityIndicator size&#x3D;&quot;large&quot; color&#x3D;{theme.colors.primary} /&gt;
+        &lt;Text
+          style&#x3D;{[styles.loadingText, {color: theme.colors.onSurfaceVariant}]}
+        &gt;
+          Loading tickets...
+        &lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }
+
+  return (
+    &lt;View
+      style&#x3D;{[styles.container, {backgroundColor: theme.colors.background}]}
+    &gt;
+      &lt;FlatList
+        data&#x3D;{leadTickets} // Use filtered tickets for this lead
+        renderItem&#x3D;{renderTicketItem}
+        keyExtractor&#x3D;{keyExtractor}
+        getItemLayout&#x3D;{getItemLayout}
+        refreshControl&#x3D;{
+          &lt;RefreshControl
+            refreshing&#x3D;{isFetching &amp;&amp; canRefreshTickets()}
+            onRefresh&#x3D;{handleRefresh}
+            colors&#x3D;{[theme.colors.primary]}
+            tintColor&#x3D;{theme.colors.primary}
+          /&gt;
+        }
+        // Performance optimizations
+        removeClippedSubviews&#x3D;{true}
+        maxToRenderPerBatch&#x3D;{10}
+        windowSize&#x3D;{10}
+        initialNumToRender&#x3D;{10}
+        // States
+        ListEmptyComponent&#x3D;{isError ? ErrorState : EmptyState}
+        // Styling
+        contentContainerStyle&#x3D;{
+          leadTickets.length &#x3D;&#x3D;&#x3D; 0
+            ? styles.emptyListContainer
+            : styles.listContainer
+        }
+        showsVerticalScrollIndicator&#x3D;{false}
+      /&gt;
+
+      {/* Create Ticket FAB - Always visible, prefilled with leadId */}
+      &lt;FAB
+        style&#x3D;{[styles.fab, {backgroundColor: theme.colors.primary}]}
+        icon&#x3D;&quot;plus&quot;
+        onPress&#x3D;{handleCreateTicket}
+        label&#x3D;&quot;Create Ticket&quot;
+        visible&#x3D;{true}
+      /&gt;
+
+      {/* Create Ticket Modal with prefilled leadId */}
+      &lt;CreateTicketModal
+        visible&#x3D;{createTicketModalVisible}
+        onClose&#x3D;{handleCloseCreateTicketModal}
+        onSuccess&#x3D;{handleTicketCreated}
+        prefilledLeadId&#x3D;{leadId} // This will disable the dropdown and prefill the lead
+        testID&#x3D;&quot;create-ticket-modal&quot;
+      /&gt;
+
+      {/* Snackbar for success messages */}
+      &lt;Snackbar
+        visible&#x3D;{snackbarVisible}
+        onDismiss&#x3D;{() &#x3D;&gt; {
+          setSnackbarVisible(false);
+          setSnackbarMessage(&#x27;&#x27;);
+        }}
+        duration&#x3D;{4000}
+        action&#x3D;{{
+          label: &#x27;Dismiss&#x27;,
+          onPress: () &#x3D;&gt; {
+            setSnackbarVisible(false);
+            setSnackbarMessage(&#x27;&#x27;);
+          },
+        }}
+      &gt;
+        {snackbarMessage}
+      &lt;/Snackbar&gt;
+    &lt;/View&gt;
+  );
+};
+
+const styles &#x3D; StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: &#x27;center&#x27;,
+    alignItems: &#x27;center&#x27;,
+    paddingHorizontal: 32,
+  },
+  loadingText: {
+    fontSize: 16,
+    marginTop: 16,
+    textAlign: &#x27;center&#x27;,
+  },
+  listContainer: {
+    paddingTop: 16,
+    paddingBottom: 100, // Space for FAB
+  },
+  emptyListContainer: {
+    flexGrow: 1,
+    paddingBottom: 100, // Space for FAB
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: &#x27;center&#x27;,
+    alignItems: &#x27;center&#x27;,
+    paddingHorizontal: 32,
+  },
+  emptyTitle: {
+    fontSize: 20,
+    fontWeight: &#x27;600&#x27;,
+    marginTop: 16,
+    marginBottom: 8,
+    textAlign: &#x27;center&#x27;,
+  },
+  emptyDescription: {
+    fontSize: 16,
+    textAlign: &#x27;center&#x27;,
+    lineHeight: 24,
+    marginBottom: 24,
+  },
+  createButton: {
+    marginTop: 16,
+  },
+  errorContainer: {
+    flex: 1,
+    justifyContent: &#x27;center&#x27;,
+    alignItems: &#x27;center&#x27;,
+    paddingHorizontal: 32,
+  },
+  errorTitle: {
+    fontSize: 20,
+    fontWeight: &#x27;600&#x27;,
+    marginTop: 16,
+    marginBottom: 8,
+    textAlign: &#x27;center&#x27;,
+  },
+  errorDescription: {
+    fontSize: 16,
+    textAlign: &#x27;center&#x27;,
+    lineHeight: 24,
+    marginBottom: 24,
+  },
+  retryButton: {
+    marginTop: 16,
+  },
+  fab: {
+    position: &#x27;absolute&#x27;,
+    right: 16,
+    bottom: 16,
+  },
+});
+
+export default TicketsTab;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'TicketsTabProps.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

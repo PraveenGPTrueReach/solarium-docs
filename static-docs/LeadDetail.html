@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lead Detail - Solarium Customer App</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: #ffffff;
+            padding: 0;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            border-right: 1px solid #e9ecef;
+        }
+        .sidebar h3 {
+            background: #007bff;
+            color: white;
+            margin: 0;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .nav-section {
+            padding: 20px 0;
+        }
+        .nav-section h4 {
+            color: #6c757d;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 20px 10px 20px;
+            padding: 0;
+        }
+        .nav-link {
+            display: block;
+            color: #495057;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            background: #f8f9fa;
+            color: #007bff;
+            border-left-color: #007bff;
+        }
+        .nav-link.active {
+            background: #e3f2fd;
+            color: #007bff;
+            border-left-color: #007bff;
+        }
+        .main-content {
+            margin-left: 280px;
+            padding: 40px;
+            background: white;
+            min-height: 100vh;
+        }
+        .content {
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #e9ecef;
+        }
+        code {
+            background: #f8f9fa;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #e83e8c;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2, h3 {
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3>Solarium Customer App</h3>
+        <nav>
+            <div class="nav-section"><a href="index.html" class="nav-link">🏠 Home</a></div><div class="nav-section"><h4>Core Features</h4><a href="CartCheckout.html" class="nav-link">Cart Checkout</a><a href="CartFunctionality.html" class="nav-link">Cart Functionality</a><a href="KycUploadLibrary.html" class="nav-link">KYC Upload Library</a><a href="ServicesCatalogue.html" class="nav-link">Services Catalogue</a><a href="profile-feature.html" class="nav-link">Profile Management</a></div><div class="nav-section"><h4>Support System</h4><a href="TicketManagement.html" class="nav-link">Ticket Management System</a></div><div class="nav-section"><h4>Testing & QA</h4><a href="TESTING.html" class="nav-link">Testing Guide</a><a href="Testing_services_cart.html" class="nav-link">Testing Services & Cart</a></div><div class="nav-section"><h4>DevOps</h4><a href="CI_CD.html" class="nav-link">CI/CD Pipeline</a></div><div class="nav-section"><h4>Other</h4><a href="LeadDetail.html" class="nav-link">Lead Detail</a></div>
+        </nav>
+    </div>
+    <div class="main-content">
+        <div class="breadcrumb">Documentation → Lead Detail</div>
+        <div class="content">
+            <h1>LeadDetail Screen Documentation</h1>
+<h2>Overview</h2>
+<p>The LeadDetail screen provides a comprehensive interface for viewing and managing individual lead information. It serves as the central hub for lead-related operations and displays detailed information about quotations, lead status, and associated actions.</p>
+<h2>Screen Structure</h2>
+<h3>Navigation</h3>
+<ul>
+<li><strong>Path</strong>: <code>src/screens/main/LeadDetail/</code></li>
+<li><strong>Main Component</strong>: <code>LeadDetail.tsx</code></li>
+<li><strong>Tab Navigator</strong>: <code>LeadDetailTabNavigator.tsx</code></li>
+</ul>
+<h3>Tabs Architecture</h3>
+<p>The LeadDetail screen uses a tab-based navigation pattern with the following structure:</p>
+<h4>1. QuotesTab</h4>
+<ul>
+<li><strong>Location</strong>: <code>src/screens/main/LeadDetail/QuotesTab.tsx</code></li>
+<li><strong>Purpose</strong>: Display and manage quotations associated with the lead</li>
+<li><strong>Features</strong>: View, accept, reject, and download quotations</li>
+</ul>
+<h2>QuotesTab - Core Features</h2>
+<h3>1. Quotation Display</h3>
+<h4>Data Structure</h4>
+<pre><code class="language-typescript">interface QuotationListItem {
+  quotationId: string;
+  leadId: string;
+  systemKW: number;
+  totalCost: number;
+  status: &#39;Draft&#39; | &#39;Created&#39; | &#39;Shared&#39; | &#39;Accepted&#39; | &#39;Rejected&#39;;
+  createdAt: string;
+}
+</code></pre>
+<h4>Visual Components</h4>
+<ul>
+<li><strong>Quotation Card</strong>: Each quotation displayed in a card layout</li>
+<li><strong>Status Badge</strong>: Color-coded status indicator</li>
+<li><strong>PDF Download</strong>: Direct download functionality</li>
+<li><strong>Action Buttons</strong>: Accept/Reject for eligible quotations</li>
+</ul>
+<h3>2. Accept/Reject Functionality</h3>
+<h4>Business Rules</h4>
+<ul>
+<li><strong>Visibility</strong>: Only shown for quotations with <code>status === &#39;Shared&#39;</code></li>
+<li><strong>Role Access</strong>: Only Customer role can accept/reject quotations</li>
+<li><strong>Confirmation</strong>: User must confirm action before API call</li>
+<li><strong>Debouncing</strong>: 5-second debounce prevents rapid successive actions</li>
+</ul>
+<h4>User Flow</h4>
+<ol>
+<li><p><strong>Display Conditions</strong>:</p>
+<ul>
+<li>Quotation status must be &#39;Shared&#39;</li>
+<li>User role must be &#39;Customer&#39;</li>
+<li>Buttons appear below quotation content</li>
+</ul>
+</li>
+<li><p><strong>Accept Flow</strong>:</p>
+<ul>
+<li>User clicks &quot;Accept&quot; button</li>
+<li>Confirmation dialog appears</li>
+<li>User confirms action</li>
+<li>API call: <code>PATCH /quotations/{id}/accept</code></li>
+<li>Success: Status updates to &#39;Accepted&#39;, buttons hidden</li>
+<li>Lead status updates to &#39;Customer Accepted&#39; (backend)</li>
+</ul>
+</li>
+<li><p><strong>Reject Flow</strong>:</p>
+<ul>
+<li>User clicks &quot;Reject&quot; button</li>
+<li>Confirmation dialog appears (with destructive styling)</li>
+<li>User confirms action</li>
+<li>API call: <code>PATCH /quotations/{id}/reject</code></li>
+<li>Success: Status updates to &#39;Rejected&#39;, buttons hidden</li>
+<li>Lead status may be updated (backend decision)</li>
+</ul>
+</li>
+</ol>
+<h4>Components Used</h4>
+<ul>
+<li><strong>AcceptRejectButtons</strong>: Reusable button component</li>
+<li><strong>openConfirmDialog</strong>: Promise-based confirmation utility</li>
+<li><strong>useActionDebounce</strong>: Per-quotation debounce hook</li>
+</ul>
+<h3>3. PDF Download</h3>
+<h4>Functionality</h4>
+<ul>
+<li><strong>Trigger</strong>: Click download icon on quotation card</li>
+<li><strong>API</strong>: <code>GET /quotations/{id}/pdf</code></li>
+<li><strong>Behavior</strong>: Opens PDF in system default viewer</li>
+<li><strong>Loading</strong>: Shows overlay during PDF preparation</li>
+</ul>
+<h3>4. Data Management</h3>
+<h4>API Integration</h4>
+<ul>
+<li><strong>Primary Query</strong>: <code>useGetQuotationsByLeadIdQuery(leadId)</code></li>
+<li><strong>Accept Mutation</strong>: <code>useAcceptQuotationMutation()</code></li>
+<li><strong>Reject Mutation</strong>: <code>useRejectQuotationMutation()</code></li>
+<li><strong>PDF Mutation</strong>: <code>useGetQuotationPdfMutation()</code></li>
+</ul>
+<h4>Cache Management</h4>
+<ul>
+<li><strong>Invalidation</strong>: Accept/Reject actions invalidate both quotation and lead caches</li>
+<li><strong>Refresh</strong>: Automatic refresh after successful operations</li>
+<li><strong>Debouncing</strong>: Respects configured debounce windows</li>
+</ul>
+<h3>5. Error Handling</h3>
+<h4>HTTP Status Codes</h4>
+<ul>
+<li><strong>409 Conflict</strong>: &quot;Quotation already processed&quot; - shows toast, no state change</li>
+<li><strong>401/403</strong>: Automatic logout (handled by baseQuery)</li>
+<li><strong>Role Access</strong>: Non-customer roles trigger logout</li>
+<li><strong>Generic 5xx</strong>: Generic error message</li>
+</ul>
+<h4>User Feedback</h4>
+<ul>
+<li><strong>Success Actions</strong>: Success alerts with confirmation</li>
+<li><strong>Error States</strong>: Clear error messages via Alert.alert</li>
+<li><strong>Loading States</strong>: Visual indicators during operations</li>
+</ul>
+<h3>6. State Management</h3>
+<h4>Loading States</h4>
+<ul>
+<li><strong>Initial Load</strong>: Loading spinner while fetching quotations</li>
+<li><strong>PDF Download</strong>: Overlay with progress indicator</li>
+<li><strong>Action States</strong>: Button loading during accept/reject operations</li>
+</ul>
+<h4>Debounce Management</h4>
+<ul>
+<li><strong>Per-Quotation</strong>: Each quotation has independent debounce state</li>
+<li><strong>Duration</strong>: 5 seconds for accept/reject actions</li>
+<li><strong>Global Map</strong>: Maintains timestamp across component re-renders</li>
+</ul>
+<h2>Technical Implementation</h2>
+<h3>Key Components</h3>
+<h4>1. QuoteItem Component</h4>
+<pre><code class="language-typescript">const QuoteItem: React.FC&lt;{
+  quotation: QuotationListItem;
+  onViewDetails: (quotationId: string) =&gt; void;
+  onDownloadPdf: (quotationId: string) =&gt; void;
+}&gt; = ({quotation, onViewDetails, onDownloadPdf}) =&gt; {
+  // Component implementation
+};
+</code></pre>
+<h4>2. AcceptRejectButtons Integration</h4>
+<pre><code class="language-typescript">import {AcceptRejectButtons} from &#39;../../../components/quotes&#39;;
+
+// Usage in QuoteItem
+{
+  shouldShowAcceptReject &amp;&amp; (
+    &lt;AcceptRejectButtons
+      onAccept={handleAccept}
+      onReject={handleReject}
+      disabled={isActionDisabled}
+      loading={isAccepting || isRejecting}
+    /&gt;
+  );
+}
+</code></pre>
+<h4>3. Debounce Hook Usage</h4>
+<pre><code class="language-typescript">import {useActionDebounce} from &#39;../../../hooks/useActionDebounce&#39;;
+
+const {isBlocked, triggerAction} = useActionDebounce(quotation.quotationId);
+</code></pre>
+<h3>API Endpoints</h3>
+<h4>Quotations API</h4>
+<ul>
+<li><strong>Base URL</strong>: <code>/api/v1/quotations</code></li>
+<li><strong>List by Lead</strong>: <code>GET /quotations?leadId={id}&amp;limit=100</code></li>
+<li><strong>Accept</strong>: <code>PATCH /quotations/{id}/accept</code></li>
+<li><strong>Reject</strong>: <code>PATCH /quotations/{id}/reject</code></li>
+<li><strong>PDF</strong>: <code>GET /quotations/{id}/pdf</code></li>
+</ul>
+<h4>Request/Response Examples</h4>
+<p><strong>Accept Quotation:</strong></p>
+<pre><code class="language-http">PATCH /api/v1/quotations/QUOT-1016/accept
+Authorization: Bearer {JWT}
+Content-Type: application/json
+
+{}
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true
+}
+</code></pre>
+<p><strong>Error Response (409):</strong></p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;error&quot;: &quot;Quotation must be shared before it can be accepted&quot;
+}
+</code></pre>
+<h3>Security &amp; Permissions</h3>
+<h4>Role-Based Access</h4>
+<ul>
+<li><strong>Customer Role</strong>: Can accept/reject quotations</li>
+<li><strong>Other Roles</strong>: Buttons hidden, API calls trigger logout</li>
+<li><strong>Token Validation</strong>: All API calls require valid JWT</li>
+</ul>
+<h4>Access Control</h4>
+<ul>
+<li><strong>Quotation Ownership</strong>: Users can only act on their own lead&#39;s quotations</li>
+<li><strong>Status Restrictions</strong>: Only &#39;Shared&#39; quotations can be accepted/rejected</li>
+<li><strong>Backend Validation</strong>: Server validates all permissions</li>
+</ul>
+<h3>Performance Considerations</h3>
+<h4>Optimization Features</h4>
+<ul>
+<li><strong>FlatList</strong>: Optimized rendering for large quotation lists</li>
+<li><strong>Memoization</strong>: Callbacks and computed values memoized</li>
+<li><strong>Cache Management</strong>: Efficient RTK Query cache invalidation</li>
+<li><strong>Debouncing</strong>: Prevents excessive API calls</li>
+</ul>
+<h4>Rendering Settings</h4>
+<pre><code class="language-typescript">// FlatList optimizations
+removeClippedSubviews={true}
+maxToRenderPerBatch={10}
+updateCellsBatchingPeriod={50}
+initialNumToRender={10}
+windowSize={10}
+</code></pre>
+<h3>Refresh Control</h3>
+<h4>Manual Refresh</h4>
+<ul>
+<li><strong>Pull-to-Refresh</strong>: Standard iOS/Android pull gesture</li>
+<li><strong>Debounce</strong>: Respects quotation refresh debounce (180 seconds)</li>
+<li><strong>Automatic</strong>: Triggers after successful accept/reject operations</li>
+</ul>
+<h4>Implementation</h4>
+<pre><code class="language-typescript">const {refreshQuotations, canRefreshQuotations} = useRefreshControl();
+</code></pre>
+<h2>Testing Matrix</h2>
+<h3>Core Scenarios</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Expected Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Accept Quotation</strong></td>
+<td>API success → Status &#39;Accepted&#39; → Buttons hidden → Success alert</td>
+</tr>
+<tr>
+<td><strong>Reject Quotation</strong></td>
+<td>API success → Status &#39;Rejected&#39; → Buttons hidden → Success alert</td>
+</tr>
+<tr>
+<td><strong>409 Conflict</strong></td>
+<td>Toast &quot;already processed&quot; → No state change → Debounce active</td>
+</tr>
+<tr>
+<td><strong>Role Access</strong></td>
+<td>Non-customer → Buttons hidden → API attempt → Logout</td>
+</tr>
+<tr>
+<td><strong>Rapid Actions</strong></td>
+<td>Debounce active → Second action ignored → Single API call</td>
+</tr>
+<tr>
+<td><strong>PDF Download</strong></td>
+<td>API success → System PDF viewer opens → Loading overlay</td>
+</tr>
+</tbody></table>
+<h3>Edge Cases</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Handling</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Network Error</strong></td>
+<td>Generic error message → Retry available</td>
+</tr>
+<tr>
+<td><strong>Invalid Response</strong></td>
+<td>Fallback error handling → User notification</td>
+</tr>
+<tr>
+<td><strong>Component Unmount</strong></td>
+<td>Timer cleanup → No memory leaks</td>
+</tr>
+<tr>
+<td><strong>Empty State</strong></td>
+<td>Proper empty state display → Pull-to-refresh available</td>
+</tr>
+</tbody></table>
+<h2>Future Enhancements</h2>
+<h3>Potential Improvements</h3>
+<ol>
+<li><strong>Bulk Actions</strong>: Multi-select for batch operations</li>
+<li><strong>Quotation History</strong>: Track status changes over time</li>
+<li><strong>Notifications</strong>: Push notifications for quotation updates</li>
+<li><strong>Advanced Filtering</strong>: Filter by status, date, amount</li>
+<li><strong>Export Options</strong>: CSV/Excel export functionality</li>
+</ol>
+<h3>Technical Debt</h3>
+<ol>
+<li><strong>Test Coverage</strong>: Add comprehensive unit and integration tests</li>
+<li><strong>Error Boundaries</strong>: Implement error boundary components</li>
+<li><strong>Performance Monitoring</strong>: Add performance metrics</li>
+<li><strong>Analytics</strong>: Track user actions and success rates</li>
+</ol>
+<h2>Dependencies</h2>
+<h3>External Libraries</h3>
+<ul>
+<li><strong>React Navigation</strong>: Tab navigation</li>
+<li><strong>RTK Query</strong>: Data fetching and caching</li>
+<li><strong>React Native Paper</strong>: UI components (Chip)</li>
+<li><strong>React Native Vector Icons</strong>: Icon components</li>
+</ul>
+<h3>Internal Dependencies</h3>
+<ul>
+<li><strong>Theme System</strong>: Consistent styling across app</li>
+<li><strong>Secure Storage</strong>: Token management</li>
+<li><strong>Refresh Control</strong>: Unified refresh patterns</li>
+<li><strong>Error Handling</strong>: Centralized error management</li>
+</ul>
+<h2>Troubleshooting</h2>
+<h3>Common Issues</h3>
+<h4>1. Buttons Not Showing</h4>
+<ul>
+<li><strong>Check</strong>: User role is &#39;Customer&#39;</li>
+<li><strong>Check</strong>: Quotation status is &#39;Shared&#39;</li>
+<li><strong>Check</strong>: API response includes proper status field</li>
+</ul>
+<h4>2. Accept/Reject Fails</h4>
+<ul>
+<li><strong>Check</strong>: Valid JWT token</li>
+<li><strong>Check</strong>: Quotation belongs to user&#39;s lead</li>
+<li><strong>Check</strong>: Quotation status is still &#39;Shared&#39;</li>
+<li><strong>Check</strong>: Network connectivity</li>
+</ul>
+<h4>3. PDF Download Issues</h4>
+<ul>
+<li><strong>Check</strong>: PDF URL in API response</li>
+<li><strong>Check</strong>: System PDF viewer availability</li>
+<li><strong>Check</strong>: Network connectivity for PDF fetch</li>
+</ul>
+<h3>Debug Information</h3>
+<h4>Console Logs</h4>
+<ul>
+<li>All API calls logged with request/response</li>
+<li>Error scenarios logged with full error details</li>
+<li>User actions logged for debugging</li>
+</ul>
+<h4>Error Messages</h4>
+<ul>
+<li>User-friendly error messages for common scenarios</li>
+<li>Technical details in console for debugging</li>
+<li>Proper error boundary fallbacks</li>
+</ul>
+<h2>Conclusion</h2>
+<p>The LeadDetail screen, specifically the QuotesTab, provides a robust and user-friendly interface for managing quotations. The implementation focuses on security, performance, and user experience while maintaining clean code architecture and comprehensive error handling.</p>
+<p>The accept/reject functionality represents a critical business workflow that has been implemented with proper safeguards, debouncing, and user feedback mechanisms to ensure reliable operation in production.</p>
+
+        </div>
+    </div>
+</body>
+</html>

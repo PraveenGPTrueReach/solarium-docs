@@ -1,0 +1,921 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SolariumCustApp documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">SolariumCustApp documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  DocumentPickerModalProps</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/components/forms/DocumentPickerModal.tsx</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Document Picker Modal Props</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#onClose" 
+>
+                                            onClose
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#onFilePicked" 
+>
+                                            onFilePicked
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#testID" 
+>
+                                            testID
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#visible" 
+>
+                                            visible
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="onClose"></a>
+                                        <span class="name "><b>onClose</b>
+                                            <a href="#onClose">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>onClose:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="onFilePicked"></a>
+                                        <span class="name "><b>onFilePicked</b>
+                                            <a href="#onFilePicked">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>onFilePicked:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="testID"></a>
+                                        <span class="name "><b>testID</b>
+                                            <a href="#testID">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>testID:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="visible"></a>
+                                        <span class="name "><b>visible</b>
+                                            <a href="#visible">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>visible:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import * as DocumentPicker from &#x27;@react-native-documents/picker&#x27;;
+import React, {useState, useCallback} from &#x27;react&#x27;;
+import {
+  View,
+  StyleSheet,
+  Alert,
+  Platform,
+  PermissionsAndroid,
+} from &#x27;react-native&#x27;;
+import {
+  ImagePickerResponse,
+  launchImageLibrary,
+  launchCamera,
+  MediaType,
+  ImageLibraryOptions,
+  CameraOptions,
+} from &#x27;react-native-image-picker&#x27;;
+import {Modal, Portal, Card, Text, Button, Divider} from &#x27;react-native-paper&#x27;;
+import MaterialIcons from &#x27;react-native-vector-icons/MaterialIcons&#x27;;
+import {ValidationError} from &#x27;../../errors/ValidationError&#x27;;
+import {useAppTheme} from &#x27;../../theme/ThemeProvider&#x27;;
+import type {RNFile} from &#x27;../../types/File&#x27;;
+import {validateMimeType} from &#x27;../../utils/kycValidation&#x27;;
+import {ErrorMessage} from &#x27;../common&#x27;;
+
+/**
+ * Document Picker Modal Props
+ */
+export interface DocumentPickerModalProps {
+  visible: boolean;
+  onClose: () &#x3D;&gt; void;
+  onFilePicked: (file: RNFile) &#x3D;&gt; void;
+  testID?: string;
+}
+
+/**
+ * Allowed MIME types for validation
+ */
+const ALLOWED_MIME_TYPES &#x3D; [&#x27;image/jpeg&#x27;, &#x27;image/png&#x27;, &#x27;application/pdf&#x27;];
+
+/**
+ * Maximum file size (10MB in bytes)
+ */
+const MAX_FILE_SIZE &#x3D; 10 * 1024 * 1024;
+
+/**
+ * Document Picker Modal Component
+ * Provides options to select files from gallery, camera, or file browser
+ */
+const DocumentPickerModal: React.FC&lt;DocumentPickerModalProps&gt; &#x3D; ({
+  visible,
+  onClose,
+  onFilePicked,
+  testID &#x3D; &#x27;document-picker-modal&#x27;,
+}) &#x3D;&gt; {
+  const theme &#x3D; useAppTheme();
+  const [error, setError] &#x3D; useState&lt;string | null&gt;(null);
+  const [isProcessing, setIsProcessing] &#x3D; useState(false);
+
+  /**
+   * Clear error when modal visibility changes
+   */
+  React.useEffect(() &#x3D;&gt; {
+    if (visible) {
+      setError(null);
+    }
+  }, [visible]);
+
+  /**
+   * Validate selected file
+   */
+  const validateFile &#x3D; useCallback((file: RNFile): boolean &#x3D;&gt; {
+    try {
+      // Validate MIME type
+      validateMimeType(file.type);
+
+      // Validate file size
+      if (file.size &gt; MAX_FILE_SIZE) {
+        throw new ValidationError(
+          &#x27;File size must be less than 10MB&#x27;,
+          &#x27;FILE_SIZE_EXCEEDED&#x27;,
+          &#x27;fileSize&#x27;,
+          file.size
+        );
+      }
+
+      return true;
+    } catch (validationError) {
+      if (validationError instanceof ValidationError) {
+        setError(validationError.message);
+      } else {
+        setError(&#x27;File validation failed. Please try another file.&#x27;);
+      }
+      return false;
+    }
+  }, []);
+
+  /**
+   * Process selected file and validate
+   */
+  const processSelectedFile &#x3D; useCallback(
+    (file: RNFile) &#x3D;&gt; {
+      setIsProcessing(true);
+
+      try {
+        if (validateFile(file)) {
+          console.log(&#x27;[DocumentPickerModal] File validated successfully:&#x27;, {
+            name: file.name,
+            type: file.type,
+            size: file.size,
+          });
+
+          onFilePicked(file);
+          onClose();
+        }
+      } catch (error) {
+        console.error(&#x27;[DocumentPickerModal] File processing error:&#x27;, error);
+        setError(&#x27;Failed to process selected file. Please try again.&#x27;);
+      } finally {
+        setIsProcessing(false);
+      }
+    },
+    [validateFile, onFilePicked, onClose]
+  );
+
+  /**
+   * Handle gallery selection
+   */
+  const handleGalleryPick &#x3D; useCallback(() &#x3D;&gt; {
+    setError(null);
+
+    const options: ImageLibraryOptions &#x3D; {
+      mediaType: &#x27;photo&#x27; as MediaType,
+      quality: 1,
+      includeBase64: false,
+    };
+
+    console.log(&#x27;[DocumentPickerModal] Opening gallery...&#x27;);
+
+    launchImageLibrary(options, (response: ImagePickerResponse) &#x3D;&gt; {
+      console.log(&#x27;[DocumentPickerModal] Gallery response:&#x27;, response);
+
+      if (response.didCancel) {
+        console.log(&#x27;[DocumentPickerModal] Gallery selection cancelled&#x27;);
+        return;
+      }
+
+      if (response.errorMessage) {
+        console.error(
+          &#x27;[DocumentPickerModal] Gallery error:&#x27;,
+          response.errorMessage
+        );
+        setError(&#x27;Failed to select image from gallery. Please try again.&#x27;);
+        return;
+      }
+
+      const asset &#x3D; response.assets?.[0];
+      if (!asset || !asset.uri) {
+        console.error(&#x27;[DocumentPickerModal] No asset or URI found&#x27;);
+        setError(&#x27;Failed to get image from gallery. Please try again.&#x27;);
+        return;
+      }
+
+      console.log(&#x27;[DocumentPickerModal] Gallery asset:&#x27;, asset);
+
+      const file: RNFile &#x3D; {
+        uri: asset.uri,
+        name: asset.fileName || &#x60;image_${Date.now()}.jpg&#x60;,
+        type: asset.type || &#x27;image/jpeg&#x27;,
+        size: asset.fileSize || 0,
+      };
+
+      processSelectedFile(file);
+    });
+  }, [processSelectedFile]);
+
+  /**
+   * Handle camera capture
+   */
+  const handleCameraCapture &#x3D; useCallback(async () &#x3D;&gt; {
+    setError(null);
+
+    console.log(&#x27;[DocumentPickerModal] Opening camera...&#x27;);
+
+    // Request camera permission on Android
+    if (Platform.OS &#x3D;&#x3D;&#x3D; &#x27;android&#x27;) {
+      try {
+        // Check if permission is already granted
+        const hasPermission &#x3D; await PermissionsAndroid.check(
+          PermissionsAndroid.PERMISSIONS.CAMERA
+        );
+
+        if (!hasPermission) {
+          console.log(&#x27;[DocumentPickerModal] Requesting camera permission...&#x27;);
+          const granted &#x3D; await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.CAMERA,
+            {
+              title: &#x27;Camera Permission&#x27;,
+              message:
+                &#x27;This app needs access to camera to take photos for KYC documents.&#x27;,
+              buttonNeutral: &#x27;Ask Me Later&#x27;,
+              buttonNegative: &#x27;Cancel&#x27;,
+              buttonPositive: &#x27;OK&#x27;,
+            }
+          );
+
+          console.log(&#x27;[DocumentPickerModal] Permission result:&#x27;, granted);
+
+          if (granted !&#x3D;&#x3D; PermissionsAndroid.RESULTS.GRANTED) {
+            setError(&#x27;Camera permission is required to take photos.&#x27;);
+            return;
+          }
+        }
+      } catch (error) {
+        console.error(&#x27;[DocumentPickerModal] Camera permission error:&#x27;, error);
+        setError(&#x27;Failed to request camera permission.&#x27;);
+        return;
+      }
+    }
+
+    const options: CameraOptions &#x3D; {
+      mediaType: &#x27;photo&#x27; as MediaType,
+      quality: 1,
+      includeBase64: false,
+    };
+
+    launchCamera(options, (response: ImagePickerResponse) &#x3D;&gt; {
+      console.log(&#x27;[DocumentPickerModal] Camera response:&#x27;, response);
+
+      if (response.didCancel) {
+        console.log(&#x27;[DocumentPickerModal] Camera capture cancelled&#x27;);
+        return;
+      }
+
+      if (response.errorMessage) {
+        console.error(
+          &#x27;[DocumentPickerModal] Camera error:&#x27;,
+          response.errorMessage
+        );
+        setError(&#x27;Failed to capture photo. Please try again.&#x27;);
+        return;
+      }
+
+      const asset &#x3D; response.assets?.[0];
+      if (!asset || !asset.uri) {
+        console.error(&#x27;[DocumentPickerModal] No asset or URI found&#x27;);
+        setError(&#x27;Failed to capture photo. Please try again.&#x27;);
+        return;
+      }
+
+      console.log(&#x27;[DocumentPickerModal] Camera asset:&#x27;, asset);
+
+      const file: RNFile &#x3D; {
+        uri: asset.uri,
+        name: asset.fileName || &#x60;photo_${Date.now()}.jpg&#x60;,
+        type: asset.type || &#x27;image/jpeg&#x27;,
+        size: asset.fileSize || 0,
+      };
+
+      processSelectedFile(file);
+    });
+  }, [processSelectedFile]);
+
+  /**
+   * Handle file browser selection
+   */
+  const handleFileBrowse &#x3D; useCallback(async () &#x3D;&gt; {
+    setError(null);
+
+    try {
+      console.log(&#x27;[DocumentPickerModal] Opening file browser...&#x27;);
+
+      // Add more detailed logging
+      console.log(
+        &#x27;[DocumentPickerModal] DocumentPicker object:&#x27;,
+        DocumentPicker
+      );
+      console.log(
+        &#x27;[DocumentPickerModal] Attempting to pick file with options:&#x27;,
+        {
+          type: [&#x27;image/*&#x27;, &#x27;application/pdf&#x27;],
+          allowMultiSelection: false,
+        }
+      );
+
+      const results &#x3D; await DocumentPicker.pick({
+        type: [&#x27;image/*&#x27;, &#x27;application/pdf&#x27;],
+        allowMultiSelection: false,
+      }).catch(e &#x3D;&gt; {
+        // Add catch block to the promise itself
+        console.error(&#x27;[DocumentPickerModal] Pick promise rejected:&#x27;, e);
+        throw e;
+      });
+
+      console.log(&#x27;[DocumentPickerModal] Pick succeeded, results:&#x27;, results);
+
+      const result &#x3D; results[0];
+      console.log(&#x27;[DocumentPickerModal] First result:&#x27;, result);
+
+      const file: RNFile &#x3D; {
+        uri: result.uri,
+        name: result.name || &#x27;document&#x27;,
+        type: result.type || &#x27;application/octet-stream&#x27;,
+        size: result.size || 0,
+      };
+
+      processSelectedFile(file);
+    } catch (err) {
+      // Type the error properly
+      const error &#x3D; err as {code?: string; message?: string};
+
+      console.error(&#x27;[DocumentPickerModal] Detailed error:&#x27;, {
+        error,
+        code: error.code,
+        message: error.message,
+        stack: (error as Error).stack,
+      });
+
+      if (error.code &#x3D;&#x3D;&#x3D; &#x27;DOCUMENT_PICKER_CANCELED&#x27;) {
+        console.log(&#x27;[DocumentPickerModal] File selection cancelled&#x27;);
+        return;
+      }
+
+      console.error(&#x27;[DocumentPickerModal] File browser error:&#x27;, error);
+      setError(&#x27;Failed to select file. Please try again.&#x27;);
+    }
+  }, [processSelectedFile]);
+
+  /**
+   * Clear error message
+   */
+  const clearError &#x3D; useCallback(() &#x3D;&gt; {
+    setError(null);
+  }, []);
+
+  return (
+    &lt;Portal&gt;
+      &lt;Modal
+        visible&#x3D;{visible}
+        onDismiss&#x3D;{onClose}
+        contentContainerStyle&#x3D;{styles.modalContainer}
+        testID&#x3D;{testID}
+      &gt;
+        &lt;Card style&#x3D;{[styles.card, {backgroundColor: theme.colors.surface}]}&gt;
+          &lt;Card.Content&gt;
+            &lt;Text
+              variant&#x3D;&quot;headlineSmall&quot;
+              style&#x3D;{[styles.title, {color: theme.colors.onSurface}]}
+              accessibilityRole&#x3D;&quot;header&quot;
+              accessibilityLabel&#x3D;&quot;Select document source&quot;
+            &gt;
+              Select Document
+            &lt;/Text&gt;
+
+            &lt;Text
+              variant&#x3D;&quot;bodyMedium&quot;
+              style&#x3D;{[styles.subtitle, {color: theme.colors.onSurfaceVariant}]}
+            &gt;
+              Choose how you&#x27;d like to add your document
+            &lt;/Text&gt;
+
+            {error &amp;&amp; (
+              &lt;ErrorMessage
+                message&#x3D;{error}
+                type&#x3D;&quot;error&quot;
+                visible&#x3D;{true}
+                dismissible&#x3D;{true}
+                onDismiss&#x3D;{clearError}
+                style&#x3D;{styles.errorMessage}
+                testID&#x3D;&quot;document-picker-error&quot;
+              /&gt;
+            )}
+
+            &lt;View style&#x3D;{styles.optionsContainer}&gt;
+              &lt;Button
+                mode&#x3D;&quot;outlined&quot;
+                onPress&#x3D;{handleGalleryPick}
+                disabled&#x3D;{isProcessing}
+                style&#x3D;{styles.optionButton}
+                contentStyle&#x3D;{styles.buttonContent}
+                labelStyle&#x3D;{[styles.buttonLabel, {color: theme.colors.primary}]}
+                icon&#x3D;{({size, color}) &#x3D;&gt; (
+                  &lt;MaterialIcons
+                    name&#x3D;&quot;photo-library&quot;
+                    size&#x3D;{size}
+                    color&#x3D;{color}
+                  /&gt;
+                )}
+                accessibilityLabel&#x3D;&quot;Select image from gallery&quot;
+                accessibilityRole&#x3D;&quot;button&quot;
+                accessibilityHint&#x3D;&quot;Opens your photo gallery to select an image&quot;
+                testID&#x3D;&quot;gallery-button&quot;
+              &gt;
+                Gallery
+              &lt;/Button&gt;
+
+              &lt;Button
+                mode&#x3D;&quot;outlined&quot;
+                onPress&#x3D;{handleCameraCapture}
+                disabled&#x3D;{isProcessing}
+                style&#x3D;{styles.optionButton}
+                contentStyle&#x3D;{styles.buttonContent}
+                labelStyle&#x3D;{[styles.buttonLabel, {color: theme.colors.primary}]}
+                icon&#x3D;{({size, color}) &#x3D;&gt; (
+                  &lt;MaterialIcons name&#x3D;&quot;camera-alt&quot; size&#x3D;{size} color&#x3D;{color} /&gt;
+                )}
+                accessibilityLabel&#x3D;&quot;Take photo with camera&quot;
+                accessibilityRole&#x3D;&quot;button&quot;
+                accessibilityHint&#x3D;&quot;Opens camera to take a new photo&quot;
+                testID&#x3D;&quot;camera-button&quot;
+              &gt;
+                Camera
+              &lt;/Button&gt;
+
+              &lt;Button
+                mode&#x3D;&quot;outlined&quot;
+                onPress&#x3D;{handleFileBrowse}
+                disabled&#x3D;{isProcessing}
+                style&#x3D;{styles.optionButton}
+                contentStyle&#x3D;{styles.buttonContent}
+                labelStyle&#x3D;{[styles.buttonLabel, {color: theme.colors.primary}]}
+                icon&#x3D;{({size, color}) &#x3D;&gt; (
+                  &lt;MaterialIcons name&#x3D;&quot;folder-open&quot; size&#x3D;{size} color&#x3D;{color} /&gt;
+                )}
+                accessibilityLabel&#x3D;&quot;Browse files&quot;
+                accessibilityRole&#x3D;&quot;button&quot;
+                accessibilityHint&#x3D;&quot;Opens file browser to select a document&quot;
+                testID&#x3D;&quot;browse-button&quot;
+              &gt;
+                Browse Files
+              &lt;/Button&gt;
+            &lt;/View&gt;
+
+            &lt;Divider style&#x3D;{styles.divider} /&gt;
+
+            &lt;Text
+              variant&#x3D;&quot;bodySmall&quot;
+              style&#x3D;{[styles.helpText, {color: theme.colors.onSurfaceVariant}]}
+            &gt;
+              Supported formats: JPG, PNG, PDF{&#x27;\n&#x27;}
+              Maximum file size: 10MB
+            &lt;/Text&gt;
+          &lt;/Card.Content&gt;
+
+          &lt;Card.Actions style&#x3D;{styles.actions}&gt;
+            &lt;Button
+              mode&#x3D;&quot;text&quot;
+              onPress&#x3D;{onClose}
+              disabled&#x3D;{isProcessing}
+              accessibilityLabel&#x3D;&quot;Cancel document selection&quot;
+              accessibilityRole&#x3D;&quot;button&quot;
+              testID&#x3D;&quot;cancel-button&quot;
+            &gt;
+              Cancel
+            &lt;/Button&gt;
+          &lt;/Card.Actions&gt;
+        &lt;/Card&gt;
+      &lt;/Modal&gt;
+    &lt;/Portal&gt;
+  );
+};
+
+const styles &#x3D; StyleSheet.create({
+  modalContainer: {
+    margin: 20,
+    justifyContent: &#x27;center&#x27;,
+  },
+  card: {
+    borderRadius: 12,
+    elevation: 8,
+  },
+  title: {
+    textAlign: &#x27;center&#x27;,
+    marginBottom: 8,
+    fontWeight: &#x27;bold&#x27;,
+  },
+  subtitle: {
+    textAlign: &#x27;center&#x27;,
+    marginBottom: 24,
+  },
+  errorMessage: {
+    marginBottom: 16,
+  },
+  optionsContainer: {
+    gap: 12,
+    marginBottom: 16,
+  },
+  optionButton: {
+    borderRadius: 8,
+    borderWidth: 1.5,
+  },
+  buttonContent: {
+    paddingVertical: 8,
+  },
+  buttonLabel: {
+    fontSize: 16,
+    fontWeight: &#x27;500&#x27;,
+  },
+  divider: {
+    marginVertical: 16,
+  },
+  helpText: {
+    textAlign: &#x27;center&#x27;,
+    lineHeight: 18,
+  },
+  actions: {
+    justifyContent: &#x27;center&#x27;,
+    paddingTop: 8,
+  },
+});
+
+export default DocumentPickerModal;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'DocumentPickerModalProps.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

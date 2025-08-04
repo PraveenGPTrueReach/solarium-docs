@@ -1,0 +1,1149 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SolariumCustApp documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">SolariumCustApp documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  QuotesTabProps</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/screens/main/LeadDetail/QuotesTab.tsx</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#leadId" 
+>
+                                            leadId
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="leadId"></a>
+                                        <span class="name "><b>leadId</b>
+                                            <a href="#leadId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>leadId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Lead ID to fetch quotations for</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import React, {useCallback} from &#x27;react&#x27;;
+import {
+  View,
+  Text,
+  FlatList,
+  ActivityIndicator,
+  RefreshControl,
+  Alert,
+  TouchableOpacity,
+  Pressable,
+  Linking,
+} from &#x27;react-native&#x27;;
+import {Chip} from &#x27;react-native-paper&#x27;;
+import MaterialIcons from &#x27;react-native-vector-icons/MaterialIcons&#x27;;
+// Import leads API for explicit cache invalidation
+import {leadsApi} from &#x27;../../../api/endpoints/leads&#x27;;
+import {
+  useGetQuotationsByLeadIdQuery,
+  useGetQuotationPdfMutation,
+  useAcceptQuotationMutation,
+  useRejectQuotationMutation,
+} from &#x27;../../../api/endpoints/quotations&#x27;;
+import {SafeAreaContainer} from &#x27;../../../components&#x27;;
+import {AcceptRejectButtons} from &#x27;../../../components/quotes&#x27;;
+import {useActionDebounce} from &#x27;../../../hooks/useActionDebounce&#x27;;
+import {useNewAuth} from &#x27;../../../hooks/useNewAuth&#x27;;
+import {useRefreshControl} from &#x27;../../../hooks/useRefreshControl&#x27;;
+import {useAppDispatch} from &#x27;../../../hooks/useTypedRedux&#x27;;
+import {useAppTheme} from &#x27;../../../theme/ThemeProvider&#x27;;
+import type {
+  QuotationListItem,
+  QuotationStatus,
+} from &#x27;../../../types/Quotation&#x27;;
+import {formatDisplayDate} from &#x27;../../../utils/dateHelpers&#x27;;
+import {openConfirmDialog} from &#x27;../../../utils/openConfirmDialog&#x27;;
+
+interface QuotesTabProps {
+  /** Lead ID to fetch quotations for */
+  leadId: string;
+}
+
+/**
+ * Status color configuration
+ */
+const getStatusConfig &#x3D; (status: QuotationStatus) &#x3D;&gt; {
+  const configs &#x3D; {
+    Draft: {backgroundColor: &#x27;#9E9E9E&#x27;, textColor: &#x27;#FFFFFF&#x27;},
+    Created: {backgroundColor: &#x27;#2196F3&#x27;, textColor: &#x27;#FFFFFF&#x27;},
+    Shared: {backgroundColor: &#x27;#03A9F4&#x27;, textColor: &#x27;#FFFFFF&#x27;},
+    Accepted: {backgroundColor: &#x27;#4CAF50&#x27;, textColor: &#x27;#FFFFFF&#x27;},
+    Rejected: {backgroundColor: &#x27;#F44336&#x27;, textColor: &#x27;#FFFFFF&#x27;},
+  };
+  return configs[status] || configs.Draft;
+};
+
+/**
+ * Quote Item Component with Clean Layout and Accept/Reject Actions
+ */
+const QuoteItem: React.FC&lt;{
+  quotation: QuotationListItem;
+  onViewDetails: (quotationId: string) &#x3D;&gt; void;
+  onDownloadPdf: (quotationId: string) &#x3D;&gt; void;
+}&gt; &#x3D; ({quotation, onViewDetails, onDownloadPdf}) &#x3D;&gt; {
+  const theme &#x3D; useAppTheme();
+  const dispatch &#x3D; useAppDispatch();
+  const {user} &#x3D; useNewAuth();
+
+  const statusConfig &#x3D; getStatusConfig(quotation.status);
+
+  // Role-based access control
+  const isCustomer &#x3D; user?.role &#x3D;&#x3D;&#x3D; &#x27;Customer&#x27;;
+  const shouldShowAcceptReject &#x3D; quotation.status &#x3D;&#x3D;&#x3D; &#x27;Shared&#x27; &amp;&amp; isCustomer;
+
+  // API mutations
+  const [acceptQuotation, {isLoading: isAccepting}] &#x3D;
+    useAcceptQuotationMutation();
+  const [rejectQuotation, {isLoading: isRejecting}] &#x3D;
+    useRejectQuotationMutation();
+
+  // Debounce hook for this specific quotation
+  const {isBlocked: isDebounceBlocked, triggerAction} &#x3D; useActionDebounce(
+    quotation.quotationId
+  );
+
+  // Enhanced refresh control
+  const {refreshQuotations} &#x3D; useRefreshControl();
+
+  const formattedDate &#x3D; React.useMemo(() &#x3D;&gt; {
+    try {
+      return formatDisplayDate(quotation.createdAt);
+    } catch (error) {
+      console.warn(&#x27;[QuotesTab] Date formatting error:&#x27;, error);
+      return &#x27;Invalid date&#x27;;
+    }
+  }, [quotation.createdAt]);
+
+  const quotationTitle &#x3D; &#x60;Quote #${
+    quotation.quotationId.split(&#x27;-&#x27;)[1] || quotation.quotationId
+  }&#x60;;
+
+  /**
+   * Explicit lead refresh helper
+   * Forces refresh of lead data after quotation actions to ensure lead status updates are visible
+   *
+   * @remarks
+   * This function is called after successful accept/reject operations to ensure that
+   * backend changes to lead status (e.g., &quot;Customer Accepted&quot;) are reflected in the UI.
+   * The function uses RTK Query&#x27;s invalidateTags to force cache invalidation.
+   *
+   * @returns Promise that resolves when refresh is complete
+   */
+  const refreshLeadData &#x3D; useCallback(async () &#x3D;&gt; {
+    try {
+      console.log(
+        &#x27;[QuotesTab] Explicitly refreshing lead data after quotation action&#x27;
+      );
+
+      // Force invalidation of lead cache to ensure fresh data
+      dispatch(leadsApi.util.invalidateTags([&#x27;Lead&#x27;, &#x27;LeadsList&#x27;]));
+
+      // Allow small delay to ensure cache invalidation takes effect
+      await new Promise(resolve &#x3D;&gt; setTimeout(resolve, 100));
+
+      console.log(&#x27;[QuotesTab] Lead data refresh triggered successfully&#x27;);
+    } catch (error) {
+      console.error(&#x27;[QuotesTab] Error refreshing lead data:&#x27;, error);
+      // Don&#x27;t throw - this is supplementary refresh
+    }
+  }, [dispatch]);
+
+  /**
+   * Handle quotation acceptance with comprehensive error handling
+   *
+   * @remarks
+   * This function implements the complete accept workflow:
+   * 1. Debounce check to prevent rapid actions
+   * 2. User confirmation dialog
+   * 3. API call to accept quotation
+   * 4. Success feedback and data refresh
+   * 5. Comprehensive error handling for various scenarios
+   *
+   * The function handles role-based access, conflict errors, and network failures
+   * with appropriate user feedback for each scenario.
+   *
+   * @returns Promise that resolves when operation is complete
+   */
+  const handleAccept &#x3D; useCallback(async () &#x3D;&gt; {
+    try {
+      // Check if action is blocked by debounce
+      if (isDebounceBlocked) {
+        Alert.alert(
+          &#x27;Please Wait&#x27;,
+          &#x27;Please wait before performing another action.&#x27;
+        );
+        return;
+      }
+
+      // Show confirmation dialog
+      const confirmed &#x3D; await openConfirmDialog({
+        title: &#x27;Accept Quotation&#x27;,
+        message: &#x60;Are you sure you want to accept ${quotationTitle}? This action cannot be undone.&#x60;,
+        confirmText: &#x27;Accept&#x27;,
+        cancelText: &#x27;Cancel&#x27;,
+      });
+
+      if (!confirmed) {
+        return;
+      }
+
+      // Trigger debounce
+      triggerAction();
+
+      console.log(&#x27;[QuotesTab] Accepting quotation:&#x27;, quotation.quotationId);
+
+      // Call accept API
+      const result &#x3D; await acceptQuotation(quotation.quotationId).unwrap();
+
+      if (result.success) {
+        console.log(
+          &#x27;[QuotesTab] Quotation accepted successfully, refreshing data...&#x27;
+        );
+
+        // Success feedback
+        Alert.alert(&#x27;Success&#x27;, &#x27;Quotation accepted successfully!&#x27;, [
+          {text: &#x27;OK&#x27;},
+        ]);
+
+        // Refresh quotations data first
+        await refreshQuotations();
+
+        // Then explicitly refresh lead data to show updated lead status
+        // This ensures lead status change (to &quot;Customer Accepted&quot;) is visible
+        await refreshLeadData();
+
+        console.log(&#x27;[QuotesTab] All data refreshed after accept operation&#x27;);
+      } else {
+        throw new Error(result.error || &#x27;Failed to accept quotation&#x27;);
+      }
+    } catch (error: any) {
+      console.error(&#x27;[QuotesTab] Accept quotation error:&#x27;, error);
+
+      // Handle specific error cases
+      if (error.data?.error?.includes(&#x27;Only customers can accept&#x27;)) {
+        // Role-based logout
+        Alert.alert(
+          &#x27;Access Denied&#x27;,
+          &#x27;You do not have permission to perform this action. You will be logged out.&#x27;,
+          [
+            {
+              text: &#x27;OK&#x27;,
+              onPress: () &#x3D;&gt; {
+                // TODO: Implement proper logout function
+                console.log(&#x27;User role access denied - logout required&#x27;);
+              },
+            },
+          ]
+        );
+        return;
+      }
+
+      if (error.code &#x3D;&#x3D;&#x3D; 409 || error.status &#x3D;&#x3D;&#x3D; 409) {
+        Alert.alert(&#x27;Action Not Allowed&#x27;, &#x27;Quotation already processed&#x27;, [
+          {text: &#x27;OK&#x27;},
+        ]);
+        return;
+      }
+
+      if (error.data?.error?.includes(&#x27;Access denied&#x27;)) {
+        Alert.alert(
+          &#x27;Access Denied&#x27;,
+          &#x27;You do not have access to this quotation.&#x27;,
+          [{text: &#x27;OK&#x27;}]
+        );
+        return;
+      }
+
+      // Generic error
+      const errorMessage &#x3D;
+        error.data?.error ||
+        error.message ||
+        &#x27;Failed to accept quotation. Please try again.&#x27;;
+      Alert.alert(&#x27;Error&#x27;, errorMessage, [{text: &#x27;OK&#x27;}]);
+    }
+  }, [
+    quotation.quotationId,
+    quotationTitle,
+    isDebounceBlocked,
+    triggerAction,
+    acceptQuotation,
+    refreshQuotations,
+    refreshLeadData,
+    dispatch,
+  ]);
+
+  /**
+   * Handle quotation rejection with comprehensive error handling
+   *
+   * @remarks
+   * Similar to handleAccept but for rejection operations.
+   * Uses destructive confirmation dialog styling to emphasize the permanent nature
+   * of the action.
+   *
+   * @returns Promise that resolves when operation is complete
+   */
+  const handleReject &#x3D; useCallback(async () &#x3D;&gt; {
+    try {
+      // Check if action is blocked by debounce
+      if (isDebounceBlocked) {
+        Alert.alert(
+          &#x27;Please Wait&#x27;,
+          &#x27;Please wait before performing another action.&#x27;
+        );
+        return;
+      }
+
+      // Show confirmation dialog
+      const confirmed &#x3D; await openConfirmDialog({
+        title: &#x27;Reject Quotation&#x27;,
+        message: &#x60;Are you sure you want to reject ${quotationTitle}? This action cannot be undone.&#x60;,
+        confirmText: &#x27;Reject&#x27;,
+        cancelText: &#x27;Cancel&#x27;,
+        destructive: true,
+      });
+
+      if (!confirmed) {
+        return;
+      }
+
+      // Trigger debounce
+      triggerAction();
+
+      console.log(&#x27;[QuotesTab] Rejecting quotation:&#x27;, quotation.quotationId);
+
+      // Call reject API
+      const result &#x3D; await rejectQuotation(quotation.quotationId).unwrap();
+
+      if (result.success) {
+        console.log(
+          &#x27;[QuotesTab] Quotation rejected successfully, refreshing data...&#x27;
+        );
+
+        // Success feedback
+        Alert.alert(&#x27;Success&#x27;, &#x27;Quotation rejected successfully!&#x27;, [
+          {text: &#x27;OK&#x27;},
+        ]);
+
+        // Refresh quotations data first
+        await refreshQuotations();
+
+        // Then explicitly refresh lead data to show any backend-updated lead status
+        await refreshLeadData();
+
+        console.log(&#x27;[QuotesTab] All data refreshed after reject operation&#x27;);
+      } else {
+        throw new Error(result.error || &#x27;Failed to reject quotation&#x27;);
+      }
+    } catch (error: any) {
+      console.error(&#x27;[QuotesTab] Reject quotation error:&#x27;, error);
+
+      // Handle specific error cases
+      if (error.data?.error?.includes(&#x27;Only customers can accept&#x27;)) {
+        // Role-based logout
+        Alert.alert(
+          &#x27;Access Denied&#x27;,
+          &#x27;You do not have permission to perform this action. You will be logged out.&#x27;,
+          [
+            {
+              text: &#x27;OK&#x27;,
+              onPress: () &#x3D;&gt; {
+                // TODO: Implement proper logout function
+                console.log(&#x27;User role access denied - logout required&#x27;);
+              },
+            },
+          ]
+        );
+        return;
+      }
+
+      if (error.code &#x3D;&#x3D;&#x3D; 409 || error.status &#x3D;&#x3D;&#x3D; 409) {
+        Alert.alert(&#x27;Action Not Allowed&#x27;, &#x27;Quotation already processed&#x27;, [
+          {text: &#x27;OK&#x27;},
+        ]);
+        return;
+      }
+
+      if (error.data?.error?.includes(&#x27;Access denied&#x27;)) {
+        Alert.alert(
+          &#x27;Access Denied&#x27;,
+          &#x27;You do not have access to this quotation.&#x27;,
+          [{text: &#x27;OK&#x27;}]
+        );
+        return;
+      }
+
+      // Generic error
+      const errorMessage &#x3D;
+        error.data?.error ||
+        error.message ||
+        &#x27;Failed to reject quotation. Please try again.&#x27;;
+      Alert.alert(&#x27;Error&#x27;, errorMessage, [{text: &#x27;OK&#x27;}]);
+    }
+  }, [
+    quotation.quotationId,
+    quotationTitle,
+    isDebounceBlocked,
+    triggerAction,
+    rejectQuotation,
+    refreshQuotations,
+    refreshLeadData,
+    dispatch,
+  ]);
+
+  // Calculate if buttons should be disabled
+  const isActionDisabled &#x3D; isAccepting || isRejecting || isDebounceBlocked;
+
+  return (
+    &lt;Pressable
+      onPress&#x3D;{() &#x3D;&gt; onViewDetails(quotation.quotationId)}
+      style&#x3D;{({pressed}) &#x3D;&gt; [
+        {
+          backgroundColor: theme.colors.surface,
+          borderRadius: 12,
+          padding: 16,
+          paddingBottom: shouldShowAcceptReject ? 24 : 20, // Extra padding for accept/reject buttons
+          marginVertical: 6,
+          elevation: 2,
+          shadowColor: &#x27;#000&#x27;,
+          shadowOffset: {width: 0, height: 1},
+          shadowOpacity: 0.22,
+          shadowRadius: 2.22,
+          opacity: pressed ? 0.7 : 1,
+          minHeight: shouldShowAcceptReject ? 140 : 100, // Increased height for buttons
+          position: &#x27;relative&#x27;,
+        },
+      ]}
+      testID&#x3D;{&#x60;quote-item-${quotation.quotationId}&#x60;}
+    &gt;
+      &lt;View
+        style&#x3D;{{
+          flexDirection: &#x27;row&#x27;,
+          justifyContent: &#x27;space-between&#x27;,
+          alignItems: &#x27;flex-start&#x27;,
+        }}
+      &gt;
+        {/* Left side: Icon + Content */}
+        &lt;View style&#x3D;{{flexDirection: &#x27;row&#x27;, flex: 1}}&gt;
+          {/* Quote Icon */}
+          &lt;MaterialIcons
+            name&#x3D;&quot;description&quot;
+            size&#x3D;{24}
+            color&#x3D;{theme.colors.primary}
+            style&#x3D;{{marginRight: 12, marginTop: 2}}
+          /&gt;
+
+          {/* Content */}
+          &lt;View style&#x3D;{{flex: 1, marginRight: 12}}&gt;
+            {/* Title */}
+            &lt;Text
+              style&#x3D;{{
+                fontSize: 16,
+                fontWeight: &#x27;600&#x27;,
+                color: theme.colors.onSurface,
+                marginBottom: 8,
+              }}
+            &gt;
+              {quotationTitle}
+            &lt;/Text&gt;
+
+            {/* Date */}
+            &lt;Text
+              style&#x3D;{{
+                fontSize: 12,
+                fontStyle: &#x27;italic&#x27;,
+                color: theme.colors.onSurfaceVariant,
+                marginTop: 4,
+              }}
+            &gt;
+              Generated On: {formattedDate}
+            &lt;/Text&gt;
+          &lt;/View&gt;
+        &lt;/View&gt;
+
+        {/* Right side: Status Badge */}
+        &lt;Chip
+          mode&#x3D;&quot;flat&quot;
+          compact&#x3D;{true}
+          style&#x3D;{{
+            backgroundColor: statusConfig.backgroundColor,
+            alignSelf: &#x27;flex-start&#x27;,
+          }}
+          textStyle&#x3D;{{
+            color: statusConfig.textColor,
+            fontSize: 11,
+            fontWeight: &#x27;600&#x27;,
+          }}
+        &gt;
+          {quotation.status}
+        &lt;/Chip&gt;
+      &lt;/View&gt;
+
+      {/* Accept/Reject Buttons - Show when status is &#x27;Shared&#x27; and user is Customer */}
+      {shouldShowAcceptReject &amp;&amp; (
+        &lt;View
+          style&#x3D;{{
+            marginTop: 16,
+            marginBottom: 8,
+          }}
+        &gt;
+          &lt;AcceptRejectButtons
+            onAccept&#x3D;{handleAccept}
+            onReject&#x3D;{handleReject}
+            disabled&#x3D;{isActionDisabled}
+            loading&#x3D;{isAccepting || isRejecting}
+            testID&#x3D;{&#x60;quote-actions-${quotation.quotationId}&#x60;}
+          /&gt;
+        &lt;/View&gt;
+      )}
+
+      {/* PDF Download Button - Positioned at bottom-right */}
+      &lt;TouchableOpacity
+        onPress&#x3D;{e &#x3D;&gt; {
+          e.stopPropagation(); // Prevent triggering parent onPress
+          onDownloadPdf(quotation.quotationId);
+        }}
+        style&#x3D;{{
+          position: &#x27;absolute&#x27;,
+          bottom: 12,
+          right: 12,
+          flexDirection: &#x27;row&#x27;,
+          alignItems: &#x27;center&#x27;,
+          backgroundColor: theme.colors.primaryContainer,
+          paddingHorizontal: 12,
+          paddingVertical: 8,
+          borderRadius: 8,
+          elevation: 1,
+          shadowColor: &#x27;#000&#x27;,
+          shadowOffset: {width: 0, height: 1},
+          shadowOpacity: 0.1,
+          shadowRadius: 1,
+        }}
+        testID&#x3D;{&#x60;quote-pdf-${quotation.quotationId}&#x60;}
+      &gt;
+        &lt;MaterialIcons
+          name&#x3D;&quot;file-download&quot;
+          size&#x3D;{16}
+          color&#x3D;{theme.colors.onPrimaryContainer}
+        /&gt;
+        &lt;Text
+          style&#x3D;{{
+            fontSize: 12,
+            fontWeight: &#x27;500&#x27;,
+            color: theme.colors.onPrimaryContainer,
+            marginLeft: 4,
+          }}
+        &gt;
+          Download
+        &lt;/Text&gt;
+      &lt;/TouchableOpacity&gt;
+    &lt;/Pressable&gt;
+  );
+};
+
+/**
+ * Empty State Component
+ */
+const EmptyState: React.FC &#x3D; () &#x3D;&gt; {
+  const theme &#x3D; useAppTheme();
+
+  return (
+    &lt;View
+      style&#x3D;{{
+        flex: 1,
+        justifyContent: &#x27;center&#x27;,
+        alignItems: &#x27;center&#x27;,
+        paddingHorizontal: 32,
+        paddingVertical: 64,
+      }}
+    &gt;
+      &lt;MaterialIcons
+        name&#x3D;&quot;description&quot;
+        size&#x3D;{64}
+        color&#x3D;{theme.colors.onSurfaceVariant}
+        style&#x3D;{{opacity: 0.5}}
+      /&gt;
+      &lt;Text
+        style&#x3D;{{
+          fontSize: 18,
+          fontWeight: &#x27;600&#x27;,
+          color: theme.colors.onSurface,
+          marginTop: 16,
+          textAlign: &#x27;center&#x27;,
+        }}
+      &gt;
+        Quotations coming soon...
+      &lt;/Text&gt;
+      &lt;Text
+        style&#x3D;{{
+          fontSize: 14,
+          color: theme.colors.onSurfaceVariant,
+          marginTop: 8,
+          textAlign: &#x27;center&#x27;,
+          lineHeight: 20,
+        }}
+      &gt;
+        Your quotations will appear here once they are prepared by our team.
+      &lt;/Text&gt;
+    &lt;/View&gt;
+  );
+};
+
+/**
+ * QuotesTab Component
+ * Shows quotations for a lead with loading, error, and empty states
+ */
+const QuotesTab: React.FC&lt;QuotesTabProps&gt; &#x3D; ({leadId}) &#x3D;&gt; {
+  const theme &#x3D; useAppTheme();
+
+  // Fetch quotations for this lead
+  const {
+    data: quotations,
+    isLoading,
+    isError,
+    isFetching,
+  } &#x3D; useGetQuotationsByLeadIdQuery(leadId);
+
+  // Filter quotations to only show Shared, Accepted, or Rejected statuses
+  const filteredQuotations &#x3D; React.useMemo(() &#x3D;&gt; {
+    if (!quotations) {
+      return [];
+    }
+
+    const allowedStatuses: QuotationStatus[] &#x3D; [
+      &#x27;Shared&#x27;,
+      &#x27;Accepted&#x27;,
+      &#x27;Rejected&#x27;,
+    ];
+    return quotations.filter(quotation &#x3D;&gt;
+      allowedStatuses.includes(quotation.status)
+    );
+  }, [quotations]);
+
+  // PDF download mutation
+  const [getQuotationPdf, {isLoading: isPdfLoading}] &#x3D;
+    useGetQuotationPdfMutation();
+
+  // Enhanced refresh control with debounce for quotations
+  const {refreshQuotations, canRefreshQuotations} &#x3D; useRefreshControl();
+
+  /**
+   * Handle pull-to-refresh
+   */
+  const handleRefresh &#x3D; useCallback(async () &#x3D;&gt; {
+    console.log(&#x27;[QuotesTab] Refreshing quotations for lead:&#x27;, leadId);
+    try {
+      await refreshQuotations();
+    } catch (error) {
+      console.error(&#x27;[QuotesTab] Refresh error:&#x27;, error);
+    }
+  }, [refreshQuotations]);
+
+  /**
+   * Handle view quotation details (anywhere on container)
+   */
+  const handleViewDetails &#x3D; useCallback((quotationId: string) &#x3D;&gt; {
+    console.log(&#x27;[QuotesTab] View details for quotation:&#x27;, quotationId);
+    Alert.alert(
+      &#x27;Coming Soon&#x27;,
+      &#x60;Quotation details for ${quotationId} will be available soon.&#x60;,
+      [{text: &#x27;OK&#x27;}]
+    );
+  }, []);
+
+  /**
+   * Handle PDF download (bottom-right button)
+   */
+  const handleDownloadPdf &#x3D; useCallback(
+    async (quotationId: string) &#x3D;&gt; {
+      console.log(&#x27;[QuotesTab] Download PDF for quotation:&#x27;, quotationId);
+
+      try {
+        const result &#x3D; await getQuotationPdf(quotationId).unwrap();
+
+        if (result.pdfUrl) {
+          // TEMPORARY: Use test PDF URL since mock server returns dummy URLs
+          // TODO: Remove this line when connecting to real API
+          const testPdfUrl &#x3D;
+            &#x27;https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf&#x27;;
+
+          console.log(&#x27;[QuotesTab] Original API URL:&#x27;, result.pdfUrl);
+          console.log(&#x27;[QuotesTab] Using test PDF URL:&#x27;, testPdfUrl);
+
+          // Open PDF in system&#x27;s default viewer directly
+          try {
+            await Linking.openURL(testPdfUrl);
+          } catch (error) {
+            console.error(&#x27;[QuotesTab] Linking.openURL error:&#x27;, error);
+            throw new Error(&#x27;Cannot open PDF - no compatible app found&#x27;);
+          }
+        } else {
+          throw new Error(&#x27;PDF URL not received from server&#x27;);
+        }
+      } catch (error: any) {
+        console.error(&#x27;[QuotesTab] PDF download error:&#x27;, error);
+
+        // Handle different error types
+        let errorMessage &#x3D;
+          &#x27;Could not download the quotation PDF. Please try again.&#x27;;
+
+        if (error.status &#x3D;&#x3D;&#x3D; 401) {
+          errorMessage &#x3D; &#x27;Session expired. Please log in again.&#x27;;
+        } else if (error.status &#x3D;&#x3D;&#x3D; 403) {
+          errorMessage &#x3D; &#x27;You do not have permission to view this quotation.&#x27;;
+        } else if (error.status &#x3D;&#x3D;&#x3D; 404) {
+          errorMessage &#x3D; &#x27;Quotation PDF not found.&#x27;;
+        } else if (error.status &#x3D;&#x3D;&#x3D; 409) {
+          errorMessage &#x3D;
+            &#x27;Quotation is not available for download at this time.&#x27;;
+        }
+
+        Alert.alert(&#x27;Download Failed&#x27;, errorMessage, [{text: &#x27;OK&#x27;}]);
+      }
+    },
+    [getQuotationPdf]
+  );
+
+  /**
+   * Render quotation item
+   */
+  const renderQuotationItem &#x3D; useCallback(
+    ({item}: {item: QuotationListItem}) &#x3D;&gt; (
+      &lt;QuoteItem
+        quotation&#x3D;{item}
+        onViewDetails&#x3D;{handleViewDetails}
+        onDownloadPdf&#x3D;{handleDownloadPdf}
+      /&gt;
+    ),
+    [handleViewDetails, handleDownloadPdf]
+  );
+
+  // Loading state
+  if (isLoading &amp;&amp; !filteredQuotations) {
+    return (
+      &lt;SafeAreaContainer&gt;
+        &lt;View
+          style&#x3D;{{
+            flex: 1,
+            justifyContent: &#x27;center&#x27;,
+            alignItems: &#x27;center&#x27;,
+            paddingHorizontal: 32,
+          }}
+        &gt;
+          &lt;ActivityIndicator size&#x3D;&quot;large&quot; color&#x3D;{theme.colors.primary} /&gt;
+          &lt;Text
+            style&#x3D;{{
+              fontSize: 16,
+              marginTop: 16,
+              textAlign: &#x27;center&#x27;,
+              color: theme.colors.onSurfaceVariant,
+            }}
+          &gt;
+            Loading quotations...
+          &lt;/Text&gt;
+        &lt;/View&gt;
+      &lt;/SafeAreaContainer&gt;
+    );
+  }
+
+  // Error state
+  if (isError) {
+    return (
+      &lt;SafeAreaContainer&gt;
+        &lt;View
+          style&#x3D;{{
+            flex: 1,
+            justifyContent: &#x27;center&#x27;,
+            alignItems: &#x27;center&#x27;,
+            paddingHorizontal: 32,
+          }}
+        &gt;
+          &lt;MaterialIcons
+            name&#x3D;&quot;error-outline&quot;
+            size&#x3D;{64}
+            color&#x3D;{theme.colors.error}
+          /&gt;
+          &lt;Text
+            style&#x3D;{{
+              fontSize: 20,
+              fontWeight: &#x27;600&#x27;,
+              color: theme.colors.error,
+              marginTop: 16,
+              textAlign: &#x27;center&#x27;,
+            }}
+          &gt;
+            Failed to Load Quotations
+          &lt;/Text&gt;
+          &lt;Text
+            style&#x3D;{{
+              fontSize: 16,
+              color: theme.colors.onSurfaceVariant,
+              marginTop: 8,
+              textAlign: &#x27;center&#x27;,
+            }}
+          &gt;
+            Please pull down to refresh and try again.
+          &lt;/Text&gt;
+        &lt;/View&gt;
+      &lt;/SafeAreaContainer&gt;
+    );
+  }
+
+  // Empty state
+  if (!filteredQuotations || filteredQuotations.length &#x3D;&#x3D;&#x3D; 0) {
+    return (
+      &lt;SafeAreaContainer&gt;
+        &lt;FlatList
+          data&#x3D;{[]}
+          renderItem&#x3D;{() &#x3D;&gt; null}
+          ListEmptyComponent&#x3D;{&lt;EmptyState /&gt;}
+          refreshControl&#x3D;{
+            &lt;RefreshControl
+              refreshing&#x3D;{isFetching &amp;&amp; canRefreshQuotations()}
+              onRefresh&#x3D;{handleRefresh}
+              colors&#x3D;{[theme.colors.primary]}
+              tintColor&#x3D;{theme.colors.primary}
+            /&gt;
+          }
+        /&gt;
+      &lt;/SafeAreaContainer&gt;
+    );
+  }
+
+  // Content state
+  return (
+    &lt;SafeAreaContainer&gt;
+      &lt;FlatList
+        data&#x3D;{filteredQuotations}
+        renderItem&#x3D;{renderQuotationItem}
+        keyExtractor&#x3D;{item &#x3D;&gt; item.quotationId}
+        contentContainerStyle&#x3D;{{
+          padding: 16,
+          backgroundColor: theme.colors.background,
+        }}
+        refreshControl&#x3D;{
+          &lt;RefreshControl
+            refreshing&#x3D;{isFetching &amp;&amp; canRefreshQuotations()}
+            onRefresh&#x3D;{handleRefresh}
+            colors&#x3D;{[theme.colors.primary]}
+            tintColor&#x3D;{theme.colors.primary}
+          /&gt;
+        }
+        showsVerticalScrollIndicator&#x3D;{false}
+        // Performance optimizations for &gt;30 items
+        removeClippedSubviews&#x3D;{true}
+        maxToRenderPerBatch&#x3D;{10}
+        updateCellsBatchingPeriod&#x3D;{50}
+        initialNumToRender&#x3D;{10}
+        windowSize&#x3D;{10}
+      /&gt;
+
+      {/* PDF Loading Overlay */}
+      {isPdfLoading &amp;&amp; (
+        &lt;View
+          style&#x3D;{{
+            position: &#x27;absolute&#x27;,
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: &#x27;rgba(0,0,0,0.3)&#x27;,
+            justifyContent: &#x27;center&#x27;,
+            alignItems: &#x27;center&#x27;,
+          }}
+        &gt;
+          &lt;View
+            style&#x3D;{{
+              backgroundColor: theme.colors.surface,
+              padding: 24,
+              borderRadius: 12,
+              alignItems: &#x27;center&#x27;,
+              elevation: 8,
+              shadowColor: &#x27;#000&#x27;,
+              shadowOffset: {width: 0, height: 4},
+              shadowOpacity: 0.3,
+              shadowRadius: 8,
+            }}
+          &gt;
+            &lt;ActivityIndicator size&#x3D;&quot;large&quot; color&#x3D;{theme.colors.primary} /&gt;
+            &lt;Text
+              style&#x3D;{{
+                fontSize: 16,
+                marginTop: 12,
+                color: theme.colors.onSurface,
+              }}
+            &gt;
+              Preparing PDF...
+            &lt;/Text&gt;
+          &lt;/View&gt;
+        &lt;/View&gt;
+      )}
+    &lt;/SafeAreaContainer&gt;
+  );
+};
+
+export default QuotesTab;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'QuotesTabProps.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

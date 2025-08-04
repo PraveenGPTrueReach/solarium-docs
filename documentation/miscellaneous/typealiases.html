@@ -1,0 +1,1347 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SolariumCustApp documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">SolariumCustApp documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-typealiases">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Type aliases</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#AppDispatch" title="src/store/index.ts" ><b>AppDispatch</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AuthStackParamList" title="src/navigation/types.ts" ><b>AuthStackParamList</b>&nbsp;&nbsp;&nbsp;(src/.../types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AuthStackScreenProps" title="src/navigation/types.ts" ><b>AuthStackScreenProps</b>&nbsp;&nbsp;&nbsp;(src/.../types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ButtonSize" title="src/types/Components.ts" ><b>ButtonSize</b>&nbsp;&nbsp;&nbsp;(src/.../Components.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ButtonVariant" title="src/types/Components.ts" ><b>ButtonVariant</b>&nbsp;&nbsp;&nbsp;(src/.../Components.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CartCheckoutScreenNavigationProp" title="src/screens/main/CartCheckoutScreen.tsx" ><b>CartCheckoutScreenNavigationProp</b>&nbsp;&nbsp;&nbsp;(src/.../CartCheckoutScreen.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#Environment" title="src/config/environments.ts" ><b>Environment</b>&nbsp;&nbsp;&nbsp;(src/.../environments.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ErrorMessageType" title="src/types/Components.ts" ><b>ErrorMessageType</b>&nbsp;&nbsp;&nbsp;(src/.../Components.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#HttpMethod" title="src/utils/apiHelpers.ts" ><b>HttpMethod</b>&nbsp;&nbsp;&nbsp;(src/.../apiHelpers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#KycDocumentStatus" title="src/types/KycDocument.ts" ><b>KycDocumentStatus</b>&nbsp;&nbsp;&nbsp;(src/.../KycDocument.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#KycDocumentType" title="src/types/KycDocument.ts" ><b>KycDocumentType</b>&nbsp;&nbsp;&nbsp;(src/.../KycDocument.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LeadDetailRouteProp" title="src/screens/main/LeadDetail/LeadDetailTabNavigator.tsx" ><b>LeadDetailRouteProp</b>&nbsp;&nbsp;&nbsp;(src/.../LeadDetailTabNavigator.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#LeadDetailTabParamList" title="src/screens/main/LeadDetail/LeadDetailTabNavigator.tsx" ><b>LeadDetailTabParamList</b>&nbsp;&nbsp;&nbsp;(src/.../LeadDetailTabNavigator.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#LeadStatus" title="src/types/Lead.ts" ><b>LeadStatus</b>&nbsp;&nbsp;&nbsp;(src/.../Lead.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadingOverlayContainerMode" title="src/types/Components.ts" ><b>LoadingOverlayContainerMode</b>&nbsp;&nbsp;&nbsp;(src/.../Components.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MainTabParamList" title="src/navigation/types.ts" ><b>MainTabParamList</b>&nbsp;&nbsp;&nbsp;(src/.../types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MainTabScreenProps" title="src/navigation/types.ts" ><b>MainTabScreenProps</b>&nbsp;&nbsp;&nbsp;(src/.../types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MessageSender" title="src/types/Ticket.ts" ><b>MessageSender</b>&nbsp;&nbsp;&nbsp;(src/.../Ticket.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NewAppDispatch" title="src/store/newStore.ts" ><b>NewAppDispatch</b>&nbsp;&nbsp;&nbsp;(src/.../newStore.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NewRootState" title="src/store/newStore.ts" ><b>NewRootState</b>&nbsp;&nbsp;&nbsp;(src/.../newStore.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NotificationSeverity" title="src/types/Notification.ts" ><b>NotificationSeverity</b>&nbsp;&nbsp;&nbsp;(src/.../Notification.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NotificationSortBy" title="src/types/Notification.ts" ><b>NotificationSortBy</b>&nbsp;&nbsp;&nbsp;(src/.../Notification.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NotificationSortOrder" title="src/types/Notification.ts" ><b>NotificationSortOrder</b>&nbsp;&nbsp;&nbsp;(src/.../Notification.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NotificationStatus" title="src/types/Notification.ts" ><b>NotificationStatus</b>&nbsp;&nbsp;&nbsp;(src/.../Notification.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NotificationType" title="src/types/Notification.ts" ><b>NotificationType</b>&nbsp;&nbsp;&nbsp;(src/.../Notification.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Props" title="src/screens/auth/LoginScreen.tsx" ><b>Props</b>&nbsp;&nbsp;&nbsp;(src/.../LoginScreen.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#Props" title="src/screens/auth/OTPVerificationScreen.tsx" ><b>Props</b>&nbsp;&nbsp;&nbsp;(src/.../OTPVerificationScreen.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#Props" title="src/screens/main/DocumentsScreen.tsx" ><b>Props</b>&nbsp;&nbsp;&nbsp;(src/.../DocumentsScreen.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#Props" title="src/screens/main/HelpScreen.tsx" ><b>Props</b>&nbsp;&nbsp;&nbsp;(src/.../HelpScreen.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#Props" title="src/screens/main/HomeScreen.tsx" ><b>Props</b>&nbsp;&nbsp;&nbsp;(src/.../HomeScreen.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#Props" title="src/screens/main/MyRecordsScreen.tsx" ><b>Props</b>&nbsp;&nbsp;&nbsp;(src/.../MyRecordsScreen.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#Props" title="src/screens/main/NotificationsScreen.tsx" ><b>Props</b>&nbsp;&nbsp;&nbsp;(src/.../NotificationsScreen.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#Props" title="src/screens/main/TicketThreadScreen.tsx" ><b>Props</b>&nbsp;&nbsp;&nbsp;(src/.../TicketThreadScreen.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#QuotationStatus" title="src/types/Quotation.ts" ><b>QuotationStatus</b>&nbsp;&nbsp;&nbsp;(src/.../Quotation.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RootStackParamList" title="src/navigation/types.ts" ><b>RootStackParamList</b>&nbsp;&nbsp;&nbsp;(src/.../types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RootStackScreenProps" title="src/navigation/types.ts" ><b>RootStackScreenProps</b>&nbsp;&nbsp;&nbsp;(src/.../types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RootState" title="src/store/index.ts" ><b>RootState</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ServiceDetailRouteProp" title="src/screens/main/ServiceDetailScreen.tsx" ><b>ServiceDetailRouteProp</b>&nbsp;&nbsp;&nbsp;(src/.../ServiceDetailScreen.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#ServicesScreenNavigationProp" title="src/screens/main/ServicesScreen.tsx" ><b>ServicesScreenNavigationProp</b>&nbsp;&nbsp;&nbsp;(src/.../ServicesScreen.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#ServicesScreenRouteProp" title="src/screens/main/ServicesScreen.tsx" ><b>ServicesScreenRouteProp</b>&nbsp;&nbsp;&nbsp;(src/.../ServicesScreen.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#SpinnerSize" title="src/types/Components.ts" ><b>SpinnerSize</b>&nbsp;&nbsp;&nbsp;(src/.../Components.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#StoreType" title="src/api/kycService.ts" ><b>StoreType</b>&nbsp;&nbsp;&nbsp;(src/.../kycService.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TextInputVariant" title="src/types/Components.ts" ><b>TextInputVariant</b>&nbsp;&nbsp;&nbsp;(src/.../Components.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TicketStatus" title="src/types/Ticket.ts" ><b>TicketStatus</b>&nbsp;&nbsp;&nbsp;(src/.../Ticket.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TimerStatus" title="src/types/Timer.ts" ><b>TimerStatus</b>&nbsp;&nbsp;&nbsp;(src/.../Timer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TimerType" title="src/types/Timer.ts" ><b>TimerType</b>&nbsp;&nbsp;&nbsp;(src/.../Timer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UploadErrorType" title="src/types/AzureBlob.ts" ><b>UploadErrorType</b>&nbsp;&nbsp;&nbsp;(src/.../AzureBlob.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UploadStatus" title="src/hooks/useKycUpload.ts" ><b>UploadStatus</b>&nbsp;&nbsp;&nbsp;(src/.../useKycUpload.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/store/index.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AppDispatch"></a>
+                    <span class="name "><b>AppDispatch</b><a href="#AppDispatch"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RootState"></a>
+                    <span class="name "><b>RootState</b><a href="#RootState"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Types</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>ReturnType&lt;&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/navigation/types.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AuthStackParamList"></a>
+                    <span class="name "><b>AuthStackParamList</b><a href="#AuthStackParamList"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Authentication Stack Params</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AuthStackScreenProps"></a>
+                    <span class="name "><b>AuthStackScreenProps</b><a href="#AuthStackScreenProps"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>StackScreenProps&lt;AuthStackParamList | T&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MainTabParamList"></a>
+                    <span class="name "><b>MainTabParamList</b><a href="#MainTabParamList"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Main Tab Navigator Params</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MainTabScreenProps"></a>
+                    <span class="name "><b>MainTabScreenProps</b><a href="#MainTabScreenProps"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>BottomTabScreenProps&lt;MainTabParamList | T&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RootStackParamList"></a>
+                    <span class="name "><b>RootStackParamList</b><a href="#RootStackParamList"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Root Stack Navigator Params</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RootStackScreenProps"></a>
+                    <span class="name "><b>RootStackScreenProps</b><a href="#RootStackScreenProps"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Navigation Props Types</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>StackScreenProps&lt;RootStackParamList | T&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/types/Components.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ButtonSize"></a>
+                    <span class="name "><b>ButtonSize</b><a href="#ButtonSize"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;small&quot; | &quot;medium&quot; | &quot;large&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ButtonVariant"></a>
+                    <span class="name "><b>ButtonVariant</b><a href="#ButtonVariant"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Button Component Types</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;primary&quot; | &quot;secondary&quot; | &quot;outline&quot; | &quot;ghost&quot; | &quot;danger&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ErrorMessageType"></a>
+                    <span class="name "><b>ErrorMessageType</b><a href="#ErrorMessageType"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Error Message Types</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;error&quot; | &quot;warning&quot; | &quot;info&quot; | &quot;success&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadingOverlayContainerMode"></a>
+                    <span class="name "><b>LoadingOverlayContainerMode</b><a href="#LoadingOverlayContainerMode"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Loading Overlay Types</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;fullscreen&quot; | &quot;local&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SpinnerSize"></a>
+                    <span class="name "><b>SpinnerSize</b><a href="#SpinnerSize"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Loading Spinner Types</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;small&quot; | &quot;medium&quot; | &quot;large&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TextInputVariant"></a>
+                    <span class="name "><b>TextInputVariant</b><a href="#TextInputVariant"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>TextInput Component Types</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;default&quot; | &quot;outlined&quot; | &quot;filled&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/screens/main/CartCheckoutScreen.tsx</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CartCheckoutScreenNavigationProp"></a>
+                    <span class="name "><b>CartCheckoutScreenNavigationProp</b><a href="#CartCheckoutScreenNavigationProp"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#RootStackParamList" target="_self" >StackNavigationProp&lt;RootStackParamList | CartCheckout&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/config/environments.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Environment"></a>
+                    <span class="name "><b>Environment</b><a href="#Environment"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Environment Configuration
+Manual environment loader with type safety and fallbacks</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;development&quot; | &quot;staging&quot; | &quot;production&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/utils/apiHelpers.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="HttpMethod"></a>
+                    <span class="name "><b>HttpMethod</b><a href="#HttpMethod"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>HTTP Methods</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;GET&quot; | &quot;POST&quot; | &quot;PUT&quot; | &quot;PATCH&quot; | &quot;DELETE&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/types/KycDocument.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="KycDocumentStatus"></a>
+                    <span class="name "><b>KycDocumentStatus</b><a href="#KycDocumentStatus"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>KYC document status</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/variables.html#App" target="_self" >&quot;Pending&quot; | &quot;Approved&quot; | &quot;Rejected&quot;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="KycDocumentType"></a>
+                    <span class="name "><b>KycDocumentType</b><a href="#KycDocumentType"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>KYC Document Types
+Interfaces for KYC document management</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;IncomeProof&quot; | &quot;LightBill&quot; | &quot;CancelledCheque&quot; | &quot;Aadhaar&quot; | &quot;PAN&quot; | &quot;PassportPhoto&quot; | &quot;Other&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/screens/main/LeadDetail/LeadDetailTabNavigator.tsx</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LeadDetailRouteProp"></a>
+                    <span class="name "><b>LeadDetailRouteProp</b><a href="#LeadDetailRouteProp"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#RootStackScreenProps" target="_self" >RootStackScreenProps</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LeadDetailTabParamList"></a>
+                    <span class="name "><b>LeadDetailTabParamList</b><a href="#LeadDetailTabParamList"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Tab Parameter List</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/types/Lead.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LeadStatus"></a>
+                    <span class="name "><b>LeadStatus</b><a href="#LeadStatus"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lead Types
+Defines lead-related interfaces and types</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/Lead.html" target="_self" >&quot;New Lead&quot; | &quot;In Discussion&quot; | &quot;Physical Meeting Assigned&quot; | &quot;Customer Accepted&quot; | &quot;Won&quot; | &quot;Pending at Solarium&quot; | &quot;Under Execution&quot; | &quot;Executed&quot; | &quot;Not Responding&quot; | &quot;Not Interested&quot; | &quot;Other Territory&quot;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/types/Ticket.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MessageSender"></a>
+                    <span class="name "><b>MessageSender</b><a href="#MessageSender"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Message sender type
+Based on actual API response structure</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;Customer&quot; | &quot;Admin&quot; | &quot;KAM&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TicketStatus"></a>
+                    <span class="name "><b>TicketStatus</b><a href="#TicketStatus"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Support Ticket Type Definitions</p>
+<p>This file contains all TypeScript interfaces for the support ticket system,
+based on the actual API responses from the backend.</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;Open&quot; | &quot;Closed&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/store/newStore.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NewAppDispatch"></a>
+                    <span class="name "><b>NewAppDispatch</b><a href="#NewAppDispatch"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NewRootState"></a>
+                    <span class="name "><b>NewRootState</b><a href="#NewRootState"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Types</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>ReturnType&lt;&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/types/Notification.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NotificationSeverity"></a>
+                    <span class="name "><b>NotificationSeverity</b><a href="#NotificationSeverity"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Available notification severities for filtering</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;info&quot; | &quot;warning&quot; | &quot;error&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NotificationSortBy"></a>
+                    <span class="name "><b>NotificationSortBy</b><a href="#NotificationSortBy"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Available sort fields for notifications</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;createdAt&quot; | &quot;readAt&quot; | &quot;title&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NotificationSortOrder"></a>
+                    <span class="name "><b>NotificationSortOrder</b><a href="#NotificationSortOrder"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Available sort orders</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;asc&quot; | &quot;desc&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NotificationStatus"></a>
+                    <span class="name "><b>NotificationStatus</b><a href="#NotificationStatus"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Available notification statuses for filtering</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;read&quot; | &quot;unread&quot; | &quot;all&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NotificationType"></a>
+                    <span class="name "><b>NotificationType</b><a href="#NotificationType"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Available notification types for filtering</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;system&quot; | &quot;security&quot; | &quot;lead&quot; | &quot;quotation&quot; | &quot;commission&quot; | &quot;user&quot; | &quot;announcement&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/screens/auth/LoginScreen.tsx</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Props"></a>
+                    <span class="name "><b>Props</b><a href="#Props"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>AuthStackScreenProps&lt;Login&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/screens/auth/OTPVerificationScreen.tsx</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Props"></a>
+                    <span class="name "><b>Props</b><a href="#Props"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>AuthStackScreenProps&lt;OTPVerification&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/screens/main/DocumentsScreen.tsx</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Props"></a>
+                    <span class="name "><b>Props</b><a href="#Props"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>MainTabScreenProps&lt;Documents&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/screens/main/HelpScreen.tsx</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Props"></a>
+                    <span class="name "><b>Props</b><a href="#Props"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>MainTabScreenProps&lt;Help&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/screens/main/HomeScreen.tsx</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Props"></a>
+                    <span class="name "><b>Props</b><a href="#Props"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>MainTabScreenProps&lt;Home&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/screens/main/MyRecordsScreen.tsx</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Props"></a>
+                    <span class="name "><b>Props</b><a href="#Props"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>MainTabScreenProps&lt;MyRecords&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/screens/main/NotificationsScreen.tsx</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Props"></a>
+                    <span class="name "><b>Props</b><a href="#Props"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/Notification.html" target="_self" >RootStackScreenProps&lt;Notifications&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/screens/main/TicketThreadScreen.tsx</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Props"></a>
+                    <span class="name "><b>Props</b><a href="#Props"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/Ticket.html" target="_self" >RootStackScreenProps&lt;TicketThread&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/types/Quotation.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="QuotationStatus"></a>
+                    <span class="name "><b>QuotationStatus</b><a href="#QuotationStatus"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Quotation Types
+Defines quotation-related interfaces and types for the solar lead management system</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;Draft&quot; | &quot;Created&quot; | &quot;Shared&quot; | &quot;Accepted&quot; | &quot;Rejected&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/screens/main/ServiceDetailScreen.tsx</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ServiceDetailRouteProp"></a>
+                    <span class="name "><b>ServiceDetailRouteProp</b><a href="#ServiceDetailRouteProp"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/Service.html" target="_self" >RouteProp&lt;RootStackParamList | ServiceDetail&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/screens/main/ServicesScreen.tsx</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ServicesScreenNavigationProp"></a>
+                    <span class="name "><b>ServicesScreenNavigationProp</b><a href="#ServicesScreenNavigationProp"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#RootStackParamList" target="_self" >StackNavigationProp&lt;RootStackParamList | Main&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ServicesScreenRouteProp"></a>
+                    <span class="name "><b>ServicesScreenRouteProp</b><a href="#ServicesScreenRouteProp"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/Service.html" target="_self" >RouteProp&lt;MainTabParamList | Services&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/api/kycService.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="StoreType"></a>
+                    <span class="name "><b>StoreType</b><a href="#StoreType"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Store type for dispatch operations</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/types/Timer.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TimerStatus"></a>
+                    <span class="name "><b>TimerStatus</b><a href="#TimerStatus"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Timer Status</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;idle&quot; | &quot;active&quot; | &quot;paused&quot; | &quot;completed&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TimerType"></a>
+                    <span class="name "><b>TimerType</b><a href="#TimerType"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Timer Types for different use cases</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;resend&quot; | &quot;lockout&quot; | &quot;custom&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/types/AzureBlob.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UploadErrorType"></a>
+                    <span class="name "><b>UploadErrorType</b><a href="#UploadErrorType"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Upload error types</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;NETWORK_ERROR&quot; | &quot;TIMEOUT_ERROR&quot; | &quot;EXPIRED_TOKEN&quot; | &quot;CANCELLED&quot; | &quot;INVALID_RESPONSE&quot; | &quot;UPLOAD_EXPIRED&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/hooks/useKycUpload.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UploadStatus"></a>
+                    <span class="name "><b>UploadStatus</b><a href="#UploadStatus"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Upload status types</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;idle&quot; | &quot;running&quot; | &quot;success&quot; | &quot;error&quot; | &quot;cancelled&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-typealiases';
+            var COMPODOC_CURRENT_PAGE_URL = 'typealiases.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

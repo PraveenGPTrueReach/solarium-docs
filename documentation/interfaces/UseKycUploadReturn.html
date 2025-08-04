@@ -1,0 +1,834 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SolariumCustApp documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">SolariumCustApp documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  UseKycUploadReturn</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/hooks/useKycUpload.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Hook return type</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#cancel" 
+>
+                                            cancel
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#error" 
+>
+                                            error
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#progress" 
+>
+                                            progress
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#result" 
+>
+                                            result
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#startUpload" 
+>
+                                            startUpload
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#status" 
+>
+                                            status
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="cancel"></a>
+                                        <span class="name "><b>cancel</b>
+                                            <a href="#cancel">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>cancel:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="error"></a>
+                                        <span class="name "><b>error</b>
+                                            <a href="#error">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>error:     <code>Error</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>Error</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="progress"></a>
+                                        <span class="name "><b>progress</b>
+                                            <a href="#progress">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>progress:     <code>number | null</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>number | null</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="result"></a>
+                                        <span class="name "><b>result</b>
+                                            <a href="#result">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>result:         <code><a href="../interfaces/UploadResult.html" target="_self" >UploadResult</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/UploadResult.html" target="_self" >UploadResult</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="startUpload"></a>
+                                        <span class="name "><b>startUpload</b>
+                                            <a href="#startUpload">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>startUpload:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="status"></a>
+                                        <span class="name "><b>status</b>
+                                            <a href="#status">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>status:         <code><a href="../miscellaneous/typealiases.html#UploadStatus" target="_self" >UploadStatus</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#UploadStatus" target="_self" >UploadStatus</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {useState, useCallback, useRef, useEffect} from &#x27;react&#x27;;
+import {kycApi} from &#x27;../api/endpoints/kyc&#x27;;
+import {ValidationError} from &#x27;../errors/ValidationError&#x27;;
+import {
+  uploadKycDocument,
+  KycUploadError,
+  UploadResult,
+} from &#x27;../lib/kycUploader&#x27;;
+import type {RNFile} from &#x27;../types/File&#x27;;
+import type {KycDocumentType} from &#x27;../types/KycDocument&#x27;;
+import {useNewAuth} from &#x27;./useNewAuth&#x27;;
+import {useAppDispatch} from &#x27;./useTypedRedux&#x27;;
+
+/**
+ * Upload status types
+ */
+export type UploadStatus &#x3D;
+  | &#x27;idle&#x27;
+  | &#x27;running&#x27;
+  | &#x27;success&#x27;
+  | &#x27;error&#x27;
+  | &#x27;cancelled&#x27;;
+
+/**
+ * Hook return type
+ */
+export interface UseKycUploadReturn {
+  startUpload: (
+    docType: KycDocumentType,
+    file: RNFile,
+    leadId?: string
+  ) &#x3D;&gt; void;
+  progress: number | null;
+  status: UploadStatus;
+  error?: Error;
+  cancel: () &#x3D;&gt; void;
+  result?: UploadResult;
+}
+
+/**
+ * Debounce storage for uploads per document type
+ */
+const uploadDebounceTimestamps &#x3D; new Map&lt;KycDocumentType, number&gt;();
+
+/**
+ * Debounce window for uploads (60 seconds)
+ */
+const UPLOAD_DEBOUNCE_MS &#x3D; 60 * 1000;
+
+/**
+ * Check if upload is allowed based on debounce
+ */
+const canUploadDocType &#x3D; (docType: KycDocumentType): boolean &#x3D;&gt; {
+  const lastUpload &#x3D; uploadDebounceTimestamps.get(docType);
+  if (!lastUpload) {
+    return true;
+  }
+
+  const now &#x3D; Date.now();
+  return now - lastUpload &gt;&#x3D; UPLOAD_DEBOUNCE_MS;
+};
+
+/**
+ * Get remaining debounce time in seconds
+ */
+const getRemainingDebounceTime &#x3D; (docType: KycDocumentType): number &#x3D;&gt; {
+  const lastUpload &#x3D; uploadDebounceTimestamps.get(docType);
+  if (!lastUpload) {
+    return 0;
+  }
+
+  const now &#x3D; Date.now();
+  const elapsed &#x3D; now - lastUpload;
+  const remaining &#x3D; UPLOAD_DEBOUNCE_MS - elapsed;
+
+  return Math.max(0, Math.ceil(remaining / 1000));
+};
+
+/**
+ * Custom hook for KYC document uploads with progress tracking and cancellation
+ *
+ * Features:
+ * - Real-time progress updates (0-100%)
+ * - Upload cancellation with AbortController
+ * - 60-second debounce per document type
+ * - Automatic cache invalidation on success
+ * - Comprehensive error handling
+ *
+ * @returns Object containing upload functions and state
+ */
+export const useKycUpload &#x3D; (): UseKycUploadReturn &#x3D;&gt; {
+  const dispatch &#x3D; useAppDispatch();
+  const {user} &#x3D; useNewAuth();
+
+  // Upload state
+  const [status, setStatus] &#x3D; useState&lt;UploadStatus&gt;(&#x27;idle&#x27;);
+  const [progress, setProgress] &#x3D; useState&lt;number | null&gt;(null);
+  const [error, setError] &#x3D; useState&lt;Error | undefined&gt;(undefined);
+  const [result, setResult] &#x3D; useState&lt;UploadResult | undefined&gt;(undefined);
+
+  // Abort controller for cancellation
+  const abortControllerRef &#x3D; useRef&lt;AbortController | null&gt;(null);
+  const currentDocTypeRef &#x3D; useRef&lt;KycDocumentType | null&gt;(null);
+
+  /**
+   * Cancel current upload
+   */
+  const cancel &#x3D; useCallback(() &#x3D;&gt; {
+    if (abortControllerRef.current &amp;&amp; status &#x3D;&#x3D;&#x3D; &#x27;running&#x27;) {
+      console.log(&#x27;[useKycUpload] Cancelling upload...&#x27;);
+      abortControllerRef.current.abort();
+      setStatus(&#x27;cancelled&#x27;);
+      setProgress(null);
+      setError(undefined);
+    }
+  }, [status]);
+
+  /**
+   * Reset state for new upload
+   */
+  const resetState &#x3D; useCallback(() &#x3D;&gt; {
+    setStatus(&#x27;idle&#x27;);
+    setProgress(null);
+    setError(undefined);
+    setResult(undefined);
+  }, []);
+
+  /**
+   * Start KYC document upload
+   */
+  const startUpload &#x3D; useCallback(
+    async (docType: KycDocumentType, file: RNFile, leadId?: string) &#x3D;&gt; {
+      // Guard: Check if user is authenticated
+      if (!user?.id) {
+        console.error(&#x27;[useKycUpload] User not authenticated&#x27;);
+        setError(new Error(&#x27;User not authenticated&#x27;));
+        setStatus(&#x27;error&#x27;);
+        return;
+      }
+
+      // Guard: Check debounce
+      if (!canUploadDocType(docType)) {
+        const remainingSeconds &#x3D; getRemainingDebounceTime(docType);
+        console.warn(
+          &#x60;[useKycUpload] Upload blocked by debounce for ${docType}. ${remainingSeconds}s remaining.&#x60;
+        );
+        setError(
+          new Error(
+            &#x60;Please wait ${remainingSeconds} seconds before uploading another ${docType} document.&#x60;
+          )
+        );
+        setStatus(&#x27;error&#x27;);
+        return;
+      }
+
+      // Guard: Check if already uploading
+      if (status &#x3D;&#x3D;&#x3D; &#x27;running&#x27;) {
+        console.warn(&#x27;[useKycUpload] Upload already in progress&#x27;);
+        return;
+      }
+
+      try {
+        console.log(&#x60;[useKycUpload] Starting upload for ${docType}:&#x60;, {
+          fileName: file.name,
+          fileSize: file.size,
+          fileType: file.type,
+        });
+
+        // Reset state and setup for new upload
+        resetState();
+        setStatus(&#x27;running&#x27;);
+        setProgress(0);
+        currentDocTypeRef.current &#x3D; docType;
+
+        // Create abort controller
+        abortControllerRef.current &#x3D; new AbortController();
+
+        // Record upload timestamp for debounce
+        uploadDebounceTimestamps.set(docType, Date.now());
+
+        // Create store reference for the upload function
+        const storeRef &#x3D; {
+          getState: (): RootState &#x3D;&gt; {
+            // This will be called during upload to get current state
+            return (global as any).__REDUX_STORE_STATE__ || {};
+          },
+          dispatch,
+        };
+
+        // temporary hard-coded leadId if not provided
+        // currently, our mock-server expects it mandatorily, but it is expected to be optional
+        // finally, it should be passed in uploadKycDocument only if needed
+        if (!leadId) {
+          leadId &#x3D; &#x27;LEAD-1014&#x27;;
+        }
+
+        // Start upload
+        const uploadResult &#x3D; await uploadKycDocument({
+          leadId,
+          customerId: user.id,
+          docType,
+          file,
+          onProgress: (percentage: number) &#x3D;&gt; {
+            // Only update progress if upload wasn&#x27;t cancelled
+            if (
+              abortControllerRef.current &amp;&amp;
+              !abortControllerRef.current.signal.aborted
+            ) {
+              setProgress(percentage);
+              console.log(&#x60;[useKycUpload] Progress: ${percentage}%&#x60;);
+            }
+          },
+          store: storeRef,
+          abortSignal: abortControllerRef.current.signal,
+        });
+
+        // Success
+        if (
+          abortControllerRef.current &amp;&amp;
+          !abortControllerRef.current.signal.aborted
+        ) {
+          console.log(
+            &#x27;[useKycUpload] Upload completed successfully:&#x27;,
+            uploadResult
+          );
+          setStatus(&#x27;success&#x27;);
+          setProgress(100);
+          setResult(uploadResult);
+
+          // Auto-invalidate KYC cache
+          dispatch(
+            kycApi.util.invalidateTags([
+              {type: &#x27;KycDoc&#x27;, id: user.id},
+              {type: &#x27;KycDoc&#x27;, id: &#x27;LIST&#x27;},
+            ])
+          );
+        }
+      } catch (uploadError) {
+        // Handle different error types
+        if (abortControllerRef.current?.signal.aborted) {
+          console.log(&#x27;[useKycUpload] Upload was cancelled&#x27;);
+          setStatus(&#x27;cancelled&#x27;);
+          setProgress(null);
+          return;
+        }
+
+        console.error(&#x27;[useKycUpload] Upload failed:&#x27;, uploadError);
+
+        // DEVELOPMENT MODE: Mock success for failed uploads to maintain UX flow
+        // This allows testing the complete upload workflow even when mock server fails
+        if (__DEV__) {
+          console.warn(
+            &#x27;[useKycUpload] DEV MODE: Simulating upload success despite API failure for UX testing&#x27;
+          );
+
+          // Simulate successful upload result
+          const mockResult &#x3D; {
+            blobName: &#x60;mock-${docType}-${Date.now()}.pdf&#x60;,
+            url: &#x27;https://mock-storage.blob.core.windows.net/kyc-docs&#x27;,
+          };
+
+          setStatus(&#x27;success&#x27;);
+          setProgress(100);
+          setResult(mockResult);
+
+          // Trigger cache invalidation to refresh document list
+          // This will cause useKycDocuments to refetch and show updated status
+          dispatch(
+            kycApi.util.invalidateTags([
+              {type: &#x27;KycDoc&#x27;, id: user.id},
+              {type: &#x27;KycDoc&#x27;, id: &#x27;LIST&#x27;},
+            ])
+          );
+
+          console.log(
+            &#x27;[useKycUpload] DEV MODE: Mock upload completed successfully&#x27;
+          );
+          return;
+        }
+
+        // PRODUCTION MODE: Handle errors normally
+        let errorToSet: Error;
+
+        if (uploadError instanceof KycUploadError) {
+          errorToSet &#x3D; new Error(
+            &#x60;Upload failed at ${uploadError.step}: ${uploadError.originalError.message}&#x60;
+          );
+        } else if (uploadError instanceof ValidationError) {
+          errorToSet &#x3D; uploadError;
+        } else if (uploadError instanceof Error) {
+          errorToSet &#x3D; uploadError;
+        } else {
+          errorToSet &#x3D; new Error(&#x27;Upload failed with unknown error&#x27;);
+        }
+
+        setError(errorToSet);
+        setStatus(&#x27;error&#x27;);
+        setProgress(null);
+      } finally {
+        // Cleanup
+        abortControllerRef.current &#x3D; null;
+        currentDocTypeRef.current &#x3D; null;
+      }
+    },
+    [user?.id, status, dispatch, resetState]
+  );
+
+  // Cleanup on unmount
+  useEffect(() &#x3D;&gt; {
+    return () &#x3D;&gt; {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
+  }, []);
+
+  return {
+    startUpload,
+    progress,
+    status,
+    error,
+    cancel,
+    result,
+  };
+};
+
+/**
+ * Utility function to check if a document type can be uploaded (not in debounce)
+ */
+export const canUploadKycDocType &#x3D; (docType: KycDocumentType): boolean &#x3D;&gt; {
+  return canUploadDocType(docType);
+};
+
+/**
+ * Utility function to get remaining debounce time for a document type
+ */
+export const getKycUploadDebounceTime &#x3D; (docType: KycDocumentType): number &#x3D;&gt; {
+  return getRemainingDebounceTime(docType);
+};
+
+export default useKycUpload;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'UseKycUploadReturn.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

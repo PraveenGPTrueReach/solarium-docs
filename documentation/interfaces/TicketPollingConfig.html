@@ -1,0 +1,732 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SolariumCustApp documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">SolariumCustApp documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  TicketPollingConfig</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/hooks/useTicketPolling.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Polling configuration</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#baseIntervalSeconds" 
+>
+                                            baseIntervalSeconds
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#enabled" 
+>
+                                            enabled
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#maxJitterSeconds" 
+>
+                                            maxJitterSeconds
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#startImmediately" 
+>
+                                            startImmediately
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="baseIntervalSeconds"></a>
+                                        <span class="name "><b>baseIntervalSeconds</b>
+                                            <a href="#baseIntervalSeconds">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>baseIntervalSeconds:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Base polling interval in seconds (default: 30)</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="enabled"></a>
+                                        <span class="name "><b>enabled</b>
+                                            <a href="#enabled">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>enabled:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Whether polling is enabled (default: true)</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="maxJitterSeconds"></a>
+                                        <span class="name "><b>maxJitterSeconds</b>
+                                            <a href="#maxJitterSeconds">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>maxJitterSeconds:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Maximum jitter in seconds (default: 5)</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="startImmediately"></a>
+                                        <span class="name "><b>startImmediately</b>
+                                            <a href="#startImmediately">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>startImmediately:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Whether to start polling immediately (default: true)</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {useCallback, useEffect, useMemo, useRef} from &#x27;react&#x27;;
+import {AppState, AppStateStatus} from &#x27;react-native&#x27;;
+import {RefreshResult} from &#x27;../refresh/refreshTypes&#x27;;
+import {useRefreshControl} from &#x27;./useRefreshControl&#x27;;
+
+/**
+ * Polling configuration
+ */
+interface TicketPollingConfig {
+  /** Base polling interval in seconds (default: 30) */
+  baseIntervalSeconds?: number;
+  /** Maximum jitter in seconds (default: 5) */
+  maxJitterSeconds?: number;
+  /** Whether polling is enabled (default: true) */
+  enabled?: boolean;
+  /** Whether to start polling immediately (default: true) */
+  startImmediately?: boolean;
+}
+
+/**
+ * Polling state
+ */
+interface TicketPollingState {
+  isPolling: boolean;
+  lastPollAt: number | null;
+  nextPollAt: number | null;
+  pollCount: number;
+  startPolling: () &#x3D;&gt; void;
+  stopPolling: () &#x3D;&gt; void;
+  pollNow: () &#x3D;&gt; Promise&lt;RefreshResult&gt;;
+}
+
+/**
+ * Add jitter to interval to prevent thundering herd
+ */
+const addJitter &#x3D; (baseIntervalMs: number, maxJitterMs: number): number &#x3D;&gt; {
+  const jitter &#x3D; Math.random() * maxJitterMs * 2 - maxJitterMs; // ±maxJitter
+  return Math.max(1000, baseIntervalMs + jitter); // Minimum 1 second
+};
+
+/**
+ * Hook for automatic ticket polling
+ *
+ * Integrates with existing refresh infrastructure and handles:
+ * - 30s + jitter polling intervals
+ * - Background/foreground app state transitions
+ * - Screen focus/blur detection
+ * - Proper cleanup on unmount
+ * - Debounce respect through existing refresh system
+ */
+export const useTicketPolling &#x3D; (
+  config: TicketPollingConfig &#x3D; {}
+): TicketPollingState &#x3D;&gt; {
+  const {
+    baseIntervalSeconds &#x3D; 30,
+    maxJitterSeconds &#x3D; 5,
+    enabled &#x3D; true,
+    startImmediately &#x3D; true,
+  } &#x3D; config;
+
+  const {refreshTickets, canRefreshTickets} &#x3D; useRefreshControl();
+
+  // Polling state
+  const isPollingRef &#x3D; useRef&lt;boolean&gt;(false);
+  const timerRef &#x3D; useRef&lt;NodeJS.Timeout | null&gt;(null);
+  const lastPollAtRef &#x3D; useRef&lt;number | null&gt;(null);
+  const nextPollAtRef &#x3D; useRef&lt;number | null&gt;(null);
+  const pollCountRef &#x3D; useRef&lt;number&gt;(0);
+  const appStateRef &#x3D; useRef&lt;AppStateStatus&gt;(AppState.currentState);
+
+  /**
+   * Calculate next poll time with jitter
+   */
+  const calculateNextPollTime &#x3D; useCallback((): number &#x3D;&gt; {
+    const baseMs &#x3D; baseIntervalSeconds * 1000;
+    const maxJitterMs &#x3D; maxJitterSeconds * 1000;
+    const intervalWithJitter &#x3D; addJitter(baseMs, maxJitterMs);
+    return Date.now() + intervalWithJitter;
+  }, [baseIntervalSeconds, maxJitterSeconds]);
+
+  /**
+   * Execute a single poll
+   */
+  const pollNow &#x3D; useCallback(async (): Promise&lt;RefreshResult&gt; &#x3D;&gt; {
+    if (!enabled) {
+      console.log(&#x27;[TicketPolling] Polling disabled, skipping poll&#x27;);
+      return {
+        success: true,
+        refreshedApis: [],
+        errors: [],
+        timestamp: new Date().toISOString(),
+      };
+    }
+
+    console.log(&#x27;[TicketPolling] Executing poll now...&#x27;);
+
+    try {
+      lastPollAtRef.current &#x3D; Date.now();
+      pollCountRef.current +&#x3D; 1;
+
+      const result &#x3D; await refreshTickets();
+
+      console.log(&#x27;[TicketPolling] Poll completed:&#x27;, {
+        success: result.success,
+        refreshedApis: result.refreshedApis.length,
+        errors: result.errors.length,
+        pollCount: pollCountRef.current,
+      });
+
+      return result;
+    } catch (error) {
+      const errorMessage &#x3D;
+        error instanceof Error ? error.message : &#x27;Ticket polling failed&#x27;;
+      console.error(&#x27;[TicketPolling] Poll error:&#x27;, errorMessage);
+
+      return {
+        success: false,
+        refreshedApis: [],
+        errors: [{api: &#x27;tickets&#x27; as any, error: errorMessage}],
+        timestamp: new Date().toISOString(),
+      };
+    }
+  }, [enabled, refreshTickets]);
+
+  /**
+   * Schedule next poll
+   */
+  const scheduleNextPoll &#x3D; useCallback(() &#x3D;&gt; {
+    if (!enabled || !isPollingRef.current) {
+      return;
+    }
+
+    // Clear existing timer
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current &#x3D; null;
+    }
+
+    // Calculate delay
+    const nextPollTime &#x3D; calculateNextPollTime();
+    const delay &#x3D; nextPollTime - Date.now();
+    nextPollAtRef.current &#x3D; nextPollTime;
+
+    console.log(
+      &#x27;[TicketPolling] Scheduling next poll in&#x27;,
+      Math.round(delay / 1000),
+      &#x27;seconds&#x27;
+    );
+
+    timerRef.current &#x3D; setTimeout(async () &#x3D;&gt; {
+      // Only poll if we can refresh (respects 60s debounce)
+      if (canRefreshTickets() &amp;&amp; isPollingRef.current) {
+        await pollNow();
+        scheduleNextPoll(); // Schedule next poll
+      } else {
+        console.log(
+          &#x27;[TicketPolling] Poll skipped (debounce or stopped), rescheduling...&#x27;
+        );
+        scheduleNextPoll(); // Reschedule anyway to keep trying
+      }
+    }, delay);
+  }, [enabled, calculateNextPollTime, canRefreshTickets, pollNow]);
+
+  /**
+   * Start polling
+   */
+  const startPolling &#x3D; useCallback(() &#x3D;&gt; {
+    if (!enabled) {
+      console.log(&#x27;[TicketPolling] Cannot start - polling disabled&#x27;);
+      return;
+    }
+
+    if (isPollingRef.current) {
+      console.log(&#x27;[TicketPolling] Already polling, ignoring start request&#x27;);
+      return;
+    }
+
+    console.log(&#x27;[TicketPolling] Starting ticket polling...&#x27;);
+    isPollingRef.current &#x3D; true;
+    scheduleNextPoll();
+  }, [enabled, scheduleNextPoll]);
+
+  /**
+   * Stop polling
+   */
+  const stopPolling &#x3D; useCallback(() &#x3D;&gt; {
+    console.log(&#x27;[TicketPolling] Stopping ticket polling...&#x27;);
+    isPollingRef.current &#x3D; false;
+    nextPollAtRef.current &#x3D; null;
+
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current &#x3D; null;
+    }
+  }, []);
+
+  /**
+   * Handle app state changes
+   */
+  const handleAppStateChange &#x3D; useCallback(
+    (nextAppState: AppStateStatus) &#x3D;&gt; {
+      const previousState &#x3D; appStateRef.current;
+      appStateRef.current &#x3D; nextAppState;
+
+      console.log(
+        &#x27;[TicketPolling] App state change:&#x27;,
+        previousState,
+        &#x27;-&gt;&#x27;,
+        nextAppState
+      );
+
+      if (
+        nextAppState &#x3D;&#x3D;&#x3D; &#x27;active&#x27; &amp;&amp;
+        (previousState &#x3D;&#x3D;&#x3D; &#x27;background&#x27; || previousState &#x3D;&#x3D;&#x3D; &#x27;inactive&#x27;)
+      ) {
+        // App came to foreground
+        if (enabled &amp;&amp; !isPollingRef.current) {
+          console.log(&#x27;[TicketPolling] App foregrounded, resuming polling...&#x27;);
+          // Wait 5 seconds then resume polling
+          setTimeout(() &#x3D;&gt; {
+            if (appStateRef.current &#x3D;&#x3D;&#x3D; &#x27;active&#x27;) {
+              startPolling();
+            }
+          }, 5000);
+        }
+      } else if (
+        (nextAppState &#x3D;&#x3D;&#x3D; &#x27;background&#x27; || nextAppState &#x3D;&#x3D;&#x3D; &#x27;inactive&#x27;) &amp;&amp;
+        isPollingRef.current
+      ) {
+        // App went to background
+        console.log(&#x27;[TicketPolling] App backgrounded, pausing polling...&#x27;);
+        stopPolling();
+      }
+    },
+    [enabled, startPolling, stopPolling]
+  );
+
+  /**
+   * Setup app state listener
+   */
+  useEffect(() &#x3D;&gt; {
+    const subscription &#x3D; AppState.addEventListener(
+      &#x27;change&#x27;,
+      handleAppStateChange
+    );
+    return () &#x3D;&gt; {
+      subscription?.remove();
+    };
+  }, [handleAppStateChange]);
+
+  /**
+   * Cleanup on unmount - FORCE stop all timers
+   */
+  useEffect(() &#x3D;&gt; {
+    return () &#x3D;&gt; {
+      console.log(&#x27;[TicketPolling] Cleaning up on unmount - FORCE STOP&#x27;);
+      isPollingRef.current &#x3D; false;
+      nextPollAtRef.current &#x3D; null;
+
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+        timerRef.current &#x3D; null;
+      }
+    };
+  }, []);
+
+  return useMemo(
+    () &#x3D;&gt; ({
+      isPolling: isPollingRef.current,
+      lastPollAt: lastPollAtRef.current,
+      nextPollAt: nextPollAtRef.current,
+      pollCount: pollCountRef.current,
+      startPolling,
+      stopPolling,
+      pollNow,
+    }),
+    [startPolling, stopPolling, pollNow]
+  );
+};
+
+export default useTicketPolling;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'TicketPollingConfig.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

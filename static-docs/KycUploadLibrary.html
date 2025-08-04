@@ -1,0 +1,639 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>KYC Upload Library - Solarium Customer App</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: #ffffff;
+            padding: 0;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            border-right: 1px solid #e9ecef;
+        }
+        .sidebar h3 {
+            background: #007bff;
+            color: white;
+            margin: 0;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .nav-section {
+            padding: 20px 0;
+        }
+        .nav-section h4 {
+            color: #6c757d;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 20px 10px 20px;
+            padding: 0;
+        }
+        .nav-link {
+            display: block;
+            color: #495057;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            background: #f8f9fa;
+            color: #007bff;
+            border-left-color: #007bff;
+        }
+        .nav-link.active {
+            background: #e3f2fd;
+            color: #007bff;
+            border-left-color: #007bff;
+        }
+        .main-content {
+            margin-left: 280px;
+            padding: 40px;
+            background: white;
+            min-height: 100vh;
+        }
+        .content {
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #e9ecef;
+        }
+        code {
+            background: #f8f9fa;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #e83e8c;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2, h3 {
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3>Solarium Customer App</h3>
+        <nav>
+            <div class="nav-section"><a href="index.html" class="nav-link">🏠 Home</a></div><div class="nav-section"><h4>Core Features</h4><a href="CartCheckout.html" class="nav-link">Cart Checkout</a><a href="CartFunctionality.html" class="nav-link">Cart Functionality</a><a href="KycUploadLibrary.html" class="nav-link">KYC Upload Library</a><a href="ServicesCatalogue.html" class="nav-link">Services Catalogue</a><a href="profile-feature.html" class="nav-link">Profile Management</a></div><div class="nav-section"><h4>Support System</h4><a href="TicketManagement.html" class="nav-link">Ticket Management System</a></div><div class="nav-section"><h4>Testing & QA</h4><a href="TESTING.html" class="nav-link">Testing Guide</a><a href="Testing_services_cart.html" class="nav-link">Testing Services & Cart</a></div><div class="nav-section"><h4>DevOps</h4><a href="CI_CD.html" class="nav-link">CI/CD Pipeline</a></div><div class="nav-section"><h4>Other</h4><a href="LeadDetail.html" class="nav-link">Lead Detail</a></div>
+        </nav>
+    </div>
+    <div class="main-content">
+        <div class="breadcrumb">Documentation → KYC Upload Library</div>
+        <div class="content">
+            <h1>KYC Upload Library Documentation</h1>
+<h2>Overview</h2>
+<p>The KYC Upload Library provides a complete solution for uploading KYC documents in React Native applications. It handles validation, compression, SAS token management, Azure Blob upload, and cache invalidation automatically.</p>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#quick-start">Quick Start</a></li>
+<li><a href="#public-api">Public API</a></li>
+<li><a href="#flow-diagram">Flow Diagram</a></li>
+<li><a href="#error-codes">Error Codes</a></li>
+<li><a href="#progress-tracking">Progress Tracking</a></li>
+<li><a href="#retry-semantics">Retry Semantics</a></li>
+<li><a href="#cache-invalidation">Cache Invalidation</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#advanced-usage">Advanced Usage</a></li>
+</ul>
+<h2>Quick Start</h2>
+<pre><code class="language-typescript">import {uploadKycDocument} from &#39;../lib/kycUploader&#39;;
+import {store} from &#39;../store&#39;;
+
+// Simple upload with progress tracking
+const handleUpload = async (file: RNFile) =&gt; {
+  try {
+    const result = await uploadKycDocument({
+      leadId: &#39;LEAD-123&#39;,
+      customerId: &#39;CUST-001&#39;,
+      docType: &#39;PAN&#39;,
+      file,
+      onProgress: (percentage) =&gt; {
+        console.log(`Upload progress: ${percentage}%`);
+      },
+      store,
+    });
+
+    console.log(&#39;Upload successful:&#39;, result);
+    // { blobName: &quot;LEAD-123/document.pdf&quot;, url: &quot;https://storage.blob.core.windows.net/...&quot; }
+  } catch (error) {
+    console.error(&#39;Upload failed:&#39;, error.message);
+  }
+};
+Public API
+Core Functions
+uploadKycDocument(params: KycUploadParams): Promise&lt;UploadResult&gt;
+Main orchestrator function - handles the complete KYC document upload workflow.
+
+Parameters:
+
+interface KycUploadParams {
+  leadId: string;                    // Lead identifier
+  docType: KycDocumentType;          // &#39;PAN&#39; | &#39;Aadhaar&#39; | &#39;VoterID&#39; | &#39;DrivingLicense&#39;
+  file: RNFile;                      // File to upload
+  onProgress?: (percentage: number) =&gt; void;  // Progress callback (0-100)
+  store?: ReduxStore;                // Redux store for cache invalidation
+  onInvalidate?: (leadId: string) =&gt; void;    // Fallback cache invalidation
+}
+Returns:
+
+interface UploadResult {
+  blobName: string;  // Azure blob name/path
+  url: string;       // Base URL without SAS token
+}
+Workflow:
+
+Validation - MIME type, file size, document count
+Compression - Automatic for images &gt; 2MB
+SAS Token - Request with smart expiry checking
+Upload - Azure Blob with progress tracking
+Cache Invalidation - Refresh document lists
+Result - Return blob information
+Utility Functions
+validateKycDocument(file: RNFile, customerId?: string, leadId?: string): Promise&lt;void&gt;
+Validates document without uploading.
+
+// Validate before showing upload UI
+try {
+  await validateKycDocument(file, &#39;CUST-001&#39;, &#39;LEAD-123&#39;);
+  // Show upload button
+} catch (error) {
+  // Show error message
+}
+compressImage(file: RNFile, options?: CompressionOptions): Promise&lt;CompressionResult&gt;
+Compress images with custom options.
+
+const compressed = await compressImage(file, {
+  maxSizeMB: 5,
+  quality: 60,
+  maxWidthPx: 2000,
+});
+shouldCompressFile(file: RNFile): boolean
+Check if file needs compression.
+
+if (shouldCompressFile(file)) {
+  showCompressionWarning();
+}
+estimateKycUploadTime(file: RNFile): number
+Estimate total upload time in seconds.
+
+const estimatedSeconds = estimateKycUploadTime(file);
+console.log(`Estimated upload time: ${estimatedSeconds}s`);
+Hook-based API (React Components)
+useRequestSasTokenMutation()
+import {useRequestSasTokenMutation} from &#39;../api/endpoints/kyc&#39;;
+
+const [requestSasToken, {isLoading, error}] = useRequestSasTokenMutation();
+
+const handleGetSasToken = async () =&gt; {
+  const result = await requestSasToken({
+    customerId: &#39;CUST-001&#39;,
+    docType: &#39;VoterID&#39;,
+    leadId: &#39;LEAD-123&#39;,
+  }).unwrap();
+};
+useListKycDocumentsQuery()
+import {useListKycDocumentsQuery} from &#39;../api/endpoints/kyc&#39;;
+
+const {data, isLoading, refetch} = useListKycDocumentsQuery({
+  leadId: &#39;LEAD-123&#39;
+});
+Flow Diagram
+graph TD
+    A[Start Upload] --&gt; B[Validate Document]
+    B --&gt; C{Valid?}
+    C --&gt;|No| D[Throw ValidationError]
+    C --&gt;|Yes| E{Image &gt; 2MB?}
+    E --&gt;|Yes| F[Compress Image]
+    E --&gt;|No| G[Get Current User]
+    F --&gt; G
+    G --&gt; H[Request SAS Token]
+    H --&gt; I{Token Valid Long Enough?}
+    I --&gt;|No| J[Request Fresh Token]
+    I --&gt;|Yes| K[Upload to Azure Blob]
+    J --&gt; K
+    K --&gt; L{Upload Success?}
+    L --&gt;|No| M{Retryable Error?}
+    M --&gt;|Yes| N[Refresh SAS Token]
+    M --&gt;|No| O[Throw Upload Error]
+    N --&gt; K
+    L --&gt;|Yes| P[Invalidate Cache]
+    P --&gt; Q[Return Result]
+
+    style D fill:#ffcccc
+    style O fill:#ffcccc
+    style Q fill:#ccffcc
+Error Codes
+ValidationError
+| Code | Message | Cause | Resolution | |------|---------|-------|------------| | INVALID_MIME_TYPE | Only JPG, PNG, and PDF files are allowed for KYC documents | Unsupported file type | Use supported formats only | | FILE_SIZE_EXCEEDED | File size must be less than 10.0 MB | File too large | Compress or use smaller file | | DOCUMENT_LIMIT_EXCEEDED | Maximum 7 KYC documents allowed per lead | Too many documents | Remove existing documents first | | DOC_COUNT_CHECK_FAILED | Failed to validate document count | API error | Check network connection |
+
+CompressionError
+| Code | Message | Cause | Resolution | |------|---------|-------|------------| | COMPRESSION_FAILED | Image compression failed | Processing error | Try different image | | UNSUPPORTED_IMAGE_TYPE | Unsupported image type | Invalid image format | Use JPG or PNG | | SIZE_LIMIT_EXCEEDED | Unable to compress below 10MB | Image too complex | Use simpler image or manual compression |
+
+KycUploadError
+| Code | Step | Cause | Resolution | |------|------|-------|------------| | validation | Document validation | Validation failed | Fix file issues | | compression | Image compression | Compression failed | Try different image | | authentication | User authentication | Not logged in | Ensure user is authenticated | | sas_token | SAS token request | API error | Check network/permissions | | upload | Azure Blob upload | Upload failed | Retry or check connection |
+
+Azure Blob Upload Errors
+| Type | Cause | Resolution | |------|-------|------------| | EXPIRED_TOKEN | SAS token expired | Automatic retry with fresh token | | TIMEOUT_ERROR | Network timeout | Automatic retry | | NETWORK_ERROR | Connection failed | Check network connection | | UPLOAD_EXPIRED | Total upload time exceeded | Use smaller files or faster connection | | CANCELLED | User cancelled | User action - no resolution needed |
+
+Progress Tracking
+Basic Progress Tracking
+await uploadKycDocument({
+  leadId: &#39;LEAD-123&#39;,
+  customerId: &#39;CUST-001&#39;,
+  docType: &#39;PAN&#39;,
+  file,
+  onProgress: (percentage) =&gt; {
+    setUploadProgress(percentage);
+  },
+});
+Advanced Progress with Steps
+const [currentStep, setCurrentStep] = useState(&#39;&#39;);
+const [progress, setProgress] = useState(0);
+
+await uploadKycDocument({
+  leadId: &#39;LEAD-123&#39;,
+  customerId: &#39;CUST-001&#39;,
+  docType: &#39;PAN&#39;,
+  file,
+  onProgress: (percentage) =&gt; {
+    setProgress(percentage);
+
+    // Determine current step based on progress
+    if (percentage &lt; 20) {
+      setCurrentStep(&#39;Validating and compressing...&#39;);
+    } else if (percentage &lt; 40) {
+      setCurrentStep(&#39;Requesting upload token...&#39;);
+    } else if (percentage &lt; 90) {
+      setCurrentStep(&#39;Uploading to cloud storage...&#39;);
+    } else {
+      setCurrentStep(&#39;Finalizing upload...&#39;);
+    }
+  },
+});
+Progress Milestones
+| Progress | Step | Description | |----------|------|-------------| | 0-10% | Validation | Document validation and compression start | | 10-20% | Compression | Image compression (if needed) | | 20-30% | Authentication | User authentication check | | 30-40% | SAS Token | Azure SAS token request | | 40-90% | Upload | File upload to Azure Blob | | 90-95% | Cache | Cache invalidation | | 95-100% | Complete | Upload finalization |
+
+Retry Semantics
+Automatic Retries
+The library automatically retries certain failures:
+
+SAS Token Expiry (403)
+
+Refreshes token using getFreshSas callback
+Restarts upload from beginning
+Maximum 1 retry attempt
+Network Timeout
+
+Refreshes SAS token (preventive measure)
+Retries upload once
+Uses same retry mechanism as 403
+Smart Token Refresh
+
+// Automatically refreshes if:
+// remaining_time &lt; estimated_upload_time + 60_seconds
+
+const estimatedUploadTime = estimateUploadTime(file.size);
+const bufferTime = 60; // seconds
+
+if (sasInfo.expiresInSec &lt; estimatedUploadTime + bufferTime) {
+  // Refresh token before upload
+}
+Mutex Protection
+Concurrent uploads share SAS token refresh to prevent race conditions:
+
+// Multiple uploads to same lead will share token refresh
+const upload1 = uploadKycDocument({leadId: &#39;LEAD-123&#39;, ...});
+const upload2 = uploadKycDocument({leadId: &#39;LEAD-123&#39;, ...}); // Shares token refresh
+Non-Retryable Errors
+These errors fail immediately:
+
+Validation errors (wrong file type, size, count)
+Authentication errors (user not logged in)
+Upload cancellation (user action)
+Cache Invalidation
+Automatic Invalidation
+After successful upload, the library automatically invalidates RTK Query caches:
+
+// Tags invalidated after upload:
+[
+  {type: &#39;KycDoc&#39;, id: leadId},      // Lead-specific documents
+  {type: &#39;KycDoc&#39;, id: customerId},  // Customer-specific documents
+  {type: &#39;KycDoc&#39;, id: &#39;LIST&#39;},      // All document lists
+]
+Manual Invalidation
+Use callback when store is not available:
+
+await uploadKycDocument({
+  leadId: &#39;LEAD-123&#39;,
+  customerId: &#39;CUST-001&#39;,
+  docType: &#39;PAN&#39;,
+  file,
+  onInvalidate: (leadId) =&gt; {
+    // Custom cache invalidation logic
+    console.log(`Invalidate cache for ${leadId}`);
+    refetchDocuments();
+  },
+});
+Cache Strategy
+The library uses a smart caching strategy:
+
+Fresh Counts - Always fetches live document count for validation
+Cache Bypass - Uses forceRefresh: true for count validation
+Tag Invalidation - Invalidates specific cache entries after upload
+UI Refresh - Document lists automatically update after successful upload
+Troubleshooting
+Common Issues
+1. 413 Payload Too Large Error
+Symptom: Upload fails with 413 error
+
+Error: Upload failed with status 413
+Cause: File exceeds server/proxy limits
+
+Resolution:
+
+// Check file size before upload
+const maxSize = 10 * 1024 * 1024; // 10MB
+if (file.size &gt; maxSize) {
+  throw new Error(&#39;File too large - maximum 10MB allowed&#39;);
+}
+
+// For images, compression should handle this automatically
+if (shouldCompressFile(file)) {
+  const compressed = await compressImage(file, {
+    maxSizeMB: 8, // Leave buffer for overhead
+    quality: 60,  // More aggressive compression
+  });
+}
+2. 403 Retry Loop
+Symptom: Multiple 403 retries, upload never succeeds
+
+Error: Failed to refresh SAS token: 403 Forbidden
+Causes &amp; Resolutions:
+
+Expired user session: Re-authenticate user
+Insufficient permissions: Check user role and permissions
+Invalid lead/customer: Verify leadId and customerId are valid
+// Debug SAS token issues
+try {
+  await uploadKycDocument(params);
+} catch (error) {
+  if (error.step === &#39;sas_token&#39;) {
+    console.log(&#39;SAS token error - check authentication&#39;);
+    // Redirect to login
+  }
+}
+3. Stale Document Count
+Symptom: Upload rejected for &quot;limit exceeded&quot; but UI shows fewer documents
+
+Error: Maximum 7 KYC documents allowed per lead
+Cause: Cached document count is stale
+
+Resolution:
+
+// Force refresh document list before upload
+const {refetch} = useListKycDocumentsQuery({leadId});
+
+const handleUpload = async () =&gt; {
+  await refetch(); // Force fresh data
+  await uploadKycDocument(params);
+};
+
+// Or use imperative API that bypasses cache
+await getLiveKycDocsForLead(leadId); // Always fresh
+4. Image Compression Failures
+Symptom: Compression step fails repeatedly
+
+Error: Image compression failed: Processing error
+Resolutions:
+
+Corrupt image: Try different image file
+Unsupported format: Ensure JPG/PNG format
+Memory issues: Reduce image dimensions first
+// Handle compression gracefully
+try {
+  await uploadKycDocument(params);
+} catch (error) {
+  if (error.step === &#39;compression&#39;) {
+    // Ask user to try smaller image
+    Alert.alert(&#39;Compression Failed&#39;, &#39;Please try a smaller image file&#39;);
+  }
+}
+5. Network Timeout Issues
+Symptom: Uploads timeout on slow connections
+
+Error: Upload timeout
+Resolutions:
+
+Increase timeout (not recommended - affects UX)
+Compress more aggressively:
+const compressed = await compressImage(file, {
+  quality: 50,        // Lower quality
+  maxWidthPx: 1500,   // Smaller dimensions
+  maxHeightPx: 1500,
+});
+6. Progress Callback Issues
+Symptom: Progress not updating smoothly
+
+// Throttle progress updates to avoid UI lag
+let lastUpdate = 0;
+const throttledProgress = (percentage) =&gt; {
+  const now = Date.now();
+  if (now - lastUpdate &gt; 100) { // Max 10 updates per second
+    setProgress(percentage);
+    lastUpdate = now;
+  }
+};
+Debug Mode
+Enable detailed logging:
+
+// Set up debug logging
+const debugUpload = async (params) =&gt; {
+  console.log(&#39;[Debug] Starting upload:&#39;, params.file.name);
+
+  try {
+    const result = await uploadKycDocument({
+      ...params,
+      onProgress: (percentage) =&gt; {
+        console.log(`[Debug] Progress: ${percentage}%`);
+        params.onProgress?.(percentage);
+      },
+    });
+
+    console.log(&#39;[Debug] Upload successful:&#39;, result);
+    return result;
+  } catch (error) {
+    console.error(&#39;[Debug] Upload failed:&#39;, {
+      step: error.step,
+      message: error.message,
+      originalError: error.originalError?.message,
+    });
+    throw error;
+  }
+};
+Advanced Usage
+Custom Compression Settings
+// Aggressive compression for slow connections
+const mobileCompression = {
+  maxSizeMB: 2,
+  quality: 40,
+  maxWidthPx: 1200,
+  maxHeightPx: 1200,
+};
+
+// High quality for fast connections
+const wifiCompression = {
+  maxSizeMB: 8,
+  quality: 80,
+  maxWidthPx: 2500,
+  maxHeightPx: 2500,
+};
+
+const options = isSlowConnection ? mobileCompression : wifiCompression;
+const compressed = await compressImage(file, options);
+Batch Uploads
+const uploadMultipleDocuments = async (files: RNFile[]) =&gt; {
+  const results = [];
+
+  for (const [index, file] of files.entries()) {
+    try {
+      const result = await uploadKycDocument({
+        leadId: &#39;LEAD-123&#39;,
+        customerId: &#39;CUST-001&#39;,
+        docType: getDocType(file), // Custom logic
+        file,
+        onProgress: (percentage) =&gt; {
+          const overallProgress = ((index + percentage/100) / files.length) * 100;
+          setOverallProgress(Math.round(overallProgress));
+        },
+        store,
+      });
+
+      results.push({file: file.name, result});
+    } catch (error) {
+      results.push({file: file.name, error: error.message});
+    }
+  }
+
+  return results;
+};
+Upload Cancellation
+import {createUploadAbortController} from &#39;../utils/azureBlobUploader&#39;;
+
+const abortController = createUploadAbortController();
+
+// Start cancellable upload
+const uploadPromise = uploadKycDocument({
+  leadId: &#39;LEAD-123&#39;,
+  customerId: &#39;CUST-001&#39;,
+  docType: &#39;PAN&#39;,
+  file,
+  store,
+});
+
+// Cancel after 30 seconds
+setTimeout(() =&gt; {
+  abortController.abort();
+}, 30000);
+
+try {
+  await uploadPromise;
+} catch (error) {
+  if (error.type === &#39;CANCELLED&#39;) {
+    console.log(&#39;Upload was cancelled&#39;);
+  }
+}
+Integration with React Native Components
+const DocumentUploader = () =&gt; {
+  const [progress, setProgress] = useState(0);
+  const [isUploading, setIsUploading] = useState(false);
+  const [error, setError] = useState&lt;string | null&gt;(null);
+
+  const handleUpload = async (file: RNFile) =&gt; {
+    setIsUploading(true);
+    setError(null);
+    setProgress(0);
+
+    try {
+      const result = await uploadKycDocument({
+        leadId: &#39;LEAD-123&#39;,
+        customerId: &#39;CUST-001&#39;,
+        docType: &#39;PAN&#39;,
+        file,
+        onProgress: setProgress,
+        store,
+      });
+
+      Alert.alert(&#39;Success&#39;, &#39;Document uploaded successfully!&#39;);
+    } catch (error) {
+      setError(error.message);
+      Alert.alert(&#39;Upload Failed&#39;, error.message);
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  return (
+    &lt;View&gt;
+      {isUploading &amp;&amp; &lt;ProgressBar progress={progress} /&gt;}
+      {error &amp;&amp; &lt;ErrorMessage message={error} /&gt;}
+      &lt;UploadButton onUpload={handleUpload} disabled={isUploading} /&gt;
+    &lt;/View&gt;
+  );
+};
+API Reference Summary
+| Function | Purpose | Returns | Throws | |----------|---------|---------|--------| | uploadKycDocument() | Complete upload workflow | UploadResult | KycUploadError | | validateKycDocument() | Document validation only | void | ValidationError | | compressImage() | Image compression | CompressionResult | CompressionError | | shouldCompressFile() | Check compression need | boolean | Never | | estimateKycUploadTime() | Time estimation | number | Never |
+
+For additional examples and implementation details, see the test files in src/__tests__/.
+</code></pre>
+
+        </div>
+    </div>
+</body>
+</html>

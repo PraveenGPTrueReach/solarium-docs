@@ -121,6 +121,14 @@
         </button>
       </div>
       <div class="space-y-6">
+        <!-- Delivery Documents -->
+        <div>
+          <h3 class="text-lg font-semibold mb-2">Delivery Documents</h3>
+          <ul class="space-y-1">
+            <li><button onclick="loadDocument('static-docs/index.html', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Feature Documentation</button></li>
+            <li><button onclick="loadDocument('documentation/index.html', this)" class="sidebar-btn text-left w-full px-2 py-1 rounded">Technical Documentation</button></li>
+          </ul>
+        </div>
         <!-- L1 Documents -->
         <div>
           <h3 class="text-lg font-semibold mb-2">L1 Documents</h3>
@@ -274,13 +282,29 @@
       });
     });
 
-    async function loadMarkdown(filePath, btn) {
+    async function loadDocument(filePath, btn) {
       highlightSidebarButton(btn);
       try {
         const response = await fetch(filePath);
         if (!response.ok) throw new Error(`Failed to load ${filePath}: ${response.status}`);
         const text = await response.text();
         
+        // Check if this is an HTML file
+        if (filePath.toLowerCase().endsWith('.html')) {
+          // For HTML files, extract the content and inject it
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(text, 'text/html');
+          const body = doc.body;
+          
+          if (body) {
+            document.getElementById("content").innerHTML = body.innerHTML;
+          } else {
+            document.getElementById("content").innerHTML = text;
+          }
+          return;
+        }
+        
+        // For Markdown files, continue with existing logic
         // Fix specific syntax issues in Mermaid diagrams based on their type
         let fixedText = text.replace(/```mermaid\s+([\s\S]+?)```/g, function(match, diagram) {
           let diagramType = "unknown";
@@ -402,6 +426,11 @@
         console.error(error);
         document.getElementById("content").innerHTML = `<div class="text-red-600">Error loading document: ${error.message}</div>`;
       }
+    }
+
+    // Backward compatibility function for existing markdown buttons
+    async function loadMarkdown(filePath, btn) {
+      await loadDocument(filePath, btn);
     }
   </script>
 </body>

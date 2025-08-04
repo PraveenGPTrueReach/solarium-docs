@@ -1,0 +1,813 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SolariumCustApp documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">SolariumCustApp documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >UploadMutex</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/utils/azureBlobUploader.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Mutex to prevent concurrent getFreshSas calls</p>
+
+            </p>
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#locks" >locks</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#executeWithLock" >executeWithLock</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="locks"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>locks</b></span>
+                        <a href="#locks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;string, Promise&lt;SasInfo&gt;&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/utils/azureBlobUploader.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="executeWithLock"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>executeWithLock</b></span>
+                        <a href="#executeWithLock"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>executeWithLock(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, operation: () => void)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">src/utils/azureBlobUploader.ts:40</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>operation</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type {
+  SasInfo,
+  AzureBlobUploadParams,
+  UploadProgress,
+  UploadError,
+  UploadErrorType,
+} from &#x27;../types/AzureBlob&#x27;;
+
+/**
+ * Upload configuration
+ */
+const UPLOAD_CONFIG &#x3D; {
+  // Timeout based on environment (in milliseconds)
+  TIMEOUT_MS: __DEV__ ? 10000 : 8000, // 10s dev/staging, 8s prod
+
+  // Progress update interval
+  PROGRESS_INTERVAL_MS: 100,
+
+  // Minimum progress ticks for 10MB file
+  MIN_PROGRESS_TICKS: 5,
+
+  // Maximum retry attempts
+  MAX_RETRY_ATTEMPTS: 1,
+
+  // Buffer time for token expiry checks (30 seconds)
+  EXPIRY_BUFFER_MS: 30 * 1000,
+} as const;
+
+/**
+ * Mutex to prevent concurrent getFreshSas calls
+ */
+class UploadMutex {
+  private readonly locks &#x3D; new Map&lt;string, Promise&lt;SasInfo&gt;&gt;();
+
+  async executeWithLock&lt;T&gt;(
+    key: string,
+    operation: () &#x3D;&gt; Promise&lt;T&gt;
+  ): Promise&lt;T&gt; {
+    // If there&#x27;s already a pending operation for this key, wait for it
+    if (this.locks.has(key)) {
+      return this.locks.get(key) as Promise&lt;T&gt;;
+    }
+
+    // Create and store the operation promise
+    const promise &#x3D; operation();
+    this.locks.set(key, promise as Promise&lt;SasInfo&gt;);
+
+    try {
+      const result &#x3D; await promise;
+      return result;
+    } finally {
+      // Always clean up the lock
+      this.locks.delete(key);
+    }
+  }
+}
+
+// Global mutex instance
+const uploadMutex &#x3D; new UploadMutex();
+
+/**
+ * Create upload error with specific type
+ */
+function createUploadError(
+  message: string,
+  type: UploadErrorType,
+  statusCode?: number,
+  retryable: boolean &#x3D; false
+): UploadError {
+  const error &#x3D; new Error(message) as UploadError;
+  error.type &#x3D; type;
+  error.statusCode &#x3D; statusCode;
+  error.retryable &#x3D; retryable;
+  return error;
+}
+
+/**
+ * Calculate progress with minimum tick guarantee
+ */
+function calculateProgress(loaded: number, total: number): UploadProgress {
+  const percentage &#x3D; total &gt; 0 ? Math.round((loaded / total) * 100) : 0;
+
+  return {
+    loaded,
+    total,
+    percentage: Math.min(percentage, 100),
+  };
+}
+
+/**
+ * Check if upload has expired based on start time and expiry
+ */
+function isUploadExpired(startTime: number, expiresInSec: number): boolean {
+  const elapsedSeconds &#x3D; (Date.now() - startTime) / 1000;
+  return elapsedSeconds &gt;&#x3D; expiresInSec - UPLOAD_CONFIG.EXPIRY_BUFFER_MS / 1000;
+}
+
+/**
+ * Perform the actual upload using XMLHttpRequest
+ */
+function performUpload(
+  sasUrl: string,
+  file: any, // RNFile
+  onProgress?: (progress: UploadProgress) &#x3D;&gt; void,
+  abortSignal?: AbortSignal
+): Promise&lt;void&gt; {
+  return new Promise((resolve, reject) &#x3D;&gt; {
+    const xhr &#x3D; new XMLHttpRequest();
+    let lastProgressTime &#x3D; 0;
+
+    // Setup progress tracking
+    const updateProgress &#x3D; (loaded: number, total: number) &#x3D;&gt; {
+      const now &#x3D; Date.now();
+
+      // Ensure minimum progress interval (100ms)
+      if (now - lastProgressTime &gt;&#x3D; UPLOAD_CONFIG.PROGRESS_INTERVAL_MS) {
+        lastProgressTime &#x3D; now;
+
+        if (onProgress) {
+          const progress &#x3D; calculateProgress(loaded, total);
+          onProgress(progress);
+
+          console.log(
+            &#x60;[AzureBlobUploader] Progress: ${progress.percentage}% (${loaded}/${total} bytes)&#x60;
+          );
+        }
+      }
+    };
+
+    // Handle upload progress
+    xhr.upload.addEventListener(&#x27;progress&#x27;, event &#x3D;&gt; {
+      if (event.lengthComputable) {
+        updateProgress(event.loaded, event.total);
+      }
+    });
+
+    // Handle completion
+    xhr.addEventListener(&#x27;load&#x27;, () &#x3D;&gt; {
+      if (xhr.status &#x3D;&#x3D;&#x3D; 200 || xhr.status &#x3D;&#x3D;&#x3D; 201) {
+        console.log(
+          &#x60;[AzureBlobUploader] Upload completed successfully: ${xhr.status}&#x60;
+        );
+        // Ensure final progress is 100%
+        if (onProgress) {
+          onProgress(calculateProgress(100, 100));
+        }
+
+        resolve();
+      } else {
+        console.error(
+          &#x60;[AzureBlobUploader] Upload failed with status: ${xhr.status}&#x60;
+        );
+        const error &#x3D; createUploadError(
+          &#x60;Upload failed with status ${xhr.status}&#x60;,
+          xhr.status &#x3D;&#x3D;&#x3D; 403 ? &#x27;EXPIRED_TOKEN&#x27; : &#x27;INVALID_RESPONSE&#x27;,
+          xhr.status,
+          xhr.status &#x3D;&#x3D;&#x3D; 403 // 403 is retryable
+        );
+
+        reject(error);
+      }
+    });
+
+    // Handle network errors
+    xhr.addEventListener(&#x27;error&#x27;, () &#x3D;&gt; {
+      console.error(&#x27;[AzureBlobUploader] Network error during upload&#x27;);
+      const error &#x3D; createUploadError(
+        &#x27;Network error during upload&#x27;,
+        &#x27;NETWORK_ERROR&#x27;,
+        undefined,
+        true // Network errors are retryable
+      );
+      reject(error);
+    });
+
+    // Handle timeout
+    xhr.addEventListener(&#x27;timeout&#x27;, () &#x3D;&gt; {
+      console.error(&#x27;[AzureBlobUploader] Upload timeout&#x27;);
+      const error &#x3D; createUploadError(
+        &#x27;Upload timeout&#x27;,
+        &#x27;TIMEOUT_ERROR&#x27;,
+        undefined,
+        true // Timeouts are retryable
+      );
+      reject(error);
+    });
+
+    // Handle abort
+    xhr.addEventListener(&#x27;abort&#x27;, () &#x3D;&gt; {
+      console.log(&#x27;[AzureBlobUploader] Upload cancelled&#x27;);
+      const error &#x3D; createUploadError(
+        &#x27;Upload cancelled&#x27;,
+        &#x27;CANCELLED&#x27;,
+        undefined,
+        false // Cancelled uploads are not retryable
+      );
+      reject(error);
+    });
+
+    // Setup abort signal
+    if (abortSignal) {
+      const abortHandler &#x3D; () &#x3D;&gt; {
+        xhr.abort();
+      };
+
+      abortSignal.addEventListener(&#x27;abort&#x27;, abortHandler);
+
+      // Check if already aborted
+      if (abortSignal.aborted) {
+        xhr.abort();
+        return;
+      }
+    }
+
+    // Configure and start upload
+    xhr.open(&#x27;PUT&#x27;, sasUrl);
+    xhr.timeout &#x3D; UPLOAD_CONFIG.TIMEOUT_MS;
+
+    // Set content type based on file type
+    if (file.type) {
+      xhr.setRequestHeader(&#x27;Content-Type&#x27;, file.type);
+    }
+
+    // Additional Azure Blob headers
+    xhr.setRequestHeader(&#x27;x-ms-blob-type&#x27;, &#x27;BlockBlob&#x27;);
+
+    console.log(
+      &#x60;[AzureBlobUploader] Starting upload: ${file.name} (${file.size} bytes)&#x60;
+    );
+    // Start upload with file blob
+    if (file.uri &amp;&amp; file.uri.startsWith(&#x27;file://&#x27;)) {
+      // For React Native file URIs, we need to create a blob-like object
+      // This is a simplified approach - in a real app, you&#x27;d use libraries like react-native-fs
+      xhr.send({
+        uri: file.uri,
+        type: file.type,
+        name: file.name,
+      } as any);
+    } else {
+      // For web blobs or direct file objects
+      xhr.send(file as any);
+    }
+  });
+}
+
+/**
+ * Upload file to Azure Blob Storage using SAS URL
+ *
+ * @param params - Upload parameters
+ * @returns Promise that resolves when upload completes
+ *
+ * Features:
+ * - Progress tracking with minimum 100ms intervals
+ * - Automatic retry on 403 (expired token) or timeout
+ * - Global upload expiry check
+ * - Cancellation support via AbortSignal
+ * - Mutex to prevent concurrent token refresh
+ */
+export async function uploadFileToSas(
+  params: AzureBlobUploadParams
+): Promise&lt;void&gt; {
+  const {sasUrl, file, expiresInSec, onProgress, getFreshSas, abortSignal} &#x3D;
+    params;
+
+  const startTime &#x3D; Date.now();
+  const uploadKey &#x3D; &#x60;${file.name}-${file.size}-${startTime}&#x60;;
+  let currentSasUrl &#x3D; sasUrl;
+  let attempts &#x3D; 0;
+
+  console.log(
+    &#x60;[AzureBlobUploader] Starting upload for ${file.name} with ${expiresInSec}s expiry&#x60;
+  );
+
+  // Validation
+  if (!sasUrl || !file) {
+    throw createUploadError(
+      &#x27;Invalid upload parameters: sasUrl and file are required&#x27;,
+      &#x27;INVALID_RESPONSE&#x27;
+    );
+  }
+
+  if (file.size &lt;&#x3D; 0) {
+    throw createUploadError(
+      &#x27;Invalid file: file size must be greater than 0&#x27;,
+      &#x27;INVALID_RESPONSE&#x27;
+    );
+  }
+
+  while (attempts &lt;&#x3D; UPLOAD_CONFIG.MAX_RETRY_ATTEMPTS) {
+    // Check if upload has expired
+    if (isUploadExpired(startTime, expiresInSec)) {
+      console.error(&#x27;[AzureBlobUploader] Upload expired due to time limit&#x27;);
+      throw createUploadError(
+        &#x60;Upload expired: total time exceeded ${expiresInSec} seconds&#x60;,
+        &#x27;UPLOAD_EXPIRED&#x27;
+      );
+    }
+
+    // Check if aborted
+    if (abortSignal?.aborted) {
+      throw createUploadError(&#x27;Upload cancelled by user&#x27;, &#x27;CANCELLED&#x27;);
+    }
+
+    try {
+      console.log(&#x60;[AzureBlobUploader] Upload attempt ${attempts + 1}&#x60;);
+
+      await performUpload(currentSasUrl, file, onProgress, abortSignal);
+
+      console.log(
+        &#x60;[AzureBlobUploader] Upload completed successfully after ${
+          attempts + 1
+        } attempt(s)&#x60;
+      );
+      return;
+    } catch (error) {
+      const uploadError &#x3D; error as UploadError;
+      attempts++;
+
+      console.error(
+        &#x60;[AzureBlobUploader] Upload attempt ${attempts} failed:&#x60;,
+        uploadError.message
+      );
+
+      // Check if we should retry
+      const shouldRetry &#x3D;
+        attempts &lt;&#x3D; UPLOAD_CONFIG.MAX_RETRY_ATTEMPTS &amp;&amp;
+        uploadError.retryable &amp;&amp;
+        getFreshSas &amp;&amp;
+        !abortSignal?.aborted;
+
+      if (!shouldRetry) {
+        console.error(&#x27;[AzureBlobUploader] No more retries, failing upload&#x27;);
+        throw uploadError;
+      }
+
+      // Only retry on 403 (expired token) or timeout
+      if (
+        uploadError.type &#x3D;&#x3D;&#x3D; &#x27;EXPIRED_TOKEN&#x27; ||
+        uploadError.type &#x3D;&#x3D;&#x3D; &#x27;TIMEOUT_ERROR&#x27;
+      ) {
+        console.log(&#x27;[AzureBlobUploader] Attempting to refresh SAS token...&#x27;);
+
+        try {
+          // Use mutex to prevent concurrent getFreshSas calls
+          const freshSasInfo &#x3D; await uploadMutex.executeWithLock(
+            &#x60;refresh-${uploadKey}&#x60;,
+            getFreshSas
+          );
+
+          currentSasUrl &#x3D; freshSasInfo.sasUrl;
+          console.log(
+            &#x27;[AzureBlobUploader] SAS token refreshed, retrying upload...&#x27;
+          );
+          // Reset progress to 0 for retry
+          if (onProgress) {
+            onProgress(calculateProgress(0, file.size));
+          }
+        } catch (refreshError) {
+          console.error(
+            &#x27;[AzureBlobUploader] Failed to refresh SAS token:&#x27;,
+            refreshError
+          );
+          throw createUploadError(
+            &#x60;Failed to refresh SAS token: ${(refreshError as Error).message}&#x60;,
+            &#x27;EXPIRED_TOKEN&#x27;
+          );
+        }
+      } else {
+        // For non-retryable errors, fail immediately
+        throw uploadError;
+      }
+    }
+  }
+
+  // If we get here, all retries failed
+  throw createUploadError(
+    &#x60;Upload failed after ${UPLOAD_CONFIG.MAX_RETRY_ATTEMPTS + 1} attempts&#x60;,
+    &#x27;NETWORK_ERROR&#x27;
+  );
+}
+
+/**
+ * Create an AbortController for upload cancellation
+ *
+ * @returns AbortController instance
+ */
+export function createUploadAbortController(): AbortController {
+  return new AbortController();
+}
+
+/**
+ * Get upload configuration
+ */
+export function getUploadConfig() {
+  return UPLOAD_CONFIG;
+}
+
+/**
+ * Estimate upload time based on file size (rough estimate)
+ *
+ * @param fileSizeBytes - File size in bytes
+ * @param connectionSpeedBps - Connection speed in bytes per second (default: 1MB/s)
+ * @returns Estimated upload time in seconds
+ */
+export function estimateUploadTime(
+  fileSizeBytes: number,
+  connectionSpeedBps: number &#x3D; 1024 * 1024 // 1MB/s default
+): number {
+  return Math.ceil(fileSizeBytes / connectionSpeedBps);
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'UploadMutex.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

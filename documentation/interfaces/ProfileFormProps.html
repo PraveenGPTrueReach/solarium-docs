@@ -1,0 +1,1070 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SolariumCustApp documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">SolariumCustApp documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  ProfileFormProps</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/components/forms/ProfileForm.tsx</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Profile form props</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#errorMessage" 
+>
+                                            errorMessage
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#initialData" 
+>
+                                            initialData
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#isLoading" 
+>
+                                            isLoading
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#onSubmit" 
+>
+                                            onSubmit
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#testID" 
+>
+                                            testID
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="errorMessage"></a>
+                                        <span class="name "><b>errorMessage</b>
+                                            <a href="#errorMessage">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>errorMessage:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Error message to display</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="initialData"></a>
+                                        <span class="name "><b>initialData</b>
+                                            <a href="#initialData">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>initialData:         <code><a href="../interfaces/ProfileData.html" target="_self" >ProfileData</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/ProfileData.html" target="_self" >ProfileData</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Initial profile data to populate the form</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="isLoading"></a>
+                                        <span class="name "><b>isLoading</b>
+                                            <a href="#isLoading">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>isLoading:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Loading state during form submission</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="onSubmit"></a>
+                                        <span class="name "><b>onSubmit</b>
+                                            <a href="#onSubmit">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>onSubmit:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Callback when form is submitted with valid data</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="testID"></a>
+                                        <span class="name "><b>testID</b>
+                                            <a href="#testID">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>testID:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Test ID for testing purposes</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import React, {useCallback, useMemo, useEffect} from &#x27;react&#x27;;
+import {useFormContext} from &#x27;react-hook-form&#x27;;
+import {View, Text, StyleSheet} from &#x27;react-native&#x27;;
+import {Button, TextInput} from &#x27;react-native-paper&#x27;;
+import MaterialIcons from &#x27;react-native-vector-icons/MaterialIcons&#x27;;
+import {useAppTheme} from &#x27;../../theme/ThemeProvider&#x27;;
+import type {ProfileData, UpdateProfileRequest} from &#x27;../../types/Profile&#x27;;
+import {
+  profileValidationRules,
+  sanitizeProfileData,
+} from &#x27;../../utils/profileValidation&#x27;;
+import FormProviderWrapper from &#x27;./FormProviderWrapper&#x27;;
+
+/**
+ * Profile form data interface (matches form fields)
+ */
+interface ProfileFormData {
+  name: string;
+  email: string;
+  phone: string; // Read-only, for display only
+}
+
+/**
+ * Profile form props
+ */
+export interface ProfileFormProps {
+  /** Initial profile data to populate the form */
+  initialData?: ProfileData;
+  /** Callback when form is submitted with valid data */
+  onSubmit: (data: UpdateProfileRequest) &#x3D;&gt; void;
+  /** Loading state during form submission */
+  isLoading?: boolean;
+  /** Error message to display */
+  errorMessage?: string;
+  /** Test ID for testing purposes */
+  testID?: string;
+}
+
+/**
+ * Profile Form Fields Component (uses useFormContext)
+ */
+const ProfileFormFields: React.FC&lt;{
+  initialData?: ProfileData;
+  isLoading: boolean;
+  onFormSubmit: () &#x3D;&gt; void; // Add this prop to trigger submission
+}&gt; &#x3D; ({initialData, isLoading, onFormSubmit}) &#x3D;&gt; {
+  const theme &#x3D; useAppTheme();
+  const {
+    register,
+    setValue,
+    watch,
+    formState: {errors, isDirty},
+    reset,
+    trigger,
+  } &#x3D; useFormContext&lt;ProfileFormData&gt;();
+
+  // Watch form values for real-time validation
+  const nameValue &#x3D; watch(&#x27;name&#x27;);
+  const emailValue &#x3D; watch(&#x27;email&#x27;);
+
+  // Register fields with validation rules
+  useEffect(() &#x3D;&gt; {
+    register(&#x27;name&#x27;, profileValidationRules.name);
+    register(&#x27;email&#x27;, profileValidationRules.email);
+    register(&#x27;phone&#x27;); // Read-only field
+  }, [register]);
+
+  // Set initial values when data is available
+  useEffect(() &#x3D;&gt; {
+    if (initialData) {
+      setValue(&#x27;name&#x27;, initialData.name || &#x27;&#x27;);
+      setValue(&#x27;email&#x27;, initialData.email || &#x27;&#x27;);
+      setValue(&#x27;phone&#x27;, initialData.phone || &#x27;&#x27;);
+    }
+  }, [initialData, setValue]);
+
+  /**
+   * Handle name field changes
+   */
+  const handleNameChange &#x3D; useCallback(
+    (text: string) &#x3D;&gt; {
+      console.log(&#x27;[ProfileForm] Name changed:&#x27;, text);
+      setValue(&#x27;name&#x27;, text, {shouldValidate: true, shouldDirty: true});
+    },
+    [setValue]
+  );
+
+  /**
+   * Handle email field changes
+   */
+  const handleEmailChange &#x3D; useCallback(
+    (text: string) &#x3D;&gt; {
+      console.log(&#x27;[ProfileForm] Email changed:&#x27;, text);
+      setValue(&#x27;email&#x27;, text, {shouldValidate: true, shouldDirty: true});
+    },
+    [setValue]
+  );
+
+  /**
+   * Reset form to initial values
+   */
+  const handleReset &#x3D; useCallback(() &#x3D;&gt; {
+    console.log(&#x27;[ProfileForm] Resetting form&#x27;);
+    if (initialData) {
+      reset({
+        name: initialData.name || &#x27;&#x27;,
+        email: initialData.email || &#x27;&#x27;,
+        phone: initialData.phone || &#x27;&#x27;,
+      });
+    }
+  }, [reset, initialData]);
+
+  /**
+   * Handle form submission
+   */
+  const handleUpdatePress &#x3D; useCallback(async () &#x3D;&gt; {
+    console.log(&#x27;[ProfileForm] Update button pressed&#x27;);
+    console.log(&#x27;[ProfileForm] Current form state:&#x27;, {
+      isDirty,
+      errors: Object.keys(errors),
+      nameValue,
+      emailValue,
+    });
+
+    // Trigger validation
+    const isValid &#x3D; await trigger();
+    console.log(&#x27;[ProfileForm] Form validation result:&#x27;, isValid);
+
+    if (isValid &amp;&amp; isDirty) {
+      console.log(&#x27;[ProfileForm] Form is valid and dirty, submitting...&#x27;);
+      onFormSubmit(); // Call the parent&#x27;s submit function
+    } else {
+      console.log(&#x27;[ProfileForm] Form not submitted:&#x27;, {
+        isValid,
+        isDirty,
+        errors,
+      });
+    }
+  }, [onFormSubmit, isDirty, errors, trigger, nameValue, emailValue]);
+
+  /**
+   * Check if form has valid changes
+   */
+  const hasValidChanges &#x3D; useMemo(() &#x3D;&gt; {
+    const isValid &#x3D; Object.keys(errors).length &#x3D;&#x3D;&#x3D; 0;
+    console.log(&#x27;[ProfileForm] Form state check:&#x27;, {
+      isDirty,
+      isValid,
+      hasValidChanges: isDirty &amp;&amp; isValid,
+    });
+    return isDirty &amp;&amp; isValid;
+  }, [isDirty, errors]);
+
+  return (
+    &lt;View style&#x3D;{styles.fieldsContainer}&gt;
+      {/* Phone Number - Read Only Display */}
+      &lt;View style&#x3D;{styles.readOnlyFieldContainer}&gt;
+        &lt;Text style&#x3D;{[styles.readOnlyLabel, {color: theme.colors.onSurface}]}&gt;
+          Phone Number
+        &lt;/Text&gt;
+        &lt;View
+          style&#x3D;{[
+            styles.readOnlyValueContainer,
+            {
+              backgroundColor: theme.colors.surfaceVariant,
+              borderColor: theme.colors.outline,
+            },
+          ]}
+        &gt;
+          &lt;MaterialIcons
+            name&#x3D;&quot;phone&quot;
+            size&#x3D;{18}
+            color&#x3D;{theme.colors.onSurfaceVariant}
+            style&#x3D;{styles.readOnlyIcon}
+          /&gt;
+          &lt;Text
+            style&#x3D;{[
+              styles.readOnlyValue,
+              {color: theme.colors.onSurfaceVariant},
+            ]}
+            accessibilityLabel&#x3D;{&#x60;Phone number: ${
+              initialData?.phone || &#x27;Not available&#x27;
+            }&#x60;}
+            accessibilityRole&#x3D;&quot;text&quot;
+          &gt;
+            {initialData?.phone || &#x27;Not available&#x27;}
+          &lt;/Text&gt;
+        &lt;/View&gt;
+        &lt;Text
+          style&#x3D;{[
+            styles.readOnlyHelper,
+            {color: theme.colors.onSurfaceVariant},
+          ]}
+        &gt;
+          Phone number cannot be changed
+        &lt;/Text&gt;
+      &lt;/View&gt;
+
+      {/* Name Field */}
+      &lt;TextInput
+        label&#x3D;&quot;Full Name&quot;
+        placeholder&#x3D;&quot;Enter your full name&quot;
+        value&#x3D;{nameValue || &#x27;&#x27;}
+        onChangeText&#x3D;{handleNameChange}
+        error&#x3D;{!!errors.name}
+        disabled&#x3D;{isLoading}
+        maxLength&#x3D;{100}
+        autoCapitalize&#x3D;&quot;words&quot;
+        autoCorrect&#x3D;{false}
+        style&#x3D;{styles.textInput}
+        testID&#x3D;&quot;name-input&quot;
+        accessibilityLabel&#x3D;&quot;Full name input field&quot;
+        accessibilityHint&#x3D;&quot;Enter your full name, optional field&quot;
+      /&gt;
+      {errors.name &amp;&amp; (
+        &lt;Text style&#x3D;{[styles.errorText, {color: theme.colors.error}]}&gt;
+          {errors.name.message}
+        &lt;/Text&gt;
+      )}
+      &lt;Text
+        style&#x3D;{[styles.charCountText, {color: theme.colors.onSurfaceVariant}]}
+      &gt;
+        {(nameValue || &#x27;&#x27;).length}/100 characters
+      &lt;/Text&gt;
+
+      {/* Email Field */}
+      &lt;TextInput
+        label&#x3D;&quot;Email Address&quot;
+        placeholder&#x3D;&quot;Enter your email address&quot;
+        value&#x3D;{emailValue || &#x27;&#x27;}
+        onChangeText&#x3D;{handleEmailChange}
+        error&#x3D;{!!errors.email}
+        keyboardType&#x3D;&quot;email-address&quot;
+        autoCapitalize&#x3D;&quot;none&quot;
+        autoCorrect&#x3D;{false}
+        disabled&#x3D;{isLoading}
+        style&#x3D;{styles.textInput}
+        testID&#x3D;&quot;email-input&quot;
+        accessibilityLabel&#x3D;&quot;Email address input field&quot;
+        accessibilityHint&#x3D;&quot;Enter your email address, optional field&quot;
+      /&gt;
+      {errors.email &amp;&amp; (
+        &lt;Text style&#x3D;{[styles.errorText, {color: theme.colors.error}]}&gt;
+          {errors.email.message}
+        &lt;/Text&gt;
+      )}
+
+      {/* Action Buttons */}
+      &lt;View style&#x3D;{styles.actionsContainer}&gt;
+        {/* Reset Button */}
+        &lt;Button
+          mode&#x3D;&quot;outlined&quot;
+          onPress&#x3D;{handleReset}
+          disabled&#x3D;{isLoading || !isDirty}
+          style&#x3D;{[
+            styles.resetButton,
+            {
+              borderColor: theme.colors.outline,
+              opacity: !isDirty ? 0.5 : 1,
+            },
+          ]}
+          labelStyle&#x3D;{{color: theme.colors.onSurface}}
+          icon&#x3D;{({size, color}) &#x3D;&gt; (
+            &lt;MaterialIcons name&#x3D;&quot;refresh&quot; size&#x3D;{size} color&#x3D;{color} /&gt;
+          )}
+          testID&#x3D;&quot;reset-button&quot;
+          accessibilityLabel&#x3D;&quot;Reset form to original values&quot;
+          accessibilityHint&#x3D;{
+            isDirty
+              ? &#x27;Reset all changes and restore original values&#x27;
+              : &#x27;No changes to reset&#x27;
+          }
+        &gt;
+          Reset
+        &lt;/Button&gt;
+
+        {/* Update Button - FIXED */}
+        &lt;Button
+          mode&#x3D;&quot;contained&quot;
+          onPress&#x3D;{handleUpdatePress} // Now calls the proper submit function
+          disabled&#x3D;{isLoading || !hasValidChanges}
+          loading&#x3D;{isLoading}
+          style&#x3D;{[
+            styles.updateButton,
+            {
+              backgroundColor:
+                hasValidChanges &amp;&amp; !isLoading
+                  ? theme.colors.primary
+                  : theme.colors.surfaceVariant,
+              opacity: !hasValidChanges ? 0.5 : 1,
+            },
+          ]}
+          labelStyle&#x3D;{{
+            color:
+              hasValidChanges &amp;&amp; !isLoading
+                ? theme.colors.onPrimary
+                : theme.colors.onSurfaceVariant,
+          }}
+          icon&#x3D;{({size, color}) &#x3D;&gt; (
+            &lt;MaterialIcons name&#x3D;&quot;save&quot; size&#x3D;{size} color&#x3D;{color} /&gt;
+          )}
+          testID&#x3D;&quot;update-button&quot;
+          accessibilityLabel&#x3D;{
+            isLoading
+              ? &#x27;Updating profile&#x27;
+              : hasValidChanges
+              ? &#x27;Save profile changes&#x27;
+              : &#x27;No changes to save&#x27;
+          }
+          accessibilityHint&#x3D;{
+            isLoading
+              ? &#x27;Please wait, saving your profile changes&#x27;
+              : !isDirty
+              ? &#x27;Make changes to enable this button&#x27;
+              : !hasValidChanges
+              ? &#x27;Please fix form errors first&#x27;
+              : &#x27;Save your profile changes&#x27;
+          }
+        &gt;
+          {isLoading ? &#x27;Updating...&#x27; : &#x27;Update Profile&#x27;}
+        &lt;/Button&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  );
+};
+
+/**
+ * Profile Form Component
+ */
+const ProfileForm: React.FC&lt;ProfileFormProps&gt; &#x3D; ({
+  initialData,
+  onSubmit,
+  isLoading &#x3D; false,
+  errorMessage,
+  testID &#x3D; &#x27;profile-form&#x27;,
+}) &#x3D;&gt; {
+  const theme &#x3D; useAppTheme();
+
+  /**
+   * Prepare default values from initial data
+   */
+  const defaultValues: ProfileFormData &#x3D; useMemo(() &#x3D;&gt; {
+    console.log(&#x27;[ProfileForm] Setting default values:&#x27;, initialData);
+    return {
+      name: initialData?.name || &#x27;&#x27;,
+      email: initialData?.email || &#x27;&#x27;,
+      phone: initialData?.phone || &#x27;&#x27;, // Read-only field
+    };
+  }, [initialData]);
+
+  /**
+   * Handle form submission with data sanitization
+   */
+  const handleSubmit &#x3D; useCallback(
+    (formData: ProfileFormData) &#x3D;&gt; {
+      console.log(&#x27;[ProfileForm] Form submitted with data:&#x27;, formData);
+
+      // Sanitize and prepare data for API
+      const sanitizedData &#x3D; sanitizeProfileData({
+        name: formData.name,
+        email: formData.email,
+      });
+
+      console.log(&#x27;[ProfileForm] Sanitized data:&#x27;, sanitizedData);
+
+      // Only submit if there&#x27;s actually data to update
+      if (Object.keys(sanitizedData).length &gt; 0) {
+        console.log(&#x27;[ProfileForm] Calling onSubmit with sanitized data&#x27;);
+        onSubmit(sanitizedData);
+      } else {
+        console.log(&#x27;[ProfileForm] No changes to submit&#x27;);
+      }
+    },
+    [onSubmit]
+  );
+
+  /**
+   * Handle form submission trigger from child component
+   */
+  const handleFormSubmit &#x3D; useCallback(() &#x3D;&gt; {
+    console.log(&#x27;[ProfileForm] handleFormSubmit called&#x27;);
+    // This will be called by the FormProviderWrapper&#x27;s onSubmit method
+  }, []);
+
+  /**
+   * Render error message if provided
+   */
+  const renderErrorMessage &#x3D; useCallback(() &#x3D;&gt; {
+    if (!errorMessage) {
+      return null;
+    }
+
+    return (
+      &lt;View
+        style&#x3D;{[
+          styles.errorContainer,
+          {backgroundColor: theme.colors.errorContainer},
+        ]}
+      &gt;
+        &lt;MaterialIcons
+          name&#x3D;&quot;error-outline&quot;
+          size&#x3D;{18}
+          color&#x3D;{theme.colors.onErrorContainer}
+        /&gt;
+        &lt;Text
+          style&#x3D;{[
+            styles.errorMessageText,
+            {color: theme.colors.onErrorContainer},
+          ]}
+          accessibilityRole&#x3D;&quot;alert&quot;
+        &gt;
+          {errorMessage}
+        &lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }, [errorMessage, theme]);
+
+  return (
+    &lt;View style&#x3D;{styles.container} testID&#x3D;{testID}&gt;
+      {/* Error Message */}
+      {renderErrorMessage()}
+
+      {/* Form */}
+      &lt;FormProviderWrapper
+        defaultValues&#x3D;{defaultValues}
+        formOptions&#x3D;{{
+          mode: &#x27;onChange&#x27;, // Real-time validation
+          reValidateMode: &#x27;onChange&#x27;,
+        }}
+        onSubmit&#x3D;{handleSubmit} // This will be called when form is submitted
+        testID&#x3D;{&#x60;${testID}-form-wrapper&#x60;}
+      &gt;
+        {methods &#x3D;&gt; (
+          &lt;View style&#x3D;{styles.formContent}&gt;
+            {/* Header */}
+            &lt;View style&#x3D;{styles.headerContainer}&gt;
+              &lt;MaterialIcons
+                name&#x3D;&quot;person&quot;
+                size&#x3D;{24}
+                color&#x3D;{theme.colors.primary}
+              /&gt;
+              &lt;Text
+                style&#x3D;{[styles.headerTitle, {color: theme.colors.onSurface}]}
+                accessibilityRole&#x3D;&quot;header&quot;
+              &gt;
+                Profile Information
+              &lt;/Text&gt;
+            &lt;/View&gt;
+
+            &lt;Text
+              style&#x3D;{[
+                styles.headerSubtitle,
+                {color: theme.colors.onSurfaceVariant},
+              ]}
+            &gt;
+              Update your personal information. All fields are optional.
+            &lt;/Text&gt;
+
+            {/* Form Fields */}
+            &lt;ProfileFormFields
+              initialData&#x3D;{initialData}
+              isLoading&#x3D;{isLoading}
+              onFormSubmit&#x3D;{methods.handleSubmit(handleSubmit)} // Pass the actual submit function
+            /&gt;
+          &lt;/View&gt;
+        )}
+      &lt;/FormProviderWrapper&gt;
+    &lt;/View&gt;
+  );
+};
+
+/**
+ * Styles (same as before)
+ */
+const styles &#x3D; StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  formContent: {
+    flex: 1,
+  },
+  headerContainer: {
+    flexDirection: &#x27;row&#x27;,
+    alignItems: &#x27;center&#x27;,
+    marginBottom: 8,
+  },
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: &#x27;600&#x27;,
+    marginLeft: 12,
+  },
+  headerSubtitle: {
+    fontSize: 14,
+    marginBottom: 24,
+    lineHeight: 20,
+  },
+  fieldsContainer: {
+    flex: 1,
+    marginBottom: 24,
+  },
+  readOnlyFieldContainer: {
+    marginBottom: 16,
+  },
+  readOnlyLabel: {
+    fontSize: 16,
+    fontWeight: &#x27;500&#x27;,
+    marginBottom: 8,
+  },
+  readOnlyValueContainer: {
+    flexDirection: &#x27;row&#x27;,
+    alignItems: &#x27;center&#x27;,
+    padding: 12,
+    borderRadius: 8,
+    borderWidth: 1,
+    minHeight: 48,
+  },
+  readOnlyIcon: {
+    marginRight: 12,
+  },
+  readOnlyValue: {
+    fontSize: 16,
+    flex: 1,
+  },
+  readOnlyHelper: {
+    fontSize: 12,
+    marginTop: 4,
+    fontStyle: &#x27;italic&#x27;,
+  },
+  textInput: {
+    backgroundColor: &#x27;transparent&#x27;,
+    marginBottom: 4,
+  },
+  errorText: {
+    fontSize: 12,
+    marginLeft: 16,
+    marginTop: 4,
+    marginBottom: 4,
+  },
+  charCountText: {
+    fontSize: 12,
+    textAlign: &#x27;right&#x27;,
+    marginRight: 16,
+    marginBottom: 16,
+  },
+  actionsContainer: {
+    flexDirection: &#x27;row&#x27;,
+    justifyContent: &#x27;space-between&#x27;,
+    paddingTop: 16,
+    borderTopWidth: 1,
+    borderTopColor: &#x27;#E0E0E0&#x27;,
+  },
+  resetButton: {
+    flex: 1,
+    marginRight: 8,
+  },
+  updateButton: {
+    flex: 1,
+    marginLeft: 8,
+  },
+  errorContainer: {
+    flexDirection: &#x27;row&#x27;,
+    alignItems: &#x27;center&#x27;,
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 16,
+  },
+  errorMessageText: {
+    fontSize: 14,
+    marginLeft: 8,
+    flex: 1,
+  },
+});
+
+export default ProfileForm;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProfileFormProps.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

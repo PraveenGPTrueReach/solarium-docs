@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Testing Guide - Solarium Customer App</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: #ffffff;
+            padding: 0;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            border-right: 1px solid #e9ecef;
+        }
+        .sidebar h3 {
+            background: #007bff;
+            color: white;
+            margin: 0;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .nav-section {
+            padding: 20px 0;
+        }
+        .nav-section h4 {
+            color: #6c757d;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 20px 10px 20px;
+            padding: 0;
+        }
+        .nav-link {
+            display: block;
+            color: #495057;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            background: #f8f9fa;
+            color: #007bff;
+            border-left-color: #007bff;
+        }
+        .nav-link.active {
+            background: #e3f2fd;
+            color: #007bff;
+            border-left-color: #007bff;
+        }
+        .main-content {
+            margin-left: 280px;
+            padding: 40px;
+            background: white;
+            min-height: 100vh;
+        }
+        .content {
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #e9ecef;
+        }
+        code {
+            background: #f8f9fa;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #e83e8c;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2, h3 {
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3>Solarium Customer App</h3>
+        <nav>
+            <div class="nav-section"><a href="index.html" class="nav-link">🏠 Home</a></div><div class="nav-section"><h4>Core Features</h4><a href="CartCheckout.html" class="nav-link">Cart Checkout</a><a href="CartFunctionality.html" class="nav-link">Cart Functionality</a><a href="KycUploadLibrary.html" class="nav-link">KYC Upload Library</a><a href="ServicesCatalogue.html" class="nav-link">Services Catalogue</a><a href="profile-feature.html" class="nav-link">Profile Management</a></div><div class="nav-section"><h4>Support System</h4><a href="TicketManagement.html" class="nav-link">Ticket Management System</a></div><div class="nav-section"><h4>Testing & QA</h4><a href="TESTING.html" class="nav-link">Testing Guide</a><a href="Testing_services_cart.html" class="nav-link">Testing Services & Cart</a></div><div class="nav-section"><h4>DevOps</h4><a href="CI_CD.html" class="nav-link">CI/CD Pipeline</a></div><div class="nav-section"><h4>Other</h4><a href="LeadDetail.html" class="nav-link">Lead Detail</a></div>
+        </nav>
+    </div>
+    <div class="main-content">
+        <div class="breadcrumb">Documentation → Testing Guide</div>
+        <div class="content">
+            <h1>Testing Guidelines for Solarium Customer App</h1>
+<h2>Overview</h2>
+<p>This document outlines testing practices, coverage requirements, and quality standards for the Solarium Customer App.</p>
+<h2>Coverage Requirements</h2>
+<h3>Global Coverage Targets</h3>
+<ul>
+<li><strong>Overall Coverage</strong>: ≥82%</li>
+<li><strong>Business Logic</strong>: ≥87% (store/, api/, utils/, storage/)</li>
+<li><strong>Critical Modules</strong>: ≥90% (storage/, errors/)</li>
+</ul>
+<h3>Module-Specific Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Lines</th>
+<th>Functions</th>
+<th>Branches</th>
+<th>Statements</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Global</td>
+<td>82%</td>
+<td>82%</td>
+<td>82%</td>
+<td>82%</td>
+</tr>
+<tr>
+<td>src/store/</td>
+<td>87%</td>
+<td>87%</td>
+<td>87%</td>
+<td>87%</td>
+</tr>
+<tr>
+<td>src/api/</td>
+<td>87%</td>
+<td>87%</td>
+<td>87%</td>
+<td>87%</td>
+</tr>
+<tr>
+<td>src/utils/</td>
+<td>87%</td>
+<td>87%</td>
+<td>87%</td>
+<td>87%</td>
+</tr>
+<tr>
+<td>src/storage/</td>
+<td>90%</td>
+<td>90%</td>
+<td>90%</td>
+<td>90%</td>
+</tr>
+<tr>
+<td>src/errors/</td>
+<td>90%</td>
+<td>90%</td>
+<td>90%</td>
+<td>90%</td>
+</tr>
+</tbody></table>
+<h2>Testing Types</h2>
+<h3>1. Unit Tests</h3>
+<ul>
+<li><strong>Location</strong>: <code>src/**/*.test.{ts,tsx}</code></li>
+<li><strong>Purpose</strong>: Test individual functions and components</li>
+<li><strong>Coverage</strong>: All public methods and critical paths</li>
+</ul>
+<h3>2. Integration Tests</h3>
+<ul>
+<li><strong>Location</strong>: <code>src/__tests__/integration/</code></li>
+<li><strong>Purpose</strong>: Test component interactions and workflows</li>
+<li><strong>Focus</strong>: Authentication flows, storage integration, error handling</li>
+</ul>
+<h3>3. Performance Tests</h3>
+<ul>
+<li><strong>Location</strong>: <code>src/__tests__/performance/</code></li>
+<li><strong>Purpose</strong>: Validate performance requirements</li>
+<li><strong>Thresholds</strong>:<ul>
+<li>Storage operations: &lt;30ms</li>
+<li>Concurrent operations: &lt;50ms average</li>
+<li>Memory leaks: &lt;1MB increase per 100 operations</li>
+</ul>
+</li>
+</ul>
+<h3>4. Accessibility Tests</h3>
+<ul>
+<li><strong>Location</strong>: <code>src/**/*Accessibility*.test.{ts,tsx}</code></li>
+<li><strong>Purpose</strong>: Ensure accessibility compliance</li>
+<li><strong>Tools</strong>: react-native-accessibility-engine, axe-core</li>
+</ul>
+<h2>Secure Storage Testing</h2>
+<h3>Test Scenarios</h3>
+<ol>
+<li><strong>Success Path</strong>: Normal storage operations</li>
+<li><strong>Failure Path</strong>: Handle storage errors gracefully</li>
+<li><strong>Migration Path</strong>: Upgrade from legacy storage</li>
+<li><strong>Performance Path</strong>: Meet timing requirements</li>
+<li><strong>Concurrency Path</strong>: Handle simultaneous operations</li>
+</ol>
+<h3>Mock Utilities</h3>
+<pre><code class="language-typescript">import {
+  mockStorageFailure,
+  resetStorageFailure,
+} from &#39;../utils/mockStorageFailures&#39;;
+
+// Simulate storage failure
+mockStorageFailure(&#39;keychain_unavailable&#39;, 2);
+
+// Test your code...
+
+// Reset to normal behavior
+resetStorageFailure();
+</code></pre>
+<h2>Running Tests</h2>
+<h3>Basic Commands</h3>
+<pre><code class="language-bash"># Run all tests
+npm test
+
+# Run with coverage
+npm run test:coverage
+
+# Run specific test types
+npm run test:unit
+npm run test:integration
+npm run test:performance
+npm run test:a11y
+
+# Run specific module
+npm run test:storage
+</code></pre>
+<h3>CI Commands</h3>
+<pre><code class="language-bash"># Run in CI mode
+npm run test:ci
+
+# Lint with zero warnings
+npm run lint:ci
+
+# Security audit
+npm run security:audit
+</code></pre>
+<h2>Quality Standards</h2>
+<h3>Code Quality</h3>
+<ul>
+<li>ESLint rules enforced with zero warnings in CI</li>
+<li>Prettier formatting required</li>
+<li>TypeScript strict mode</li>
+<li>No circular dependencies (import/no-cycle)</li>
+</ul>
+<h3>Security Standards</h3>
+<ul>
+<li>No hardcoded secrets or tokens</li>
+<li>Secure storage for sensitive data</li>
+<li>Regular dependency audits</li>
+<li>Proper error handling without information leakage</li>
+</ul>
+<h3>Performance Standards</h3>
+<ul>
+<li>Secure storage operations &lt;30ms</li>
+<li>Bundle size monitoring</li>
+<li>Memory leak prevention</li>
+<li>Efficient re-renders</li>
+</ul>
+<h2>Manual Testing</h2>
+<h3>Secure Storage Verification</h3>
+<h4>Android</h4>
+<pre><code class="language-bash"># Verify no plain text tokens
+adb shell grep -R &quot;demo_token&quot; /data/data/com.solariumcustapp/shared_prefs
+# Should return no matches
+</code></pre>
+<h4>iOS</h4>
+<ol>
+<li>Open Keychain Access app</li>
+<li>Look for entries under app&#39;s access group</li>
+<li>Verify token is stored as binary/Base64</li>
+</ol>
+<h3>Device Testing</h3>
+<ul>
+<li>Test on physical devices (not just simulators)</li>
+<li>Test storage behavior across app restarts</li>
+<li>Test migration from legacy versions</li>
+<li>Test storage failure scenarios</li>
+</ul>
+<h2>Continuous Integration</h2>
+<h3>Pipeline Stages</h3>
+<ol>
+<li><strong>Lint</strong>: ESLint + TypeScript + Prettier</li>
+<li><strong>Test</strong>: Unit + Integration + Performance</li>
+<li><strong>Security</strong>: Audit dependencies + vulnerability scan</li>
+<li><strong>Quality</strong>: SonarQube analysis</li>
+<li><strong>Build</strong>: Platform-specific builds</li>
+</ol>
+<h3>Quality Gates</h3>
+<ul>
+<li>All tests must pass</li>
+<li>Coverage thresholds must be met</li>
+<li>Zero ESLint warnings</li>
+<li>SonarQube Quality Gate: A</li>
+<li>Security audit: No high/critical vulnerabilities</li>
+</ul>
+<h2>Troubleshooting</h2>
+<h3>Common Issues</h3>
+<h4>Coverage Not Meeting Thresholds</h4>
+<ol>
+<li>Check excluded files in jest.config.js</li>
+<li>Add tests for uncovered lines</li>
+<li>Verify test files are being discovered</li>
+</ol>
+<h4>Storage Tests Failing</h4>
+<ol>
+<li>Check mock setup in jest.setup.js</li>
+<li>Verify SecureStorageError imports</li>
+<li>Reset storage state between tests</li>
+</ol>
+<h4>Performance Tests Timing Out</h4>
+<ol>
+<li>Check for async/await issues</li>
+<li>Verify mock implementations</li>
+<li>Increase timeout for slow operations</li>
+</ol>
+<h3>Debug Commands</h3>
+<pre><code class="language-bash"># Run with debugging
+npm run test:debug
+
+# Run specific test file
+npm test -- --testPathPattern=secureStorage
+
+# Run with verbose output
+npm test -- --verbose
+</code></pre>
+<h2>Best Practices</h2>
+<h3>Writing Tests</h3>
+<ol>
+<li>Follow AAA pattern (Arrange, Act, Assert)</li>
+<li>Use descriptive test names</li>
+<li>Test edge cases and error conditions</li>
+<li>Mock external dependencies</li>
+<li>Clean up after tests</li>
+</ol>
+<h3>Test Organization</h3>
+<ol>
+<li>Group related tests in describe blocks</li>
+<li>Use beforeEach/afterEach for setup/cleanup</li>
+<li>Keep tests focused and independent</li>
+<li>Use test utilities for common operations</li>
+</ol>
+<h3>Performance Testing</h3>
+<ol>
+<li>Use performance.now() for timing</li>
+<li>Test with realistic data sizes</li>
+<li>Monitor memory usage</li>
+<li>Test concurrent operations</li>
+<li>Set appropriate thresholds</li>
+</ol>
+<h2>Resources</h2>
+<ul>
+<li><a href="https://jestjs.io/">Jest Documentation</a></li>
+<li><a href="https://testing-library.com/docs/react-native-testing-library/intro/">React Native Testing Library</a></li>
+<li><a href="https://rules.sonarsource.com/">SonarQube Rules</a></li>
+<li><a href="https://eslint.org/docs/rules/">ESLint Rules</a></li>
+</ul>
+<pre><code>
+</code></pre>
+
+        </div>
+    </div>
+</body>
+</html>

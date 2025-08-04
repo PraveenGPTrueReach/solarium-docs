@@ -1,0 +1,941 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SolariumCustApp documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">SolariumCustApp documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  CreateTicketModalProps</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/components/modals/CreateTicketModal.tsx</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Create Ticket Modal Props</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#onClose" 
+>
+                                            onClose
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#onSuccess" 
+>
+                                            onSuccess
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#prefilledLeadId" 
+>
+                                            prefilledLeadId
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#testID" 
+>
+                                            testID
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#visible" 
+>
+                                            visible
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="onClose"></a>
+                                        <span class="name "><b>onClose</b>
+                                            <a href="#onClose">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>onClose:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="onSuccess"></a>
+                                        <span class="name "><b>onSuccess</b>
+                                            <a href="#onSuccess">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>onSuccess:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="prefilledLeadId"></a>
+                                        <span class="name "><b>prefilledLeadId</b>
+                                            <a href="#prefilledLeadId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>prefilledLeadId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="testID"></a>
+                                        <span class="name "><b>testID</b>
+                                            <a href="#testID">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>testID:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="visible"></a>
+                                        <span class="name "><b>visible</b>
+                                            <a href="#visible">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>visible:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import React, {useState, useCallback, useMemo, useEffect} from &#x27;react&#x27;;
+import {View, StyleSheet, ScrollView} from &#x27;react-native&#x27;;
+import {
+  Modal,
+  Portal,
+  Card,
+  Text,
+  Button,
+  TextInput,
+  Divider,
+} from &#x27;react-native-paper&#x27;;
+import MaterialIcons from &#x27;react-native-vector-icons/MaterialIcons&#x27;;
+import {useGetLeadsQuery} from &#x27;../../api/endpoints/leads&#x27;;
+import {useCreateTicketMutation} from &#x27;../../api/endpoints/tickets&#x27;;
+import {useAppTheme} from &#x27;../../theme/ThemeProvider&#x27;;
+import {ErrorMessage} from &#x27;../common&#x27;;
+import {Dropdown, type DropdownOption} from &#x27;../common&#x27;;
+
+/**
+ * Create Ticket Modal Props
+ */
+export interface CreateTicketModalProps {
+  visible: boolean;
+  onClose: () &#x3D;&gt; void;
+  onSuccess?: (ticketId: string) &#x3D;&gt; void;
+  prefilledLeadId?: string; // For LeadDetail screen usage
+  testID?: string;
+}
+
+/**
+ * Create Ticket Modal Component
+ */
+const CreateTicketModal: React.FC&lt;CreateTicketModalProps&gt; &#x3D; ({
+  visible,
+  onClose,
+  onSuccess,
+  prefilledLeadId,
+  testID &#x3D; &#x27;create-ticket-modal&#x27;,
+}) &#x3D;&gt; {
+  const theme &#x3D; useAppTheme();
+
+  // Form state
+  const [selectedLeadId, setSelectedLeadId] &#x3D; useState&lt;string&gt;(&#x27;&#x27;);
+  const [subject, setSubject] &#x3D; useState&lt;string&gt;(&#x27;&#x27;);
+  const [description, setDescription] &#x3D; useState&lt;string&gt;(&#x27;&#x27;);
+  const [error, setError] &#x3D; useState&lt;string | null&gt;(null);
+
+  // Form validation errors
+  const [fieldErrors, setFieldErrors] &#x3D; useState&lt;{
+    leadId?: string;
+    subject?: string;
+    description?: string;
+  }&gt;({});
+
+  // API hooks
+  const {
+    data: leadsResponse,
+    isLoading: isLoadingLeads,
+    error: leadsError,
+  } &#x3D; useGetLeadsQuery({
+    status: &#x27;Executed&#x27;,
+    limit: 100,
+  });
+
+  const [createTicket, {isLoading: isCreatingTicket}] &#x3D;
+    useCreateTicketMutation();
+
+  // Reset form when modal visibility changes
+  useEffect(() &#x3D;&gt; {
+    if (visible) {
+      setError(null);
+      setFieldErrors({});
+      if (prefilledLeadId) {
+        setSelectedLeadId(prefilledLeadId);
+      } else {
+        setSelectedLeadId(&#x27;&#x27;);
+      }
+      setSubject(&#x27;&#x27;);
+      setDescription(&#x27;&#x27;);
+    }
+  }, [visible, prefilledLeadId]);
+
+  /**
+   * Convert leads to dropdown options
+   */
+  const leadOptions: DropdownOption[] &#x3D; useMemo(() &#x3D;&gt; {
+    // Filter for executed leads on client-side
+    const executedLeads &#x3D; leadsResponse?.data || [];
+
+    return executedLeads.map((lead: any) &#x3D;&gt; ({
+      value: lead.leadId,
+      label: lead.leadId,
+      sublabel: &#x60;Services:\n ${lead.services.join(&#x27;,\n &#x27;)}&#x60;,
+    }));
+  }, [leadsResponse]);
+
+  /**
+   * Validate form fields
+   */
+  const validateForm &#x3D; useCallback((): boolean &#x3D;&gt; {
+    const errors: typeof fieldErrors &#x3D; {};
+
+    // Validate leadId
+    if (!selectedLeadId.trim()) {
+      errors.leadId &#x3D; &#x27;Please select a lead&#x27;;
+    }
+
+    // Validate subject
+    if (!subject.trim()) {
+      errors.subject &#x3D; &#x27;Subject is required&#x27;;
+    } else if (subject.length &gt; 200) {
+      errors.subject &#x3D; &#x27;Subject must be less than 200 characters&#x27;;
+    }
+
+    // Validate description
+    if (!description.trim()) {
+      errors.description &#x3D; &#x27;Description is required&#x27;;
+    } else if (description.length &gt; 2000) {
+      errors.description &#x3D; &#x27;Description must be less than 2000 characters&#x27;;
+    }
+
+    setFieldErrors(errors);
+    return Object.keys(errors).length &#x3D;&#x3D;&#x3D; 0;
+  }, [selectedLeadId, subject, description]);
+
+  /**
+   * Handle form submission
+   */
+  const handleSubmit &#x3D; useCallback(async () &#x3D;&gt; {
+    setError(null);
+
+    if (!validateForm()) {
+      return;
+    }
+
+    try {
+      const leadIdToUse &#x3D; prefilledLeadId || selectedLeadId;
+      console.log(&#x27;[CreateTicketModal] Creating ticket:&#x27;, {
+        leadId: leadIdToUse,
+        subject: subject.trim(),
+        descriptionLength: description.trim().length,
+      });
+
+      const result &#x3D; await createTicket({
+        leadId: leadIdToUse,
+        subject: subject.trim(),
+        description: description.trim(),
+      }).unwrap();
+
+      console.log(&#x27;[CreateTicketModal] Ticket created successfully:&#x27;, result);
+
+      // Call success callback with ticket ID
+      if (onSuccess &amp;&amp; result.ticketId) {
+        onSuccess(result.ticketId);
+      }
+
+      // Close modal
+      onClose();
+    } catch (createError: any) {
+      console.error(&#x27;[CreateTicketModal] Create ticket error:&#x27;, createError);
+
+      let errorMessage &#x3D; &#x27;Failed to create ticket. Please try again.&#x27;;
+
+      if (createError?.data?.error) {
+        errorMessage &#x3D; createError.data.error;
+      } else if (createError?.message) {
+        errorMessage &#x3D; createError.message;
+      }
+
+      setError(errorMessage);
+    }
+  }, [
+    selectedLeadId,
+    subject,
+    description,
+    createTicket,
+    onSuccess,
+    onClose,
+    validateForm,
+    prefilledLeadId,
+  ]);
+
+  /**
+   * Handle lead selection
+   */
+  const handleLeadSelect &#x3D; useCallback(
+    (leadId: string) &#x3D;&gt; {
+      setSelectedLeadId(leadId);
+      if (fieldErrors.leadId) {
+        setFieldErrors(prev &#x3D;&gt; ({...prev, leadId: undefined}));
+      }
+    },
+    [fieldErrors.leadId]
+  );
+
+  /**
+   * Handle subject change
+   */
+  const handleSubjectChange &#x3D; useCallback(
+    (text: string) &#x3D;&gt; {
+      setSubject(text);
+      if (fieldErrors.subject) {
+        setFieldErrors(prev &#x3D;&gt; ({...prev, subject: undefined}));
+      }
+    },
+    [fieldErrors.subject]
+  );
+
+  /**
+   * Handle description change
+   */
+  const handleDescriptionChange &#x3D; useCallback(
+    (text: string) &#x3D;&gt; {
+      setDescription(text);
+      if (fieldErrors.description) {
+        setFieldErrors(prev &#x3D;&gt; ({...prev, description: undefined}));
+      }
+    },
+    [fieldErrors.description]
+  );
+
+  /**
+   * Clear error message
+   */
+  const clearError &#x3D; useCallback(() &#x3D;&gt; {
+    setError(null);
+  }, []);
+
+  return (
+    &lt;Portal&gt;
+      &lt;Modal
+        visible&#x3D;{visible}
+        onDismiss&#x3D;{onClose}
+        contentContainerStyle&#x3D;{styles.modalContainer}
+        testID&#x3D;{testID}
+      &gt;
+        &lt;Card style&#x3D;{[styles.card, {backgroundColor: theme.colors.surface}]}&gt;
+          &lt;ScrollView showsVerticalScrollIndicator&#x3D;{false}&gt;
+            &lt;Card.Content&gt;
+              &lt;Text
+                variant&#x3D;&quot;headlineSmall&quot;
+                style&#x3D;{[styles.title, {color: theme.colors.onSurface}]}
+                accessibilityRole&#x3D;&quot;header&quot;
+                accessibilityLabel&#x3D;&quot;Create new support ticket&quot;
+              &gt;
+                Create Support Ticket
+              &lt;/Text&gt;
+
+              &lt;Text
+                variant&#x3D;&quot;bodyMedium&quot;
+                style&#x3D;{[
+                  styles.subtitle,
+                  {color: theme.colors.onSurfaceVariant},
+                ]}
+              &gt;
+                Create a new support ticket for your executed lead
+              &lt;/Text&gt;
+
+              {error &amp;&amp; (
+                &lt;ErrorMessage
+                  message&#x3D;{error}
+                  type&#x3D;&quot;error&quot;
+                  visible&#x3D;{true}
+                  dismissible&#x3D;{true}
+                  onDismiss&#x3D;{clearError}
+                  style&#x3D;{styles.errorMessage}
+                  testID&#x3D;&quot;create-ticket-error&quot;
+                /&gt;
+              )}
+
+              &lt;View style&#x3D;{styles.formContainer}&gt;
+                {/* Lead Selection */}
+                {prefilledLeadId ? (
+                  &lt;View style&#x3D;{{marginBottom: 16}}&gt;
+                    &lt;Text style&#x3D;{{fontWeight: &#x27;bold&#x27;, marginBottom: 4}}&gt;
+                      Lead ID
+                    &lt;/Text&gt;
+                    &lt;Text style&#x3D;{{color: theme.colors.onSurfaceVariant}}&gt;
+                      {prefilledLeadId}
+                    &lt;/Text&gt;
+                  &lt;/View&gt;
+                ) : (
+                  &lt;Dropdown
+                    label&#x3D;&quot;Select Lead *&quot;
+                    placeholder&#x3D;&quot;Choose an executed lead...&quot;
+                    value&#x3D;{selectedLeadId}
+                    options&#x3D;{leadOptions}
+                    onSelect&#x3D;{handleLeadSelect}
+                    error&#x3D;{fieldErrors.leadId}
+                    loading&#x3D;{isLoadingLeads}
+                    disabled&#x3D;{!!prefilledLeadId}
+                    testID&#x3D;&quot;lead-dropdown&quot;
+                  /&gt;
+                )}
+
+                {(leadsError ||
+                  (leadOptions.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp; !isLoadingLeads)) &amp;&amp; (
+                  &lt;Text
+                    variant&#x3D;&quot;bodySmall&quot;
+                    style&#x3D;{[styles.helperText, {color: theme.colors.error}]}
+                  &gt;
+                    {leadsError
+                      ? &#x27;Failed to load leads. Please try again.&#x27;
+                      : &#x27;No executed leads found. Please ensure you have leads with &quot;Executed&quot; status.&#x27;}
+                  &lt;/Text&gt;
+                )}
+
+                {/* Subject Field */}
+                &lt;TextInput
+                  label&#x3D;&quot;Subject *&quot;
+                  placeholder&#x3D;&quot;Enter ticket subject...&quot;
+                  value&#x3D;{subject}
+                  onChangeText&#x3D;{handleSubjectChange}
+                  error&#x3D;{!!fieldErrors.subject}
+                  maxLength&#x3D;{200}
+                  disabled&#x3D;{isCreatingTicket}
+                  style&#x3D;{styles.textInput}
+                  testID&#x3D;&quot;subject-input&quot;
+                /&gt;
+                {fieldErrors.subject &amp;&amp; (
+                  &lt;Text
+                    variant&#x3D;&quot;bodySmall&quot;
+                    style&#x3D;{[styles.fieldErrorText, {color: theme.colors.error}]}
+                  &gt;
+                    {fieldErrors.subject}
+                  &lt;/Text&gt;
+                )}
+                &lt;Text
+                  variant&#x3D;&quot;bodySmall&quot;
+                  style&#x3D;{[
+                    styles.charCountText,
+                    {color: theme.colors.onSurfaceVariant},
+                  ]}
+                &gt;
+                  {subject.length}/200 characters
+                &lt;/Text&gt;
+
+                {/* Description Field */}
+                &lt;TextInput
+                  label&#x3D;&quot;Description *&quot;
+                  placeholder&#x3D;&quot;Describe your issue in detail...&quot;
+                  value&#x3D;{description}
+                  onChangeText&#x3D;{handleDescriptionChange}
+                  error&#x3D;{!!fieldErrors.description}
+                  multiline
+                  numberOfLines&#x3D;{4}
+                  maxLength&#x3D;{2000}
+                  disabled&#x3D;{isCreatingTicket}
+                  style&#x3D;{[styles.textInput, styles.descriptionInput]}
+                  testID&#x3D;&quot;description-input&quot;
+                /&gt;
+                {fieldErrors.description &amp;&amp; (
+                  &lt;Text
+                    variant&#x3D;&quot;bodySmall&quot;
+                    style&#x3D;{[styles.fieldErrorText, {color: theme.colors.error}]}
+                  &gt;
+                    {fieldErrors.description}
+                  &lt;/Text&gt;
+                )}
+                &lt;Text
+                  variant&#x3D;&quot;bodySmall&quot;
+                  style&#x3D;{[
+                    styles.charCountText,
+                    {color: theme.colors.onSurfaceVariant},
+                  ]}
+                &gt;
+                  {description.length}/2000 characters
+                &lt;/Text&gt;
+              &lt;/View&gt;
+
+              &lt;Divider style&#x3D;{styles.divider} /&gt;
+
+              &lt;Text
+                variant&#x3D;&quot;bodySmall&quot;
+                style&#x3D;{[
+                  styles.helpText,
+                  {color: theme.colors.onSurfaceVariant},
+                ]}
+              &gt;
+                * All fields are required{&#x27;\n&#x27;}
+                Once created, you can track and communicate through the ticket
+                thread.
+              &lt;/Text&gt;
+            &lt;/Card.Content&gt;
+
+            &lt;Card.Actions style&#x3D;{styles.actions}&gt;
+              &lt;Button
+                mode&#x3D;&quot;text&quot;
+                onPress&#x3D;{onClose}
+                disabled&#x3D;{isCreatingTicket}
+                accessibilityLabel&#x3D;&quot;Cancel ticket creation&quot;
+                accessibilityRole&#x3D;&quot;button&quot;
+                testID&#x3D;&quot;cancel-button&quot;
+              &gt;
+                Cancel
+              &lt;/Button&gt;
+
+              &lt;Button
+                mode&#x3D;&quot;contained&quot;
+                onPress&#x3D;{handleSubmit}
+                disabled&#x3D;{isCreatingTicket}
+                loading&#x3D;{isCreatingTicket}
+                icon&#x3D;{({size, color}) &#x3D;&gt; (
+                  &lt;MaterialIcons name&#x3D;&quot;add&quot; size&#x3D;{size} color&#x3D;{color} /&gt;
+                )}
+                accessibilityLabel&#x3D;{
+                  isCreatingTicket ? &#x27;Creating ticket&#x27; : &#x27;Create ticket&#x27;
+                }
+                accessibilityRole&#x3D;&quot;button&quot;
+                testID&#x3D;&quot;create-button&quot;
+              &gt;
+                {isCreatingTicket ? &#x27;Creating...&#x27; : &#x27;Create Ticket&#x27;}
+              &lt;/Button&gt;
+            &lt;/Card.Actions&gt;
+          &lt;/ScrollView&gt;
+        &lt;/Card&gt;
+      &lt;/Modal&gt;
+    &lt;/Portal&gt;
+  );
+};
+
+const styles &#x3D; StyleSheet.create({
+  modalContainer: {
+    margin: 20,
+    maxHeight: &#x27;90%&#x27;,
+  },
+  card: {
+    borderRadius: 12,
+    elevation: 8,
+  },
+  title: {
+    textAlign: &#x27;center&#x27;,
+    marginBottom: 8,
+    fontWeight: &#x27;bold&#x27;,
+  },
+  subtitle: {
+    textAlign: &#x27;center&#x27;,
+    marginBottom: 24,
+  },
+  errorMessage: {
+    marginBottom: 16,
+  },
+  formContainer: {
+    marginBottom: 16,
+  },
+  textInput: {
+    marginBottom: 4,
+    backgroundColor: &#x27;transparent&#x27;,
+  },
+  descriptionInput: {
+    minHeight: 100,
+  },
+  fieldErrorText: {
+    marginLeft: 16,
+    marginTop: 4,
+    marginBottom: 4,
+  },
+  charCountText: {
+    textAlign: &#x27;right&#x27;,
+    marginBottom: 16,
+    marginRight: 16,
+  },
+  helperText: {
+    marginLeft: 16,
+    marginBottom: 16,
+  },
+  divider: {
+    marginVertical: 16,
+  },
+  helpText: {
+    textAlign: &#x27;center&#x27;,
+    lineHeight: 18,
+  },
+  actions: {
+    justifyContent: &#x27;space-between&#x27;,
+    paddingTop: 8,
+    paddingHorizontal: 16,
+  },
+});
+
+export default CreateTicketModal;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'CreateTicketModalProps.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

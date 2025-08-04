@@ -1,0 +1,727 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SolariumCustApp documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">SolariumCustApp documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  ErrorBoundaryProps</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/components/feedback/ErrorBoundary.tsx</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Error Boundary Props</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#children" 
+>
+                                            children
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#fallback" 
+>
+                                            fallback
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#onError" 
+>
+                                            onError
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#onReset" 
+>
+                                            onReset
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="children"></a>
+                                        <span class="name "><b>children</b>
+                                            <a href="#children">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>children:     <code>ReactNode</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>ReactNode</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="fallback"></a>
+                                        <span class="name "><b>fallback</b>
+                                            <a href="#fallback">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>fallback:     <code>ReactNode</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>ReactNode</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="onError"></a>
+                                        <span class="name "><b>onError</b>
+                                            <a href="#onError">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>onError:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="onReset"></a>
+                                        <span class="name "><b>onReset</b>
+                                            <a href="#onReset">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>onReset:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import React, {Component, ErrorInfo, ReactNode} from &#x27;react&#x27;;
+import {StyleSheet, Text, TouchableOpacity, View} from &#x27;react-native&#x27;;
+import {colors, spacing, typography} from &#x27;../../theme/palette&#x27;;
+
+/**
+ * Error Boundary Props
+ */
+interface ErrorBoundaryProps {
+  children: ReactNode;
+  fallback?: ReactNode;
+  onError?: (error: Error, errorInfo: ErrorInfo) &#x3D;&gt; void;
+  onReset?: () &#x3D;&gt; void; // Optional callback for logging/analytics
+}
+
+/**
+ * Error Boundary State
+ */
+interface ErrorBoundaryState {
+  hasError: boolean;
+  error?: Error;
+  errorInfo?: ErrorInfo;
+}
+
+/**
+ * Error Boundary Component
+ * Provides graceful error handling for the entire app
+ */
+class ErrorBoundary extends Component&lt;ErrorBoundaryProps, ErrorBoundaryState&gt; {
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state &#x3D; {hasError: false};
+  }
+
+  /**
+   * Static method to update state when an error occurs
+   */
+  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+    return {
+      hasError: true,
+      error,
+    };
+  }
+
+  /**
+   * Lifecycle method called when an error occurs
+   */
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    // Log error for debugging
+    console.error(&#x27;[ErrorBoundary] Caught an error:&#x27;, error);
+    console.error(&#x27;[ErrorBoundary] Error info:&#x27;, errorInfo);
+
+    // Update state with error info
+    this.setState({
+      errorInfo,
+    });
+
+    // Call custom error handler if provided
+    if (this.props.onError) {
+      this.props.onError(error, errorInfo);
+    }
+
+    // In production, you might want to send this to a crash reporting service
+    // Example: Crashlytics.recordError(error);
+  }
+
+  /**
+   * Reset error boundary state
+   * Handles its own reset and notifies parent
+   */
+  resetError &#x3D; () &#x3D;&gt; {
+    console.log(&#x27;[ErrorBoundary] Resetting error state&#x27;);
+
+    // Reset internal state
+    this.setState({
+      hasError: false,
+      error: undefined,
+      errorInfo: undefined,
+    });
+
+    // Notify parent for logging/analytics (optional)
+    if (this.props.onReset) {
+      this.props.onReset();
+    }
+  };
+
+  /**
+   * Reload the app (alternative reset method)
+   */
+  reloadApp &#x3D; () &#x3D;&gt; {
+    console.log(&#x27;[ErrorBoundary] Reloading app requested&#x27;);
+    // In a real app, you might use RNRestart or similar
+    this.resetError();
+  };
+
+  /**
+   * Enhanced fallback UI with better design
+   */
+  renderDefaultFallback() {
+    const {error, errorInfo} &#x3D; this.state;
+
+    return (
+      &lt;View style&#x3D;{styles.container}&gt;
+        &lt;View style&#x3D;{styles.content}&gt;
+          {/* Modern Error Icon */}
+          &lt;View style&#x3D;{styles.iconContainer}&gt;
+            &lt;Text style&#x3D;{styles.icon}&gt;😔&lt;/Text&gt;
+          &lt;/View&gt;
+
+          {/* Main Error Message */}
+          &lt;Text style&#x3D;{styles.title}&gt;Something went wrong&lt;/Text&gt;
+          &lt;Text style&#x3D;{styles.description}&gt;
+            We apologize for the inconvenience. The app encountered an
+            unexpected issue and needs to recover.
+          &lt;/Text&gt;
+
+          {/* Error Details (development only) */}
+          {__DEV__ &amp;&amp; error &amp;&amp; (
+            &lt;View style&#x3D;{styles.errorDetails}&gt;
+              &lt;Text style&#x3D;{styles.errorTitle}&gt;Debug Information:&lt;/Text&gt;
+              &lt;Text style&#x3D;{styles.errorMessage}&gt;{error.message}&lt;/Text&gt;
+              {errorInfo &amp;&amp; (
+                &lt;Text style&#x3D;{styles.errorStack} numberOfLines&#x3D;{3}&gt;
+                  {errorInfo.componentStack.split(&#x27;\n&#x27;).slice(0, 3).join(&#x27;\n&#x27;)}
+                &lt;/Text&gt;
+              )}
+            &lt;/View&gt;
+          )}
+
+          {/* Action Buttons */}
+          &lt;View style&#x3D;{styles.buttonContainer}&gt;
+            &lt;TouchableOpacity
+              style&#x3D;{styles.primaryButton}
+              onPress&#x3D;{this.resetError}
+              activeOpacity&#x3D;{0.8}
+            &gt;
+              &lt;Text style&#x3D;{styles.primaryButtonText}&gt;🔄 Try Again&lt;/Text&gt;
+            &lt;/TouchableOpacity&gt;
+
+            &lt;TouchableOpacity
+              style&#x3D;{styles.secondaryButton}
+              onPress&#x3D;{this.reloadApp}
+              activeOpacity&#x3D;{0.8}
+            &gt;
+              &lt;Text style&#x3D;{styles.secondaryButtonText}&gt;↻ Reload App&lt;/Text&gt;
+            &lt;/TouchableOpacity&gt;
+          &lt;/View&gt;
+
+          {/* Support Information */}
+          &lt;View style&#x3D;{styles.supportContainer}&gt;
+            &lt;Text style&#x3D;{styles.supportText}&gt;
+              If this problem continues, please contact our support team.
+            &lt;/Text&gt;
+            &lt;Text style&#x3D;{styles.supportEmail}&gt;support@solarium.in&lt;/Text&gt;
+          &lt;/View&gt;
+        &lt;/View&gt;
+      &lt;/View&gt;
+    );
+  }
+
+  render() {
+    const {hasError} &#x3D; this.state;
+    const {children, fallback} &#x3D; this.props;
+
+    if (hasError) {
+      // Use custom fallback if provided, otherwise use enhanced default
+      return fallback || this.renderDefaultFallback();
+    }
+
+    return children;
+  }
+}
+
+const styles &#x3D; StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.background,
+    justifyContent: &#x27;center&#x27;,
+    alignItems: &#x27;center&#x27;,
+    padding: spacing.lg,
+  },
+  content: {
+    alignItems: &#x27;center&#x27;,
+    maxWidth: 340,
+    width: &#x27;100%&#x27;,
+  },
+  iconContainer: {
+    marginBottom: spacing.xl,
+    padding: spacing.md,
+    borderRadius: 50,
+    backgroundColor: colors.surface,
+    elevation: 2,
+    shadowColor: &#x27;#000&#x27;,
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  icon: {
+    fontSize: 48,
+  },
+  title: {
+    fontSize: typography.fontSize.xxl,
+    fontFamily: typography.fontFamily.bold,
+    color: colors.text.primary,
+    textAlign: &#x27;center&#x27;,
+    marginBottom: spacing.md,
+  },
+  description: {
+    fontSize: typography.fontSize.md,
+    fontFamily: typography.fontFamily.regular,
+    color: colors.text.secondary,
+    textAlign: &#x27;center&#x27;,
+    lineHeight: typography.fontSize.md * typography.lineHeight.relaxed,
+    marginBottom: spacing.xl,
+    paddingHorizontal: spacing.sm,
+  },
+  errorDetails: {
+    backgroundColor: colors.surface,
+    padding: spacing.md,
+    borderRadius: 12,
+    marginBottom: spacing.lg,
+    width: &#x27;100%&#x27;,
+    borderLeftWidth: 4,
+    borderLeftColor: colors.error,
+  },
+  errorTitle: {
+    fontSize: typography.fontSize.sm,
+    fontFamily: typography.fontFamily.bold,
+    color: colors.error,
+    marginBottom: spacing.xs,
+  },
+  errorMessage: {
+    fontSize: typography.fontSize.xs,
+    fontFamily: typography.fontFamily.medium,
+    color: colors.text.primary,
+    marginBottom: spacing.xs,
+    backgroundColor: &#x27;#f5f5f5&#x27;,
+    padding: spacing.xs,
+    borderRadius: 4,
+  },
+  errorStack: {
+    fontSize: typography.fontSize.xs,
+    fontFamily: &#x27;monospace&#x27;,
+    color: colors.text.secondary,
+    backgroundColor: &#x27;#f8f8f8&#x27;,
+    padding: spacing.xs,
+    borderRadius: 4,
+  },
+  buttonContainer: {
+    width: &#x27;100%&#x27;,
+    gap: spacing.md,
+    marginBottom: spacing.lg,
+  },
+  primaryButton: {
+    backgroundColor: colors.primary,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.xl,
+    borderRadius: 12,
+    alignItems: &#x27;center&#x27;,
+    elevation: 2,
+    shadowColor: &#x27;#000&#x27;,
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  primaryButtonText: {
+    fontSize: typography.fontSize.md,
+    fontFamily: typography.fontFamily.bold,
+    color: &#x27;#FFFFFF&#x27;,
+  },
+  secondaryButton: {
+    backgroundColor: &#x27;transparent&#x27;,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.xl,
+    borderRadius: 12,
+    borderWidth: 2,
+    borderColor: colors.border.default,
+    alignItems: &#x27;center&#x27;,
+  },
+  secondaryButtonText: {
+    fontSize: typography.fontSize.md,
+    fontFamily: typography.fontFamily.medium,
+    color: colors.text.primary,
+  },
+  supportContainer: {
+    alignItems: &#x27;center&#x27;,
+    paddingTop: spacing.md,
+    borderTopWidth: 1,
+    borderTopColor: colors.border.light,
+    width: &#x27;100%&#x27;,
+  },
+  supportText: {
+    fontSize: typography.fontSize.sm,
+    fontFamily: typography.fontFamily.regular,
+    color: colors.text.secondary,
+    textAlign: &#x27;center&#x27;,
+    marginBottom: spacing.xs,
+  },
+  supportEmail: {
+    fontSize: typography.fontSize.sm,
+    fontFamily: typography.fontFamily.medium,
+    color: colors.primary,
+    textAlign: &#x27;center&#x27;,
+  },
+});
+
+export default ErrorBoundary;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'ErrorBoundaryProps.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
